@@ -1,0 +1,90 @@
+
+
+.app_logo {
+    color: red;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.navbar_web {
+    background-color: rgba(0, 0, 0, 0.35);
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 0 3px 6px rgba(0, 0, 0, 0.16);
+    color: white;
+}
+
+.navbar_web nav {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar_web nav div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_web_navholder {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 50px;
+}
+
+.navbar_web_navholder li {
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    cursor: pointer;
+}
+
+.navbar_web_navholder li .nav_icon {
+    font-size: 20px;
+}
+
+.navbar_web_iconholder {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar_web_iconholder li .nav_icon:hover {
+    color: rgb(95, 95, 95);
+}
+
+
+.nav_icon {
+    color: white;
+    font-size: 25px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+
+
+.navbar_mobile {
+
+}
