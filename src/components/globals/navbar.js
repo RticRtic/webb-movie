@@ -6,11 +6,11 @@ import '../../styles/fa-icons.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUser, faBars, faMagnifyingGlass, faXmark, faFilm, faHouse } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { actions } from "../../features/shoppingcartReducer";
+import { actions } from "../../features/trendingMoviesReducer";
+import { fetchTrending } from "../../models/apiModel";
 
 
 const NavigationBar = ({device}) => {
-
 
     const [dropdownActive, setDropdownActive] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
