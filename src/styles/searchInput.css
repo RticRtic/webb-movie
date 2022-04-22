@@ -1,1 +1,40 @@
 
+
+
+.searchbar-input-container {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.search-input-field {
+    background-color: white;
+    border-radius: 20px;
+    
+    
+}
+
+.header-container {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+
+}
+
+.header {
+    color: white;
+}
