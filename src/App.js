@@ -26,10 +26,8 @@ function App() {
 
     if(mediaQuery.matches) {
       setDevice('mobile');
-      console.log('smaller than 500px ')
   } else {
       setDevice('web');
-      console.log('larger than 500px ');
   }
   });
 

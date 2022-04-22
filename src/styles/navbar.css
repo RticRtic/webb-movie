@@ -63,7 +63,7 @@ li {
 
 .web_navholder li:hover {
     border-bottom: 3px solid red;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(120, 120, 120, 0.05);
 }
 
 
