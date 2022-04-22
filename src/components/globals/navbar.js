@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../features/shoppingcartReducer";
 
 
+
 const NavigationBar = ({device}) => {
 
 
@@ -121,7 +122,7 @@ const NavigationBar = ({device}) => {
         <DropdownMenu/>
 
         <SearchBar/>
-
+      
         </Fragment>
         
     )
