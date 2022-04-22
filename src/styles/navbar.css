@@ -1,0 +1,202 @@
+
+
+.app_logo {
+    color: red;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+li {
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.35);
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 0 3px 6px rgba(0, 0, 0, 0.16);
+    color: white;
+}
+
+.navbar nav {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.web nav div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.web_navholder {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 50px;
+}
+
+.web_navholder li {
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    border-bottom: 3px solid transparent;
+    border-radius: 10px;
+}
+
+.web_navholder li:hover {
+    border-bottom: 3px solid red;
+    background-color: rgba(120, 120, 120, 0.05);
+}
+
+
+.web_iconholder {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.web_iconholder li .nav_icon:hover {
+    color: red;
+}
+
+
+.nav_icon {
+    color: white;
+    font-size: 25px;
+    margin: 0 15px;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
+}
+
+
+.mobile nav {
+    justify-content: space-between;
+}
+
+
+.mobile nav li {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.dropdown_menu {
+    width: 75vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgb(22, 22, 22);
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    animation: slideInFromLeft 1s;
+}
+
+.dropdown_curtain {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 15;
+    animation: fadeIn 0.5s;
+}
+
+.dropdown_menu header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #b6142f, #6e091f);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    border-bottom: 3px solid black;
+}
+
+.dropdown_menu header li .nav_icon {
+    font-size: 35px;
+}
+
+.dropdown_item {
+    width: 100%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.nav_search {
+    color: white;
+    background-color: #6e091f;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    z-index: 15;
+    position: fixed;
+    top: 0;
+}
+
+.nav_search input {
+    width: 80vw;
+    height: 100%;
+    font-size: 1.2rem;
+    padding-left: 5%;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.nav_search input::placeholder {
+    color: white;
+}
+
+.nav_search input li {
+    width: 20vw;
+    height: 100%;
+}
+
+
+/* Animations */
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    }
+}
