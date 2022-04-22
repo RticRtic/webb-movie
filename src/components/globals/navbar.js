@@ -19,6 +19,10 @@ const NavigationBar = ({device}) => {
         setDropdownActive(!dropdownActive);
     }
 
+    const toggleSearch = () => {
+        setIsSearching(!isSearching);
+    }
+
     const DropdownMenu = () => {
 
         return dropdownActive ? 
@@ -47,9 +51,15 @@ const NavigationBar = ({device}) => {
 
         return isSearching ? 
         (
-            <div>
+            <div className="dropdown_curtain">
 
+                <div className="nav_search">
+                    <input placeholder="Search for a movie..."></input>
+                    <li><FontAwesomeIcon icon={faXmark} className='nav_icon' onClick={toggleSearch}/></li>
+
+                </div>
             </div>
+            
         )
         :
         (
@@ -103,13 +113,14 @@ const NavigationBar = ({device}) => {
                 <nav>
                     <li><FontAwesomeIcon icon={faBars} className='nav_icon' onClick={toggleDropdown} /></li>
                     <li> <h2 className="app_logo">Movie<span style={{color: 'white'}}>Collector</span></h2> </li>
-                    <li><FontAwesomeIcon icon={faMagnifyingGlass} className='nav_icon'/></li>
+                    <li><FontAwesomeIcon icon={faMagnifyingGlass} className='nav_icon' onClick={toggleSearch}/></li>
                     <li><FontAwesomeIcon icon={faCartShopping} className='nav_icon'/></li>
                     </nav>
             </div>
 
         <DropdownMenu/>
 
+        <SearchBar/>
 
         </Fragment>
         
