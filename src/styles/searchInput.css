@@ -4,20 +4,49 @@
 .searchbar-input-container {
     position: absolute;
     left: 0px;
-    top: 0px;
+    top: 10px;
     right: 0px;
     bottom: 0px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    
    
 }
 
 .search-input-field {
     background-color: white;
     border-radius: 20px;
+    font-size: 22px;
+    padding: 0 0 0 45vh;
+       
+}
+.search-input-field::placeholder {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+   
     
+    
+}
+
+.magnifyingglass-container {
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    padding-right: 45px;
+  
+    
+   
+}
+.magnifyingglass {
+    color: black;
+    font-size: 25px;
+    margin-right: 500px;
+
     
 }
 
@@ -37,4 +66,6 @@
 
 .header {
     color: white;
+    font-size: 40px;
+    font-family: "Times New Roman", Times, serif;
 }
