@@ -27,31 +27,18 @@ const SearchInput = () => {
 
   const clearInput = () => {
     setInput("");
-  }
+  };
 
   const inputHandler = (input) => {
     setInput(input.target.value);
     console.log(input.target.value);
-
-
-
-  }
+  };
 
   const getMovie = () => {
-    try {
-      dispatch(actions.isFetching());
-      getSearchedApi(input);
-      dispatch(actions.success(input));
-      
-    
-      clearInput()
-    } catch {
-      dispatch(actions.failure());
-    }
-   
-  }
+    getSearchedApi(input, dispatch);
 
-  
+    clearInput();
+  };
 
   return (
     <div>
@@ -72,10 +59,14 @@ const SearchInput = () => {
           onChange={inputHandler}
         ></input>
         <div className="search-button-container">
-          <button onClick={getMovie} className="search-button">Search!</button>
+          <button onClick={getMovie} className="search-button">
+            Search!
+          </button>
         </div>
 
-        
+        {/* <main>
+          {content}
+        </main> */}
 
         {/* <div className="magnifyingglass-container">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
