@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
+import { getSearchedApi } from './models/apiSearchInput';
 
 import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,6 +24,7 @@ function App() {
   }
 
   });
+  
 
   mediaQuery.addEventListener('change', () => {
 
@@ -39,13 +41,10 @@ function App() {
       <NavigationBar device={device}/>
       
       <Routes>
-        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
 
-      {/* <Route exact path="/" element={<Welcome />} />
-      <Route path="/register" element={<Register data={data} />} />
-      <Route path="/info" element={<Info data={data} setShowDog={setShowDog} />} />
-      <Route path="/showdog" element={<ShowDog data={data} showDog = {showDog} />}/> */}
+      
       
     </div>
     

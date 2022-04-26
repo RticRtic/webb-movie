@@ -3,19 +3,55 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { getSearchedApi } from "../../models/apiSearchInput";
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { actions, STATUS } from "../../features/searchMovie";
 
 const SearchInput = () => {
+  const status = useSelector((state) => state.searchedMovie.status);
+  const movie = useSelector((state) => state.searchedMovie.movie);
+
+  const dispatch = useDispatch();
+  let content = null;
+
+  if (status === STATUS.NORMAL) {
+    content = "Ready to fetch";
+  } else if (status === STATUS.FETCHING) {
+    content = "Waiting for movie/movies..";
+  } else if (status === STATUS.SUCCESS) {
+    content = movie;
+  } else {
+    content = "Failed to get movie/movies..";
+  }
+
   const [input, setInput] = useState("");
-
-  useEffect(() => {
-   getSearchedApi(input);
-  }, [input]);
-
-  
 
   const clearInput = () => {
     setInput("");
   }
+
+  const inputHandler = (input) => {
+    setInput(input.target.value);
+    console.log(input.target.value);
+
+
+
+  }
+
+  const getMovie = () => {
+    try {
+      dispatch(actions.isFetching());
+      getSearchedApi(input);
+      dispatch(actions.success(input));
+      
+    
+      clearInput()
+    } catch {
+      dispatch(actions.failure());
+    }
+   
+  }
+
+  
 
   return (
     <div>
@@ -33,9 +69,14 @@ const SearchInput = () => {
           placeholder="Search movie..."
           className="search-input-field"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
-          
+          onChange={inputHandler}
         ></input>
+        <div className="search-button-container">
+          <button onClick={getMovie} className="search-button">Search!</button>
+        </div>
+
+        
+
         {/* <div className="magnifyingglass-container">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
         </div> */}
