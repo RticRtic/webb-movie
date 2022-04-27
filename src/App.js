@@ -41,7 +41,7 @@ function App() {
       <NavigationBar device={device}/>
       
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home device={device} />} />
       </Routes>
 
       

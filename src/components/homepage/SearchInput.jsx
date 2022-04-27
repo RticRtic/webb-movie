@@ -10,20 +10,37 @@ const SearchInput = () => {
   const status = useSelector((state) => state.searchedMovie.status);
   const movie = useSelector((state) => state.searchedMovie.movie);
 
+  const [input, setInput] = useState("");
+  
+  
+  
   const dispatch = useDispatch();
-  let content = null;
+  let content = [];
 
   if (status === STATUS.NORMAL) {
     content = "Ready to fetch";
   } else if (status === STATUS.FETCHING) {
     content = "Waiting for movie/movies..";
   } else if (status === STATUS.SUCCESS) {
-    content = movie;
+    //content = movie;
+    content.push(movie);
+    content.map((movie) => (
+      <div key={movie.id}>
+        {movie.results}
+
+      </div>
+    ))
+    console.log(movie.results[0])
+    
+    
   } else {
     content = "Failed to get movie/movies..";
   }
 
-  const [input, setInput] = useState("");
+  
+  
+
+  
 
   const clearInput = () => {
     setInput("");
@@ -64,14 +81,13 @@ const SearchInput = () => {
           </button>
         </div>
 
-        {/* <main>
-          {content}
-        </main> */}
+        {/* {content} */}
 
         {/* <div className="magnifyingglass-container">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
         </div> */}
       </div>
+    
     </div>
   );
 };

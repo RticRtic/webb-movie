@@ -4,18 +4,30 @@ import SearchInput from "./SearchInput";
 import SearchBackgroundImage from "./SearchBackgroundImage";
 import { useState } from "react";
 
-const Home = () => {
+const Home = ({device}) => {
 
    
 
 
-  return (
+  return (device == "web") ? (
     <div>
-      
       <SearchBackgroundImage />
       <SearchInput />
     </div>
-  );
+  ) :
+  
+  (
+    <div>
+      <SearchBackgroundImage />
+     
+    </div>
+  )
+    // <div>
+      
+    //   <SearchBackgroundImage />
+    //   <SearchInput />
+    // </div>
+  
 };
 
 export default Home;
