@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/globals/navbar';
+import TrendingMovies from './components/home/trendingMovies';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
   return (
     <div className="App">
       <NavigationBar device={device}/>
+      <TrendingMovies></TrendingMovies>
     </div>
   );
 }

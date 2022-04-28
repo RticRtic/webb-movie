@@ -10,7 +10,7 @@ const actions = {isFetching, success, failure};
 
 const initialState = {
     status: '',
-    data: [],
+    data: null,
     error: null
 }
 
