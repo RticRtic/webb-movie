@@ -1,12 +1,11 @@
 
-import React, { Fragment, useEffect, useState } from "react"; 
+import React, { Fragment, useState } from "react"; 
 import '../../styles/navbar.css';
 import '../../styles/fa-icons.css';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUser, faBars, faMagnifyingGlass, faXmark, faFilm, faHouse } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { actions } from "../../features/shoppingcartReducer";
+
 
 
 const NavigationBar = ({device}) => {
@@ -68,7 +67,7 @@ const NavigationBar = ({device}) => {
 
     }
 
-    return (device == 'web') ? 
+    return (device === 'web') ? 
     //Navigation Bar - Web
     (
         <div className={'navbar' + ' ' + 'web'}>
