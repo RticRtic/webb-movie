@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/footer.css';
 import { Link } from 'react-router-dom';
-
+import tmbdlogo from '../../images/tmbdlogo.png'
 
 
 function Footer() {
@@ -37,7 +37,7 @@ function Footer() {
           <div class='footer-logo'>
             <Link to='/' className='social-logo'>
               
-              <img src="TMBD.svg" alt="" width="130" height="94"></img>
+              <img src={tmbdlogo} alt="" width="130" height="94"></img>
               <i class='fab fa-typo3' />
             </Link>
           </div>
