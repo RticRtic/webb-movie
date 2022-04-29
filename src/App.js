@@ -1,11 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React, { useState } from 'react';
 
-import { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/globals/navbar';
+import Footer from './components/globals/footer';
 
 function App() {
 
@@ -35,6 +33,7 @@ function App() {
   return (
     <div className="App">
       <NavigationBar device={device}/>
+      <Footer />
     </div>
   );
 }
