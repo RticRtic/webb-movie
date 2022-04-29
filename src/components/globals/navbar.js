@@ -10,7 +10,6 @@ import { faCartShopping, faUser, faBars, faMagnifyingGlass, faXmark, faFilm, faH
 
 const NavigationBar = ({device}) => {
 
-
     const [dropdownActive, setDropdownActive] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
 
