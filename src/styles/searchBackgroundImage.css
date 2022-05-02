@@ -6,3 +6,23 @@
     height: 80vh;
     opacity: 0.5;
 }
+
+.header-container {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+
+}
+
+.header {
+    color: white;
+    font-size: 40px;
+    font-family: "Times New Roman", Times, serif;
+}

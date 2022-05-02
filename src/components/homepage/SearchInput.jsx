@@ -11,36 +11,22 @@ const SearchInput = () => {
   const movie = useSelector((state) => state.searchedMovie.movie);
 
   const [input, setInput] = useState("");
-  
-  
-  
+
   const dispatch = useDispatch();
   let content = [];
 
   if (status === STATUS.NORMAL) {
-    content = "Ready to fetch";
+    content = "";
   } else if (status === STATUS.FETCHING) {
-    content = "Waiting for movie/movies..";
+    content = "";
   } else if (status === STATUS.SUCCESS) {
     //content = movie;
     content.push(movie);
-    content.map((movie) => (
-      <div key={movie.id}>
-        {movie.results}
-
-      </div>
-    ))
-    console.log(movie.results[0])
-    
-    
+    // content.map((movie, index) => <div key={movie.id}>{movie.results[index].title}</div>);
+    console.log(movie);
   } else {
     content = "Failed to get movie/movies..";
   }
-
-  
-  
-
-  
 
   const clearInput = () => {
     setInput("");
@@ -59,35 +45,36 @@ const SearchInput = () => {
 
   return (
     <div>
-      <header className="header-container">
-        <h2 className="header"> a paradise for movie collectors.</h2>
-      </header>
       <div className="searchbar-input-container">
-        <div className="magnifyingglass-container">
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            className="magnifyingglass"
-          />
-        </div>
-        <input
+        <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass" />
+
+        {/* <input
           placeholder="Search movie..."
           className="search-input-field"
           value={input}
           onChange={inputHandler}
-        ></input>
-        <div className="search-button-container">
-          <button onClick={getMovie} className="search-button">
-            Search!
-          </button>
-        </div>
+        ></input> */}
+        <button onClick={getMovie} className="search-button">
+          Search!
+        </button>
 
-        {/* {content} */}
+        {(content == "") ? (
+          <div>
+            {content}
+          </div>
+        ) : (
+          <div>
+            {content.map((movie, index) => (
+              <div>{movie.results[index].title}</div>
+            ))}
+          </div>
+        )
+        }
 
         {/* <div className="magnifyingglass-container">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
         </div> */}
       </div>
-    
     </div>
   );
 };
