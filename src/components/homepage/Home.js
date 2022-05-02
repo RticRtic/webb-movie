@@ -18,7 +18,7 @@ const Home = ({device}) => {
   
   (
     <div>
-      <SearchBackgroundImage />
+      {/* <SearchBackgroundImage /> */}
       <SearchInput />
     </div>
   )

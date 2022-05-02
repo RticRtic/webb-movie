@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/navbar.css";
 import "../../styles/fa-icons.css";
 
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -18,6 +19,7 @@ import { actions } from "../../features/shoppingcartReducer";
 const NavigationBar = ({ device }) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
+  
 
   const toggleDropdown = () => {
     setDropdownActive(!dropdownActive);
@@ -26,6 +28,11 @@ const NavigationBar = ({ device }) => {
   const toggleSearch = () => {
     setIsSearching(!isSearching);
   };
+
+  
+
+  
+
 
   const DropdownMenu = () => {
     return dropdownActive ? (
@@ -85,13 +92,8 @@ const NavigationBar = ({ device }) => {
             <li>Home</li>
 
             <li>Catalog</li>
-
-            <input
-              placeholder="Search movie..."
-              className="search-input-field"
-              //   value={input}
-              //   onChange={inputHandler}
-            ></input>
+            
+           
           </section>
 
           <section className="web_iconholder">
