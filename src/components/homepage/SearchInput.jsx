@@ -11,7 +11,6 @@ const SearchInput = () => {
   const movie = useSelector((state) => state.searchedMovie.movie);
 
   const [input, setInput] = useState("");
-  
 
   const dispatch = useDispatch();
   let content = [];
@@ -21,10 +20,18 @@ const SearchInput = () => {
   } else if (status === STATUS.FETCHING) {
     content = "";
   } else if (status === STATUS.SUCCESS) {
-    //content = movie;
-    content.push(movie);
-    // content.map((movie, index) => <div key={movie.id}>{movie.results[index].title}</div>);
-    console.log(movie);
+    content = movie.results.map((movie) => (
+      <div className="movieItem">
+        <div key={movie.id} className="movieTitle">{movie.title}</div>
+        <img
+          className="movie-img"
+          src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+          alt="img"
+        />
+        <i className="vote-average">{movie.vote_average}</i>
+      </div>
+    ));
+    console.log("movies: ", movie);
   } else {
     content = "Failed to get movie/movies..";
   }
@@ -59,29 +66,11 @@ const SearchInput = () => {
           Search!
         </button>
 
-        
-
         {/* <div className="magnifyingglass-container">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
         </div> */}
       </div>
-      {content === "" ? (
-          <div className="movieList">{content}</div>
-        )
-
-         : 
-         
-         (
-          <div>
-            {content.map((movie, index) => (
-              <div className="movie-item">
-                <div key={movie.results.id}>{movie.results[index].title}</div>
-                <img className="movie-img" src={"https://image.tmdb.org/t/p/w500"+movie.results[index].poster_path} alt="img" />
-                
-              </div>
-            ))}
-          </div>
-        )}
+      <div className="movieList">{content}</div>
     </div>
   );
 };

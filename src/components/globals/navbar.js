@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/navbar.css";
 import "../../styles/fa-icons.css";
-
+import Home from "../homepage/Home";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -92,6 +92,8 @@ const NavigationBar = ({ device }) => {
             <li>Home</li>
 
             <li>Catalog</li>
+            
+            
             
            
           </section>
