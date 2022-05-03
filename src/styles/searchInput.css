@@ -1,5 +1,5 @@
 
-.searchbar-input-container {
+.search-input .searchbar-input-container {
     width: 100%;
     height: 10vh;
     position: absolute;
@@ -37,7 +37,7 @@
    
 } */
 
-.search-input-field {
+.search-input .search-input-field {
     text-align: start;
     background-color: white;
     border-radius: 20px;
@@ -47,7 +47,7 @@
     
        
 }
-.search-input-field::placeholder {
+.search-input .search-input-field::placeholder {
     color: black;
     font-weight: bold;
     
@@ -63,49 +63,55 @@
     
    
 } */
-.magnifyingglass {
+.search-input .magnifyingglass {
     color: white;
     font-size: 25px;
 
 }
 
-.movieList {
+.search-input .movieList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   padding: 1em;
   margin-left: 150px;
+  position: relative;
   
 }
 
-.movie-img {
+.search-input .movie-img {
     max-height: 200px;
     filter: drop-shadow(0 0 6px rgba(0,0,0,10));
     border-radius: 20px;
    
 }
 
-.movie-img:hover {
+.search-input .movie-img:hover {
     transform: scale(1.05);
     
 }
 
-.vote-average-container {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    position:absolute;
-    right: 5px;
+.search-input .movieItem {
+    position: relative;
+    
+}
+
+.search-input .vote-average-container {
+    position: absolute;
     bottom: 5px;
+    left: 100px;
+    
+    
+   
 
 }
 
-.vote-average {
+.search-input .vote-average {
     color: red;
-    
-    
-    
+    font-family: avenir;
+    font-weight: bold;
 
+    
 }
 
 

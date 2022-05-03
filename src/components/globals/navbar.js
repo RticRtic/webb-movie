@@ -89,9 +89,11 @@ const NavigationBar = ({ device }) => {
 
         <div>
           <section className="web_navholder">
+
             <li>Home</li>
 
             <li>Catalog</li>
+            
             
             
             

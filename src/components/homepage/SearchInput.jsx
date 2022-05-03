@@ -56,7 +56,7 @@ const SearchInput = () => {
   };
 
   return (
-    <div>
+    <div className="search-input">
       <div className="searchbar-input-container">
         {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass" /> */}
 
