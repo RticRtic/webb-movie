@@ -9,7 +9,7 @@ const Home = ({device}) => {
    
 
 
-  return (device == "web") ? (
+  return (device === "web") ? (
     <div>
       <SearchBackgroundImage />
       <SearchInput />
@@ -22,11 +22,7 @@ const Home = ({device}) => {
       <SearchInput />
     </div>
   )
-    // <div>
-      
-    //   <SearchBackgroundImage />
-    //   <SearchInput />
-    // </div>
+    
   
 };
 

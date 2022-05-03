@@ -11,7 +11,7 @@ const SearchInput = () => {
   const movie = useSelector((state) => state.searchedMovie.movie);
 
   const [input, setInput] = useState("");
-  const baseUrl = "https://image.tmdb.org/t/p/w500"
+  
 
   const dispatch = useDispatch();
   let content = [];
@@ -59,8 +59,14 @@ const SearchInput = () => {
           Search!
         </button>
 
-        {content == "" ? (
-          <div>{content}</div>
+        
+
+        {/* <div className="magnifyingglass-container">
+        <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
+        </div> */}
+      </div>
+      {content === "" ? (
+          <div className="movieList">{content}</div>
         )
 
          : 
@@ -68,19 +74,14 @@ const SearchInput = () => {
          (
           <div>
             {content.map((movie, index) => (
-              <div className="movie-container">
+              <div className="movie-item">
                 <div key={movie.results.id}>{movie.results[index].title}</div>
-                <img src={"https://image.tmdb.org/t/p/w500"+movie.results[index].poster_path} alt="img" />
-                {/* https://image.tmdb.org/t/p/w500/wd7b4Nv9QBHDTIjc2m7sr0IUMoh.jpg */}
+                <img className="movie-img" src={"https://image.tmdb.org/t/p/w500"+movie.results[index].poster_path} alt="img" />
+                
               </div>
             ))}
           </div>
         )}
-
-        {/* <div className="magnifyingglass-container">
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
-        </div> */}
-      </div>
     </div>
   );
 };
