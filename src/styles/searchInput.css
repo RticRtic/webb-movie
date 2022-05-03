@@ -71,15 +71,41 @@
 
 .movieList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
-  grid-gap: 0.5em;
   padding: 1em;
- 
+  margin-left: 150px;
+  
 }
 
 .movie-img {
     max-height: 200px;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,10));
+    border-radius: 20px;
+   
+}
+
+.movie-img:hover {
+    transform: scale(1.05);
+    
+}
+
+.vote-average-container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position:absolute;
+    right: 5px;
+    bottom: 5px;
+
+}
+
+.vote-average {
+    color: red;
+    
+    
+    
+
 }
 
 
