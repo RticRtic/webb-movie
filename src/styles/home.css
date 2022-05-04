@@ -1,20 +1,33 @@
-.home-component {
+.home-component .movieList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
+  align-items: center;
   padding: 1em;
-  margin-left: 150px;
-  position: relative;
+  margin-left: 300px;
+  position: absolute;
+  grid-gap: 1em;
+  top: 150px;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0.25) 200%
+    );
+  background-blend-mode: multiply;
 }
 
 .home-component .movie-img {
   max-height: 200px;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 10));
   border-radius: 20px;
+  
 }
 
 .home-component .movie-img:hover {
   transform: scale(1.05);
+  
 }
 
 .home-component .movieItem {
@@ -31,4 +44,14 @@
   color: red;
   font-family: avenir;
   font-weight: bold;
+}
+
+.home-component .background-img-container {
+  width: 100%;
+}
+
+.home-component .star-icon {
+  color: red;
+  position: absolute;
+  right: 30px;
 }

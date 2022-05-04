@@ -4,20 +4,18 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { getSearchedApi } from "../../models/apiSearchInput";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { STATUS } from "../../features/searchMovie";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
+
 
 const SearchInput = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-
   // const status = useSelector((state) => state.searchedMovie.status);
   // const movie = useSelector((state) => state.searchedMovie.movie);
-  
+
   // let content = [];
 
   // if (status === STATUS.NORMAL) {
@@ -34,7 +32,7 @@ const SearchInput = () => {
   //         alt="img"
   //       />
   //       </Link>
-        
+
   //       <div className="vote-average-container">
   //         <i className="vote-average">{movie.vote_average}</i>
   //       </div>
@@ -43,7 +41,7 @@ const SearchInput = () => {
   //   console.log("movies: ", movie);
   // } else {
   //   content = "Failed to get movie/movies..";
-  // } 
+  // }
   //
 
   const clearInput = () => {
@@ -55,33 +53,35 @@ const SearchInput = () => {
     console.log(input.target.value);
   };
 
-  const getMovie = () => {
-    getSearchedApi(input, dispatch);
+  const getMovie = (event) => {
+    if (event.key === "Enter") {
+      getSearchedApi(input, dispatch);
 
-    clearInput();
+      clearInput();
+    }
   };
 
   return (
     <div className="search-input">
       <div className="searchbar-input-container">
-        {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass" /> */}
+        
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className="faMagnifyingGlass"
+          />
+        
 
         <input
           placeholder="Search movie..."
           className="search-input-field"
           value={input}
           onChange={inputHandler}
+          onKeyDown={getMovie}
         ></input>
-        <button onClick={getMovie} className="search-button">
-          Search!
-        </button>
 
         {/* <div className="magnifyingglass-container">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
         </div> */}
-      </div>
-      <div>
-        {/* <div className="movieList">{content}</div> */}
       </div>
     </div>
   );
