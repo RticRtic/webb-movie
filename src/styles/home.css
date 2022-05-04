@@ -1,0 +1,34 @@
+.home-component {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  padding: 1em;
+  margin-left: 150px;
+  position: relative;
+}
+
+.home-component .movie-img {
+  max-height: 200px;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 10));
+  border-radius: 20px;
+}
+
+.home-component .movie-img:hover {
+  transform: scale(1.05);
+}
+
+.home-component .movieItem {
+  position: relative;
+}
+
+.home-component .vote-average-container {
+  position: absolute;
+  bottom: 5px;
+  left: 100px;
+}
+
+.home-component .vote-average {
+  color: red;
+  font-family: avenir;
+  font-weight: bold;
+}

@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/navbar.css";
 import "../../styles/fa-icons.css";
-import Home from "../homepage/Home";
+import "../../styles/home.css";
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,6 +16,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../features/shoppingcartReducer";
+import SearchInput from "../homepage/SearchInput";
+import Home from "../homepage/Home";
+
+
 
 const NavigationBar = ({ device }) => {
   const [dropdownActive, setDropdownActive] = useState(false);
@@ -94,12 +99,10 @@ const NavigationBar = ({ device }) => {
 
             <li>Catalog</li>
             
-            
-            
+            <SearchInput />
             
            
           </section>
-
           <section className="web_iconholder">
             <li>
               <FontAwesomeIcon icon={faCartShopping} className="nav_icon" />

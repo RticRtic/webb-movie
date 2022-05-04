@@ -8,37 +8,43 @@ import { STATUS } from "../../features/searchMovie";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 const SearchInput = () => {
-  const status = useSelector((state) => state.searchedMovie.status);
-  const movie = useSelector((state) => state.searchedMovie.movie);
-
   const [input, setInput] = useState("");
-
   const dispatch = useDispatch();
-  let content = [];
 
-  if (status === STATUS.NORMAL) {
-    content = "";
-  } else if (status === STATUS.FETCHING) {
-    content = "";
-  } else if (status === STATUS.SUCCESS) {
-    content = movie.results.map((movie) => (
-      <div key={movie.id} className="movieItem">
-        <img
-          className="movie-img"
-          src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-          alt="img"
-        />
-        <div className="vote-average-container">
-          <i className="vote-average">{movie.vote_average}</i>
-        </div>
-      </div>
-    ));
-    console.log("movies: ", movie);
-  } else {
-    content = "Failed to get movie/movies..";
-  }
+
+  // const status = useSelector((state) => state.searchedMovie.status);
+  // const movie = useSelector((state) => state.searchedMovie.movie);
+  
+  // let content = [];
+
+  // if (status === STATUS.NORMAL) {
+  //   content = "";
+  // } else if (status === STATUS.FETCHING) {
+  //   content = "";
+  // } else if (status === STATUS.SUCCESS) {
+  //   content = movie.results.map((movie) => (
+  //     <div key={movie.id} className="movieItem">
+  //       <Link to="/DetailMovieInfo">
+  //       <img
+  //         className="movie-img"
+  //         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+  //         alt="img"
+  //       />
+  //       </Link>
+        
+  //       <div className="vote-average-container">
+  //         <i className="vote-average">{movie.vote_average}</i>
+  //       </div>
+  //     </div>
+  //   ));
+  //   console.log("movies: ", movie);
+  // } else {
+  //   content = "Failed to get movie/movies..";
+  // } 
+  //
 
   const clearInput = () => {
     setInput("");
@@ -75,7 +81,7 @@ const SearchInput = () => {
         </div> */}
       </div>
       <div>
-        <div className="movieList">{content}</div>
+        {/* <div className="movieList">{content}</div> */}
       </div>
     </div>
   );
