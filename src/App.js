@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/globals/navbar';
 import Home from './components/homepage/Home';
-import SearchInput from './components/homepage/SearchInput';
+
 
 function App() {
 

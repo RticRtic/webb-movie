@@ -3,7 +3,6 @@ import "../../styles/navbar.css";
 import "../../styles/fa-icons.css";
 import "../../styles/home.css";
 
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -17,14 +16,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../features/shoppingcartReducer";
 import SearchInput from "../homepage/SearchInput";
-import Home from "../homepage/Home";
-
-
+import { getSearchedApi } from "../../models/apiSearchInput";
 
 const NavigationBar = ({ device }) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
-  
+  const [inputMobil, setInputMobil] = useState("");
+  const dispatch = useDispatch();
 
   const toggleDropdown = () => {
     setDropdownActive(!dropdownActive);
@@ -34,10 +32,22 @@ const NavigationBar = ({ device }) => {
     setIsSearching(!isSearching);
   };
 
-  
+  const clearInput = () => {
+    setInputMobil("");
+  };
 
-  
+  const inputHandler = (input) => {
+    setInputMobil(input.target.value);
+    console.log(input.target.value);
+  };
 
+  const getMovie = (event) => {
+    if (event.key === "Enter") {
+      getSearchedApi(inputMobil, dispatch);
+
+      clearInput();
+    }
+  };
 
   const DropdownMenu = () => {
     return dropdownActive ? (
@@ -69,7 +79,12 @@ const NavigationBar = ({ device }) => {
     return isSearching ? (
       <div className="dropdown_curtain">
         <div className="nav_search">
-          <input placeholder="Search for a movie..."></input>
+          <input
+            placeholder="Search for a movie..."
+            value={inputMobil}
+            onChange={inputHandler}
+            onKeyDown={getMovie}
+          ></input>
           <li>
             <FontAwesomeIcon
               icon={faXmark}
@@ -94,14 +109,11 @@ const NavigationBar = ({ device }) => {
 
         <div>
           <section className="web_navholder">
-
             <li>Home</li>
 
             <li>Catalog</li>
-            
+
             <SearchInput />
-            
-           
           </section>
           <section className="web_iconholder">
             <li>
@@ -128,7 +140,7 @@ const NavigationBar = ({ device }) => {
             />
           </li>
           <li>
-            {" "}
+            {""}
             <h2 className="app_logo">
               Movie<span style={{ color: "white" }}>Collector</span>
             </h2>{" "}

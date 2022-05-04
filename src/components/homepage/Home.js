@@ -48,8 +48,16 @@ const Home = ({ device }) => {
       </div>
       <div className="movieList">{content}</div>
     </div>
-  ) : (
-    <div>{/* <SearchBackgroundImage /> */}</div>
+  ) : 
+  (
+
+    //Mobil-Device
+    <div className="home-component-mobil">
+      <div className="movieList-mobil">
+        {content}
+      </div>
+
+    </div>
   );
 };
 
