@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/navbar.css";
 import "../../styles/fa-icons.css";
-import "../../styles/home.css";
+import "../../styles/searchBar.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,41 +13,21 @@ import {
   faFilm,
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { actions } from "../../features/shoppingcartReducer";
-import SearchInput from "../homepage/SearchInput";
-import { getSearchedApi } from "../../models/apiSearchInput";
+import SearchBar from "./searchBar";
 
 const NavigationBar = ({ device }) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
-  const [inputMobil, setInputMobil] = useState("");
-  const dispatch = useDispatch();
 
-  const toggleDropdown = () => {
-    setDropdownActive(!dropdownActive);
-  };
 
   const toggleSearch = () => {
     setIsSearching(!isSearching);
   };
 
-  const clearInput = () => {
-    setInputMobil("");
+  const toggleDropdown = () => {
+    setDropdownActive(!dropdownActive);
   };
 
-  const inputHandler = (input) => {
-    setInputMobil(input.target.value);
-    console.log(input.target.value);
-  };
-
-  const getMovie = (event) => {
-    if (event.key === "Enter") {
-      getSearchedApi(inputMobil, dispatch);
-
-      clearInput();
-    }
-  };
 
   const DropdownMenu = () => {
     return dropdownActive ? (
@@ -75,28 +55,7 @@ const NavigationBar = ({ device }) => {
     ) : null;
   };
 
-  const SearchBar = () => {
-    return isSearching ? (
-      <div className="dropdown_curtain">
-        <div className="nav_search">
-          <input
-            placeholder="Search for a movie..."
-            value={inputMobil}
-            onChange={inputHandler}
-            onKeyDown={getMovie}
-          ></input>
-          <li>
-            <FontAwesomeIcon
-              icon={faXmark}
-              className="nav_icon"
-              onClick={toggleSearch}
-            />
-          </li>
-        </div>
-      </div>
-    ) : null;
-  };
-
+  
   return device == "web" ? (
     //Navigation Bar - Web
     <div className={"navbar" + " " + "web"}>
@@ -113,7 +72,7 @@ const NavigationBar = ({ device }) => {
 
             <li>Catalog</li>
 
-            <SearchInput />
+            <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
           </section>
           <section className="web_iconholder">
             <li>
@@ -160,7 +119,9 @@ const NavigationBar = ({ device }) => {
 
       <DropdownMenu />
 
-      <SearchBar />
+      
+      <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+
     </Fragment>
   );
 };

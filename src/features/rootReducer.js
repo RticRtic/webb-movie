@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as shoppingCartReducer} from './shoppingcartReducer';
-import { reducer as searchedMovieReducer } from "./searchMovie"
+import { reducer as searchedMovieReducer } from "./searchMovieReducer"
 
 
 const rootReducer = combineReducers({

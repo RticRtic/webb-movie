@@ -4,8 +4,9 @@ import { createAction, createReducer } from "@reduxjs/toolkit";
 const isFetching = createAction("is fetching");
 const success = createAction("success");
 const failure = createAction("failure");
+const disableSearch = createAction("disable search");
 
-const actions = {isFetching, success, failure}
+const actions = {isFetching, success, failure, disableSearch}
 
 const STATUS = {
     NORMAL: "normal",
@@ -30,6 +31,10 @@ const reducer = createReducer(initialState, {
     [failure] : (state, action) => ({
         status: STATUS.FAILURE,
         movie:null
+    }),
+    [disableSearch] : (state, actions) => ({
+        status: STATUS.NORMAL,
+        movie: null
     })
 })
 

@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/globals/navbar';
-import Home from './components/homepage/Home';
 
 
 function App() {
@@ -41,7 +40,6 @@ function App() {
       <NavigationBar device={device}/>
       
       <Routes>
-        <Route exact path="/" element={<Home device={device} />} />
       </Routes>
 
       
