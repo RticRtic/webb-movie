@@ -13,36 +13,7 @@ const SearchInput = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-  // const status = useSelector((state) => state.searchedMovie.status);
-  // const movie = useSelector((state) => state.searchedMovie.movie);
-
-  // let content = [];
-
-  // if (status === STATUS.NORMAL) {
-  //   content = "";
-  // } else if (status === STATUS.FETCHING) {
-  //   content = "";
-  // } else if (status === STATUS.SUCCESS) {
-  //   content = movie.results.map((movie) => (
-  //     <div key={movie.id} className="movieItem">
-  //       <Link to="/DetailMovieInfo">
-  //       <img
-  //         className="movie-img"
-  //         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-  //         alt="img"
-  //       />
-  //       </Link>
-
-  //       <div className="vote-average-container">
-  //         <i className="vote-average">{movie.vote_average}</i>
-  //       </div>
-  //     </div>
-  //   ));
-  //   console.log("movies: ", movie);
-  // } else {
-  //   content = "Failed to get movie/movies..";
-  // }
-  //
+  
 
   const clearInput = () => {
     setInput("");
@@ -63,7 +34,7 @@ const SearchInput = () => {
 
   return (
     <div className="search-input">
-      <div className="searchbar-input-container">
+      {/* <div className="searchbar-input-container"> */}
         
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
@@ -82,7 +53,7 @@ const SearchInput = () => {
         {/* <div className="magnifyingglass-container">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="magnifyingglass"  />
         </div> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 };

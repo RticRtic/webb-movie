@@ -1,28 +1,44 @@
 
 .search-input .search-input-field {
-    background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
     border-radius: 20px;
     font-size: 15px;
-    text-align: center;
+    text-align: start;
     font-family: avenir;
     width: 400px;
     position: relative;
+    border: 2px solid green;
+    padding: 0;
+    margin: 0;
     
        
 }
 .search-input .search-input-field::placeholder {
     color: black;
     font-weight: bold;
+    padding: 30px;
     
 }
 
+.search-input .faMagnifyingGlass {
+    color: red;
+    position: absolute;
+    left: 20px;
+}
 
-.search-input .magnifyingglass {
+.search-input {
+    border: 2px solid red;
+    width: fit-content;
+    height: fit-content;
+    
+}
+
+/* .search-input .searchbar-input-container .magnifyingglass {
     color: white;
     font-size: 20px;
-    
+    position: absolute;
+   
 
-}
+} */
 
 
 
