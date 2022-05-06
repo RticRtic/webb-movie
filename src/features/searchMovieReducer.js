@@ -1,9 +1,9 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 
 
-const isFetching = createAction("is fetching");
-const success = createAction("success");
-const failure = createAction("failure");
+const isFetching = createAction("is fetching searched");
+const success = createAction("fetch searched success");
+const failure = createAction("fetch searched failure");
 const disableSearch = createAction("disable search");
 
 const actions = {isFetching, success, failure, disableSearch}

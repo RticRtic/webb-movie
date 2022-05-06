@@ -83,9 +83,9 @@
 /* Search Results */
 
 .search_result_container {
-    position: fixed;
+    position: absolute;
     width: 550px !important;
-    height: 90% !important;
+    height: 90vh !important;
     
     display: flex;
     flex-direction: column;
@@ -96,7 +96,7 @@
 }
 
 .search_result_card {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: #121212;
 
     height: fit-content;
     width: 100%;
@@ -112,7 +112,7 @@
 }
 
 .search_result_card:hover {
-    background-color: rgba(37, 37, 37, 0.8);
+    background-color: rgba(37, 37, 37, 0.9);
     transform: translateX(-5%);
     
 }
@@ -166,11 +166,11 @@
     }
 
     .search_result_container {
+        position: fixed;
         height: 90% !important;
         width: 100% !important;
-        
+        top: 0;
         padding: 0;
-        margin: 0;
         z-index: 20;
         margin-top: 10vh;
     }
