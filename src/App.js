@@ -9,6 +9,7 @@ import TrendingMovies from './components/home/trendingMovies';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home/homepage';
 import Checkout from './components/shopping/checkout';
+import MovieInfoPage from './components/movie-info/movieInfoPage';
 
 
 function App() {
@@ -42,14 +43,20 @@ function App() {
       <NavigationBar device={device}/>
       
       <Routes>
-          
+
         <Route exact path='/' element = {
           <Home device={device}/>
         }/>
+
+        <Route exact path={'/movie/:id/:title'} element = {
+          <MovieInfoPage device={device}/>
+        }/>
+
         <Route exact path='/checkout' element = {
           <Checkout/>
         }
         />
+
       </Routes>
 
       <Footer />

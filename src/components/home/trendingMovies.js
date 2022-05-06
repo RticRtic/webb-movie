@@ -7,10 +7,12 @@ import 'swiper/css';
 import { fetchTrending } from '../../models/apiModel';
 import { faShoppingCart, faStar, faDollarSign, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 const TrendingMovies = () => {
 
     const dispatch = useDispatch();
+    let navigate = useNavigate();
     const trending = useSelector(state => state.trendingMovies);
 
     const [my_swiper, set_my_swiper] = useState({});
@@ -18,6 +20,11 @@ const TrendingMovies = () => {
     useEffect(() => {
         fetchTrending(dispatch);
     },[])
+
+    const selectMovie = (movie) => {
+        let title = movie.title.replace(/\s+/g, '-');
+        navigate('/movie/' + (movie.id) + '/' + (title.toLowerCase()));
+    };
 
     // If currently fetching, display the status else load the movies
 
@@ -52,7 +59,7 @@ const TrendingMovies = () => {
                         </button>
                     
                     {trending.data.results.map(movie => (
-                        <SwiperSlide key={movie.id} className='swiper-slide'>
+                        <SwiperSlide key={movie.id} className='swiper-slide' onClick={() => selectMovie(movie)}>
                             <TrendingMovieCard movie={movie}/>
                         </SwiperSlide>
                     ))}
@@ -80,7 +87,7 @@ const TrendingMovieCard = ({movie}) => {
         <div className="movie_poster">
             <i><FontAwesomeIcon icon={faShoppingCart}/></i>
             <i><FontAwesomeIcon className="poster_bottom_icon" icon={faStar}/>{movie.vote_average}</i>
-            <i><FontAwesomeIcon className="poster_bottom_icon" icon={faDollarSign}/>8</i>
+            <i><FontAwesomeIcon className="poster_bottom_icon" icon={faDollarSign}/>9.99</i>
             <img src={'https://image.tmdb.org/t/p/original/' + movie.poster_path}></img>
         </div>
 

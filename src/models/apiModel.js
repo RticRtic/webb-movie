@@ -1,5 +1,4 @@
 import { async } from "@firebase/util";
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { store } from "..";
 import { STATUS } from '../models/constants.js';
@@ -27,3 +26,12 @@ export async function fetchTrending(dispatch) {
 
 }
 
+export async function fetchSelected(movieId, setCurrentMovie) {
+
+
+    fetch(baseUrl + 'movie/' + movieId + '?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US')
+    .then(res => res.json())
+    .then(data => setCurrentMovie(data))
+    .catch(err => console.log(err));
+
+}
