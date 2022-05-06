@@ -1,4 +1,3 @@
-
 import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/navbar.css";
 import "../../styles/fa-icons.css";
@@ -16,6 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./searchBar";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavigationBar = ({ device }) => {
   const [dropdownActive, setDropdownActive] = useState(false);
@@ -33,8 +33,7 @@ const NavigationBar = ({ device }) => {
 
   useEffect(() => {
     setIsSearching(false);
-  },[location])
-
+  }, [location]);
 
   const DropdownMenu = () => {
     return dropdownActive ? (
@@ -62,7 +61,6 @@ const NavigationBar = ({ device }) => {
     ) : null;
   };
 
-  
   return device == "web" ? (
     //Navigation Bar - Web
     <div className={"navbar" + " " + "web"}>
@@ -76,10 +74,15 @@ const NavigationBar = ({ device }) => {
         <div>
           <section className="web_navholder">
             <li>Home</li>
+            <Link to="/catalog">
+              <li>Catalog</li>
+            </Link>
 
-            <li>Catalog</li>
-
-            <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+            <SearchBar
+              isSearching={isSearching}
+              toggleSearch={toggleSearch}
+              device={device}
+            />
           </section>
           <section className="web_iconholder">
             <li>
@@ -127,9 +130,11 @@ const NavigationBar = ({ device }) => {
 
       <DropdownMenu />
 
-      
-      <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
-
+      <SearchBar
+        isSearching={isSearching}
+        toggleSearch={toggleSearch}
+        device={device}
+      />
     </Fragment>
   );
 };
