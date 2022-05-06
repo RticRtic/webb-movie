@@ -120,6 +120,35 @@
     background-color: rgb(190, 190, 190);
 }
 
+.movie_info_section {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 2px solid rgb(74, 74, 74);
+}
+
+.movie_info_section div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+
+
+}
+
+.movie_info_section div h2 {
+    font-weight: lighter;
+    font-family: 'Avenir';
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.movie_info_section div h2 span {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
 
 @media screen and (max-width: 700px) {
     .movie_info_header {
@@ -129,4 +158,28 @@
     .movie_info_container {
         height: 30vh;
     }
+
+    .movie_info_purchase {
+        margin: 10px 0 !important;
+        position: relative;
+        width: 100%;
+    }
+
+    .info_date_time {
+        font-size: 1.2rem;
+    }
+
+    .movie_info_addToCart {
+        position: fixed;
+        bottom: 20px;
+        margin: 0 !important;
+        height: 50px;
+        width: 90%;
+        z-index: 20;
+    }
+
+    .movie_info_section div h2 {
+        font-size: 1.5rem;
+    }
+
 }
