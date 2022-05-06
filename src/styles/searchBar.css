@@ -85,7 +85,7 @@
 .search_result_container {
     position: absolute;
     width: 550px !important;
-    height: 90vh !important;
+    height: fit-content !important;
     
     display: flex;
     flex-direction: column;
