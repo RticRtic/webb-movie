@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import "../../styles/filter.css";
 
 const Filter = () => {
@@ -10,24 +10,35 @@ const Filter = () => {
 
   return (
     <div className="filter-component">
-      <label className="genre">
-        Genre
+      <div className="text-filter">
+        <header>Filter</header>
+      </div>
+
+      <div filter-categories>
         <input
-          className="checkbox-genre"
+          className="genre-checkbox"
           type="checkbox"
           checked={genreChecked}
           onChange={handleGenreChecked}
         />
-      </label>
+        <label>Genre</label> <br />
 
-      <label className="score">
+        <input type="checkbox" />
+        <label>Score</label> <br />
+
+        <input type="checkbox" />
+        <label>Popularity</label>
+      </div>
+
+      {/* <label className="score">
         Score
         <input type="checkbox" />
       </label>
 
       <label className="popularity">
-        Popularity</label>
-      <input type="checkbox" />
+        Popularity
+        <input type="checkbox" />
+      </label> */}
     </div>
   );
 };
