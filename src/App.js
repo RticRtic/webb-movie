@@ -1,6 +1,7 @@
 
 import './App.css';
 import React, { useState } from 'react';
+import { getSearchedApi } from './models/apiSearchInput';
 
 import NavigationBar from './components/globals/navbar';
 import Footer from './components/globals/footer';
@@ -9,6 +10,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home/homepage';
 import Checkout from './components/shopping/checkout';
 import MovieInfoPage from './components/movie-info/movieInfoPage';
+
 
 function App() {
 
@@ -24,6 +26,7 @@ function App() {
   }
 
   });
+  
 
   mediaQuery.addEventListener('change', () => {
 
@@ -57,7 +60,9 @@ function App() {
       </Routes>
 
       <Footer />
+
     </div>
+    
   );
 }
 

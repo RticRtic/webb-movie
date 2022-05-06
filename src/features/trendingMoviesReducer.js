@@ -2,9 +2,9 @@ import { createAction, createReducer } from "@reduxjs/toolkit";
 import { STATUS } from '../models/constants';
 
 
-const isFetching = createAction('is fetching');
-const success = createAction('success');
-const failure = createAction('failure');
+const isFetching = createAction('is fetching trending');
+const success = createAction('fetch trending success');
+const failure = createAction('fetch trending failure');
 
 const actions = {isFetching, success, failure};
 
