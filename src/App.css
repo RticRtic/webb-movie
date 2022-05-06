@@ -1,3 +1,17 @@
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 25px;
+}
+
 .App {
 
 }

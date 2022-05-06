@@ -1,6 +1,7 @@
 
 import './App.css';
 import React, { useState } from 'react';
+import { getSearchedApi } from './models/apiSearchInput';
 
 import NavigationBar from './components/globals/navbar';
 import Footer from './components/globals/footer';
@@ -8,6 +9,7 @@ import TrendingMovies from './components/home/trendingMovies';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home/homepage';
 import Checkout from './components/shopping/checkout';
+
 
 function App() {
 
@@ -23,6 +25,7 @@ function App() {
   }
 
   });
+  
 
   mediaQuery.addEventListener('change', () => {
 
@@ -39,6 +42,7 @@ function App() {
       <NavigationBar device={device}/>
       
       <Routes>
+          
         <Route exact path='/' element = {
           <Home device={device}/>
         }/>
@@ -49,7 +53,9 @@ function App() {
       </Routes>
 
       <Footer />
+
     </div>
+    
   );
 }
 
