@@ -1,7 +1,7 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Fragment, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { fetchSelected } from '../../models/apiModel';
 import { convertMinutes, splitDate } from '../../models/constants';
 import '../../styles/movie-info.css';
@@ -12,12 +12,13 @@ const MovieHeader = ({device}) => {
     const [currentMovie, setCurrentMovie] = useState(null)
 
     let params = useParams();
+    let location = useLocation();
 
     useEffect(() => {
         if('id' in params) {
             fetchSelected(params.id, setCurrentMovie);
         }
-    },[])
+    },[location])
 
 
     const WebHeaderContent = () => {

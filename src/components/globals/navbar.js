@@ -15,11 +15,13 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./searchBar";
+import { useLocation } from "react-router-dom";
 
 const NavigationBar = ({ device }) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
+  let location = useLocation();
 
   const toggleSearch = () => {
     setIsSearching(!isSearching);
@@ -28,6 +30,10 @@ const NavigationBar = ({ device }) => {
   const toggleDropdown = () => {
     setDropdownActive(!dropdownActive);
   };
+
+  useEffect(() => {
+    setIsSearching(false);
+  },[location])
 
 
   const DropdownMenu = () => {
