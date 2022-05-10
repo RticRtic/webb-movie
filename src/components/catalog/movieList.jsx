@@ -1,15 +1,25 @@
 import { useState } from "react";
 import "../../styles/movieList.css";
 
-const MovieList = ({movieData}) => {
+const MovieList = ({actionMovieData, dramaMovieData}) => {
       
-    const movie = movieData.map((movie, index) => (
-        <div key={index}>{movie.title}</div>
+    const actionMovies = actionMovieData.map((movie, index) => (
+        <div key={index}>
+            <img className="action-movie-img" src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} alt="" />
+        </div>
+        // <div key={index} className="action-movies-title">{movie.title}</div>
+    ))
+
+    const dramaMovies = dramaMovieData.map((movie, index)=> (
+        <div key={index}>
+            <img className="drama-movie-img" src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} alt="" />
+        </div>
     ))
     
     return(
         <div className="movieList-component">
-           {movie}
+           {actionMovies} 
+           {dramaMovies}
         </div>
     );
 

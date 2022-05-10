@@ -1,14 +1,20 @@
 import { faMobileRetro } from "@fortawesome/free-solid-svg-icons";
 import { Fragment, useEffect, useState } from "react";
+
 import { apiAction } from "../../models/apiCatalog";
+import { apiDrama } from "../../models/apiCatalog";
+
 import "../../styles/filter.css";
 import MovieList from "./movieList";
 
 const Filter = () => {
   const [genreActionChecked, setGenreActionChecked] = useState(false);
-  const [actionMovies, setActionMovies] = useState([]);
+  const [genreDramaChecked, setGenreDramaChecked] = useState(false);
 
-  const handleGenreChecked = () => {
+  const [actionMovies, setActionMovies] = useState([]);
+  const [dramaMovies, setDramaMovies] = useState([]);
+
+  const handleGenreAction = () => {
     if (!genreActionChecked) {
       setGenreActionChecked(true);
       apiAction(setActionMovies);
@@ -19,6 +25,17 @@ const Filter = () => {
       setActionMovies([]);
     }
   };
+
+  const handleGenreDrama = () => {
+    if (!genreDramaChecked) {
+      setGenreDramaChecked(true);
+      apiDrama(setDramaMovies);
+
+    } else {
+      setGenreDramaChecked(false);
+      setDramaMovies([]);
+    }
+  }
   
   
  
@@ -41,11 +58,18 @@ const Filter = () => {
             className="action-checkbox"
             type="checkbox"
             checked={genreActionChecked}
-            onChange={handleGenreChecked}
+            onChange={handleGenreAction}
           />
           <label className="label-action">Action</label> <br />
-          <input type="checkbox" />
+
+
+          <input className="drama-checkbox"
+           type="checkbox" 
+           checked={genreDramaChecked}
+           onChange={handleGenreDrama}/>
           <label>Drama</label> <br />
+
+          
           <input type="checkbox" />
           <label>Comedy</label> <br />
           <input type="checkbox" />
@@ -59,7 +83,7 @@ const Filter = () => {
         <input type="checkbox" />
         <label>Kids</label>
       </div>
-      <MovieList movieData={actionMovies}/>
+      <MovieList actionMovieData={actionMovies} dramaMovieData={dramaMovies}/>
     </div>
   );
 };
