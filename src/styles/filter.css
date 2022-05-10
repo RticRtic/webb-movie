@@ -4,7 +4,7 @@
   font-size: 1.5rem;
   /* padding-right: 25px; */
   color: white;
-  border-bottom: 5px solid #B51B1B;
+  /* border-bottom: 5px solid #B51B1B; */
   width: fit-content;
   margin-bottom: 1.5rem;
   /* border: solid 2px green; */
@@ -16,12 +16,12 @@
 .filter-component {
   margin: 11vh 0;
   width: 120px;
-  height: 300px;
+  height: 240px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   /* overflow: scroll; */
-  border: solid 2px green;
+  /* border: solid 2px green; */
   
  
   
@@ -29,7 +29,7 @@
 .filter-component .filter-categories .h4-genre {
   margin-top: 10px;
   border-bottom: 5px solid #B51B1B;
-  border: solid 2px blue;
+  /* border: solid 2px blue; */
   
 }
 
@@ -37,6 +37,6 @@
     color: white;
     margin-left: 5px;
     font-size: large;
-    border: solid 2px yellow;
+    /* border: solid 2px yellow; */
      
 }
