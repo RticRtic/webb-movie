@@ -13,9 +13,10 @@ import MovieInfoPage from './components/movie-info/movieInfoPage';
 import Catalog from './components/catalog/Catalog';
 
 
+
 function App() {
 
-
+  // const [catalogMovieList, setcatalogMovieList] = ([]);
   let mediaQuery = window.matchMedia('(max-width: 700px)');
 
   const [device, setDevice] = useState(() => {
@@ -38,6 +39,7 @@ function App() {
   }
   });
 
+  
 
   return (
     <div className="App">

@@ -1,20 +1,42 @@
-.filter-component {
-  margin: 10vh 0;
-  border: solid 2px red;
-  width: 100px;
-  height: 300px;
- 
+.text-filter {
+  margin-left: 10px;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  /* padding-right: 25px; */
+  color: white;
+  border-bottom: 5px solid #B51B1B;
+  width: fit-content;
+  margin-bottom: 1.5rem;
+  /* border: solid 2px green; */
+  
+
   
 }
 
-.text-filter {
-    margin-left: 10px;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    padding-right: 25px;
+.filter-component {
+  margin: 11vh 0;
+  width: 120px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* overflow: scroll; */
+  border: solid 2px green;
+  
+ 
+  
+}
+.filter-component .filter-categories .h4-genre {
+  margin-top: 10px;
+  border-bottom: 5px solid #B51B1B;
+  border: solid 2px blue;
+  
+}
+
+.filter-categories {
     color: white;
-    border-bottom: 5px solid #B51B1B;
-    width: fit-content;
-    margin-bottom: 1.5rem;
-    /* border: solid 2px green; */
+    margin-left: 5px;
+    font-size: large;
+    border: solid 2px yellow;
+     
 }

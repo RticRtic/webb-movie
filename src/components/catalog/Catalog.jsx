@@ -1,10 +1,12 @@
 import Filter from "./filter";
+import MovieList from "./movieList";
 
 const Catalog = ({device}) => {
 
     return(
         <div>
             <Filter />
+           
         </div>
     );
   
