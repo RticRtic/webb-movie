@@ -5,7 +5,8 @@ import { apiAction,
          apiDrama,
          apiComedy,
          apiThriller,
-         apiFamily } from "../../models/apiCatalog";
+         apiFamily,
+         apiPopular } from "../../models/apiCatalog";
 
 import MovieList from "./movieList";
 
@@ -18,12 +19,14 @@ const Filter = () => {
   const [genreComedyChecked, setGenreComedyChecked] = useState(false);
   const [genreThrillerChecked, setGenreThrillerChecked] = useState(false);
   const [genreFamilyChecked, setGenereFamilyChecked] = useState(false);
+  const [genrePopularChecked, setGenrePopularChecked] = useState(false);
 
   const [actionMovies, setActionMovies] = useState([]);
   const [dramaMovies, setDramaMovies] = useState([]);
   const [comedyMovies, setComedyMovies] = useState([]);
   const [thrillerMovies, setThrillerMovies] = useState([]);
   const [familyMovies, setFamilyMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
 
   const handleGenreAction = () => {
     if (!genreActionChecked) {
@@ -78,6 +81,16 @@ const Filter = () => {
       setFamilyMovies([]);
     }
   }
+
+  const handleGenrePopular = () => {
+    if(!genrePopularChecked) {
+        setGenrePopularChecked(true);
+        apiPopular(setPopularMovies)
+    } else {
+      setGenrePopularChecked(false);
+      setPopularMovies([]);
+    }
+  }
   
   return (
     <div className="filter-component">
@@ -129,7 +142,12 @@ const Filter = () => {
         
         <input type="checkbox" />
         <label>Score</label> <br />
-        <input type="checkbox" />
+
+
+        <input className="popular-checkbox"
+         type="checkbox"
+         checked={genrePopularChecked}
+         onChange={handleGenrePopular} />
         <label>Popularity</label> <br />
 
         <div className="header-title-cotainer">
@@ -146,7 +164,8 @@ const Filter = () => {
        dramaMovieData={dramaMovies}
        comedyMovieData={comedyMovies}
        thrillerMovieData={thrillerMovies}
-       familyMovieData={familyMovies}/>
+       familyMovieData={familyMovies}
+       popularMovieData={popularMovies}/>
       
     </div>
   );
