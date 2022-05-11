@@ -73,15 +73,15 @@ const Filter = () => {
           <input type="checkbox" />
           <label>Comedy</label> <br />
           <input type="checkbox" />
-          <label>Thriller</label>
+          <label>Thriller</label> <br />
+          <input type="checkbox" />
+        <label>Kids</label>
         </h4>
         
         <input type="checkbox" />
         <label>Score</label> <br />
         <input type="checkbox" />
         <label>Popularity</label> <br />
-        <input type="checkbox" />
-        <label>Kids</label>
       </div>
       <MovieList actionMovieData={actionMovies} dramaMovieData={dramaMovies}/>
     </div>

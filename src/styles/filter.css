@@ -16,10 +16,12 @@
 .filter-component {
   margin: 11vh 0;
   width: 120px;
-  height: 240px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 10px;
+  
   /* overflow: scroll; */
   /* border: solid 2px green; */
   
@@ -27,7 +29,7 @@
   
 }
 .filter-component .filter-categories .h4-genre {
-  margin-top: 10px;
+  margin-top: 2px;
   border-bottom: 5px solid #B51B1B;
   /* border: solid 2px blue; */
   
@@ -38,5 +40,6 @@
     margin-left: 5px;
     font-size: large;
     /* border: solid 2px yellow; */
+   
      
 }

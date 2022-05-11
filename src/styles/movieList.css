@@ -1,14 +1,17 @@
 .movieList-component {
   /* border: solid 2px red; */
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 
   align-items: center;
   margin-left: 150px;
   position: absolute;
-  height: 380px;
+  height: 650px;
   width: 90%;
   overflow: scroll;
+  
+  
+  
 }
 
 .movieList-component .action-movies-title {
@@ -24,6 +27,8 @@
   cursor: pointer;
   box-shadow: 0 0 0px 1px rgba(0, 0, 0, 1);
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
+  position: relative;
+ 
 }
 
 .movieList-component .action-movie-img:hover,
@@ -35,7 +40,7 @@
   /* border: solid 2px red; */
   height: 20px;
   position: relative;
-  bottom: 45px;
+  bottom: 90px;
   left: 6px;
 }
 
@@ -45,12 +50,12 @@
   width: 55px;
   height: 26px;
   border-top-right-radius: 20px;
-
+  position: relative;
   color: white;
   font-family: "Avenir Book";
 }
 
-.movieList-component .icon-star {
+.movieList-component .action-icon-star {
   color: rgb(142, 3, 3);
   margin-right: 2px;
   margin-left: 2px;
@@ -59,7 +64,7 @@
 .movieList-component .action-movie_price-container {
   height: 20px;
   position: relative;
-  bottom: 80px;
+  bottom: 125px;
   left: 6px;
 }
 
@@ -77,7 +82,7 @@
   /* border: solid 2px red; */
 }
 
-.movieList-component .icon-price {
+.movieList-component .action-icon-price {
   color: rgb(142, 3, 3);
   font-size: 15px;
   padding-right: 2px;
@@ -86,7 +91,7 @@
 .movieList-component .action-movie-title-release-date-container {
   /* border: solid 2px yellow; */
   position: relative;
-  bottom: 60px;
+  bottom: 110px;
   left: 8px;
 }
 
@@ -96,4 +101,31 @@
   position: absolute;
   color: white;
   font-size: 15px;
+}
+
+.movieList-component .action-shoppingcart-container {
+  position: relative;
+  bottom: 310px;
+  margin-left: 6.5px;
+  background-color: #c01a1ab4;
+  font-size: 18px;
+  width: 45px;
+  height: 45px;
+  border-bottom-right-radius: 25px;
+  cursor: pointer;
+  
+  
+}
+
+.movieList-component .action-shoppingcart-container:hover {
+  background-color: #aa3b3ba5;
+}
+
+.movieList-component .action-icon-shoppingcart {
+  color: white;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  
+ 
 }
