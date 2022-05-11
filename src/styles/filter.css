@@ -22,6 +22,7 @@
   align-items: flex-start;
   margin-left: 10px;
   
+  
   /* overflow: scroll; */
   /* border: solid 2px green; */
   
@@ -40,6 +41,24 @@
     margin-left: 5px;
     font-size: large;
     /* border: solid 2px yellow; */
+    
    
      
 }
+
+.filter-component .header-title-cotainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+
+.filter-component .header-title-action, .header-title-drama, .header-title-comedy,
+.header-title-thriller, .header-title-family {
+  font-family: "Avenir Book";
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+

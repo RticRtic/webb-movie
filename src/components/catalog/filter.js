@@ -131,6 +131,15 @@ const Filter = () => {
         <label>Score</label> <br />
         <input type="checkbox" />
         <label>Popularity</label> <br />
+
+        <div className="header-title-cotainer">
+          <h3 className="header-title-action">{genreActionChecked ? "ACTION" : ""}</h3>
+          <h3 className="header-title-drama">{genreDramaChecked ? "DRAMA" : ""}</h3>
+          <h3 className="header-title-comedy">{genreComedyChecked ? "COMEDY" : ""}</h3>
+          <h3 className="header-title-thriller">{genreThrillerChecked ? "THRILLER" : ""}</h3>
+          <h3 className="header-title-family">{genreFamilyChecked ? "FAMILY" : ""}</h3>
+        </div>
+
       </div>
       <MovieList 
        actionMovieData={actionMovies}
