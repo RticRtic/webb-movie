@@ -1,18 +1,29 @@
 import { faMobileRetro } from "@fortawesome/free-solid-svg-icons";
 import { Fragment, useEffect, useState } from "react";
 
-import { apiAction } from "../../models/apiCatalog";
-import { apiDrama } from "../../models/apiCatalog";
+import { apiAction,
+         apiDrama,
+         apiComedy,
+         apiThriller,
+         apiFamily } from "../../models/apiCatalog";
+
+import MovieList from "./movieList";
 
 import "../../styles/filter.css";
-import MovieList from "./movieList";
+
 
 const Filter = () => {
   const [genreActionChecked, setGenreActionChecked] = useState(false);
   const [genreDramaChecked, setGenreDramaChecked] = useState(false);
+  const [genreComedyChecked, setGenreComedyChecked] = useState(false);
+  const [genreThrillerChecked, setGenreThrillerChecked] = useState(false);
+  const [genreFamilyChecked, setGenereFamilyChecked] = useState(false);
 
   const [actionMovies, setActionMovies] = useState([]);
   const [dramaMovies, setDramaMovies] = useState([]);
+  const [comedyMovies, setComedyMovies] = useState([]);
+  const [thrillerMovies, setThrillerMovies] = useState([]);
+  const [familyMovies, setFamilyMovies] = useState([]);
 
   const handleGenreAction = () => {
     if (!genreActionChecked) {
@@ -36,22 +47,45 @@ const Filter = () => {
       setDramaMovies([]);
     }
   }
-  
-  
- 
 
+  const handleGenreComedy = () => {
+    if(!genreComedyChecked) {
+      setGenreComedyChecked(true)
+      apiComedy(setComedyMovies)
+    } else {
+      setGenreComedyChecked(false)
+      setComedyMovies([]);
+    }
+  }
+
+  const handleGenreThriller = () => {
+    if(!genreThrillerChecked) {
+      setGenreThrillerChecked(true);
+      apiThriller(setThrillerMovies)
+      
+    } else {
+      setGenreThrillerChecked(false)
+      setThrillerMovies([]);
+    }
+  }
+
+  const handleGenreFamily = () => {
+    if(!genreFamilyChecked) {
+      setGenereFamilyChecked(true);
+      apiFamily(setFamilyMovies)
+    } else {
+      setGenereFamilyChecked(false);
+      setFamilyMovies([]);
+    }
+  }
+  
   return (
     <div className="filter-component">
       <div className="text-filter">
         <header>Filter</header>
       </div>
       <div className="filter-categories">
-        {/* <input
-          className="genre-checkbox"
-          type="checkbox"
-          checked={genreChecked}
-          onChange={handleGenreChecked}
-        /> */}
+      
         <h4 className="h4-genre">
           Genre <br />
           <input
@@ -70,12 +104,27 @@ const Filter = () => {
           <label>Drama</label> <br />
 
           
-          <input type="checkbox" />
+          <input className="comedy-checkbox"
+           type="checkbox"
+           checked={genreComedyChecked}
+           onChange={handleGenreComedy} />
           <label>Comedy</label> <br />
-          <input type="checkbox" />
+
+
+          <input className="thriller-checkbox"
+           type="checkbox"
+           checked={genreThrillerChecked}
+           onChange={handleGenreThriller} />
           <label>Thriller</label> <br />
-          <input type="checkbox" />
-        <label>Kids</label>
+
+
+          <input className="family-checkbox"
+           type="checkbox"
+           checked={genreFamilyChecked}
+           onChange={handleGenreFamily} />
+          <label>Family</label>
+
+
         </h4>
         
         <input type="checkbox" />
@@ -83,7 +132,13 @@ const Filter = () => {
         <input type="checkbox" />
         <label>Popularity</label> <br />
       </div>
-      <MovieList actionMovieData={actionMovies} dramaMovieData={dramaMovies}/>
+      <MovieList 
+       actionMovieData={actionMovies}
+       dramaMovieData={dramaMovies}
+       comedyMovieData={comedyMovies}
+       thrillerMovieData={thrillerMovies}
+       familyMovieData={familyMovies}/>
+      
     </div>
   );
 };
