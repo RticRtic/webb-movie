@@ -14,7 +14,8 @@ const MovieList = ({
   comedyMovieData,
   thrillerMovieData,
   familyMovieData,
-  popularMovieData
+  topScoreMovieData,
+  popularMovieData,
 }) => {
   const actionMovies = actionMovieData.map((movie, index) => (
     <div key={index}>
@@ -150,7 +151,7 @@ const MovieList = ({
         </article>
       </div>
     </div>
-  ))
+  ));
 
   const familyMovies = familyMovieData.map((movie, index) => (
     <div key={index}>
@@ -184,7 +185,41 @@ const MovieList = ({
         </article>
       </div>
     </div>
-  ))
+  ));
+
+  const topScoreMovies = topScoreMovieData.map((movie, index) => (
+    <div key={index}>
+      <img
+        className="movie-img"
+        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+        alt=""
+      />
+      <div className="shoppingcart-container">
+        <i className="icon-shoppingcart">
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </i>
+      </div>
+      <div className="movie-vote_average-container">
+        <p className="movie-vote_average">
+          <FontAwesomeIcon className="icon-star" icon={faStar} />
+          {movie.vote_average}
+        </p>
+      </div>
+      <div className="movie_price-container">
+        <p className="movie-price">
+          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
+          99.9
+        </p>
+      </div>
+      <div className="movie-title-release-date-container">
+        <article className="movie-title-release-date">
+          {movie.title}
+          <br />
+          {movie.release_date}
+        </article>
+      </div>
+    </div>
+  ));
 
   const popularMovies = popularMovieData.map((movie, index) => (
     <div key={index}>
@@ -218,7 +253,7 @@ const MovieList = ({
         </article>
       </div>
     </div>
-  ))
+  ));
 
   return (
     <div className="movieList-component">
@@ -227,6 +262,7 @@ const MovieList = ({
       {comedyMovies}
       {thrillerMovies}
       {familyMovies}
+      {topScoreMovies}
       {popularMovies}
     </div>
   );

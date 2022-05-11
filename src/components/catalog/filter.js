@@ -6,7 +6,8 @@ import { apiAction,
          apiComedy,
          apiThriller,
          apiFamily,
-         apiPopular } from "../../models/apiCatalog";
+         apiPopular,
+         apiTopScore } from "../../models/apiCatalog";
 
 import MovieList from "./movieList";
 
@@ -20,6 +21,7 @@ const Filter = () => {
   const [genreThrillerChecked, setGenreThrillerChecked] = useState(false);
   const [genreFamilyChecked, setGenereFamilyChecked] = useState(false);
   const [genrePopularChecked, setGenrePopularChecked] = useState(false);
+  const [genreTopScoreChecked, setGenreTopScoreChecked] = useState(false);
 
   const [actionMovies, setActionMovies] = useState([]);
   const [dramaMovies, setDramaMovies] = useState([]);
@@ -27,6 +29,7 @@ const Filter = () => {
   const [thrillerMovies, setThrillerMovies] = useState([]);
   const [familyMovies, setFamilyMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
+  const [topScoreMovies, setTopScoreMovies] = useState([]);
 
   const handleGenreAction = () => {
     if (!genreActionChecked) {
@@ -91,6 +94,16 @@ const Filter = () => {
       setPopularMovies([]);
     }
   }
+
+  const handleGenreTopScore = () => {
+    if(!genreTopScoreChecked) {
+        setGenreTopScoreChecked(true);
+        apiTopScore(setTopScoreMovies);
+    } else {
+      setGenreTopScoreChecked(false);
+      setTopScoreMovies([]);
+    }
+  }
   
   return (
     <div className="filter-component">
@@ -140,7 +153,10 @@ const Filter = () => {
 
         </h4>
         
-        <input type="checkbox" />
+        <input className="score-checkbox" 
+         type="checkbox"
+         checked={genreTopScoreChecked}
+         onChange={handleGenreTopScore} />
         <label>Score</label> <br />
 
 
@@ -165,6 +181,7 @@ const Filter = () => {
        comedyMovieData={comedyMovies}
        thrillerMovieData={thrillerMovies}
        familyMovieData={familyMovies}
+       topScoreMovieData={topScoreMovies}
        popularMovieData={popularMovies}/>
       
     </div>

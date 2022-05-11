@@ -59,6 +59,17 @@ export const apiFamily = async (setFamilyMovies) => {
   }
 }
 
+export const apiTopScore = async(setTopScore) => {
+  try{
+    let url = "https://api.themoviedb.org/3/movie/top_rated?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US&page=1";
+    const response = await fetch(url);
+    const data = await response.json();
+    setTopScore(data.results);
+  } catch {
+    return[];
+  }
+}
+
 export const apiPopular = async(setPopularMovies) => {
   try {
     let url = "https://api.themoviedb.org/3/movie/popular?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US&page=1";
