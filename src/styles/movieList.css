@@ -14,13 +14,12 @@
   
 }
 
-.movieList-component .action-movies-title {
+.movieList-component .movies-title {
   font-family: Avenir;
   color: white;
 }
 
-.movieList-component .action-movie-img,
-.drama-movie-img {
+.movieList-component .movie-img {
   height: 300px;
   margin-top: 8px;
   margin-left: 8px;
@@ -31,12 +30,11 @@
  
 }
 
-.movieList-component .action-movie-img:hover,
-.drama-movie-img:hover {
+.movieList-component .movie-img:hover {
   transform: scale(102%);
 }
 
-.movieList-component .action-movie-vote_average-container {
+.movieList-component .movie-vote_average-container {
   /* border: solid 2px red; */
   height: 20px;
   position: relative;
@@ -44,7 +42,7 @@
   left: 6px;
 }
 
-.movieList-component .action-movie-vote_average {
+.movieList-component .movie-vote_average {
   background-color: rgba(0, 0, 0, 0.75);
 
   width: 55px;
@@ -55,20 +53,20 @@
   font-family: "Avenir Book";
 }
 
-.movieList-component .action-icon-star {
+.movieList-component .icon-star {
   color: rgb(142, 3, 3);
   margin-right: 2px;
   margin-left: 2px;
 }
 
-.movieList-component .action-movie_price-container {
+.movieList-component .movie_price-container {
   height: 20px;
   position: relative;
   bottom: 125px;
   left: 6px;
 }
 
-.movieList-component .action-movie-price {
+.movieList-component .movie-price {
   background-color: rgba(0, 0, 0, 0.75);
 
   width: 55px;
@@ -82,20 +80,20 @@
   /* border: solid 2px red; */
 }
 
-.movieList-component .action-icon-price {
+.movieList-component .icon-price {
   color: rgb(142, 3, 3);
   font-size: 15px;
   padding-right: 2px;
 }
 
-.movieList-component .action-movie-title-release-date-container {
+.movieList-component .movie-title-release-date-container {
   /* border: solid 2px yellow; */
   position: relative;
   bottom: 110px;
   left: 8px;
 }
 
-.movieList-component .action-movie-title-release-date {
+.movieList-component .movie-title-release-date {
   /* border: solid 2px red; */
   height: 40px;
   position: absolute;
@@ -103,7 +101,7 @@
   font-size: 15px;
 }
 
-.movieList-component .action-shoppingcart-container {
+.movieList-component .shoppingcart-container {
   position: relative;
   bottom: 310px;
   margin-left: 6.5px;
@@ -117,11 +115,11 @@
   
 }
 
-.movieList-component .action-shoppingcart-container:hover {
+.movieList-component .shoppingcart-container:hover {
   background-color: #aa3b3ba5;
 }
 
-.movieList-component .action-icon-shoppingcart {
+.movieList-component .icon-shoppingcart {
   color: white;
   position: absolute;
   left: 8px;
