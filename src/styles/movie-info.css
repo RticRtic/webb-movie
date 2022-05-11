@@ -74,12 +74,6 @@
     margin-left: 10px;
 }
 
-.info_date_time {
-    margin: 5px 0;
-    font-weight: lighter;
-    font-size: 1rem;
-}
-
 .movie_info_overview {
     width: 85%;
     text-shadow: 0 0 3px black;
@@ -131,7 +125,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 15px;
-
+    font-size: 1.1rem;
 
 }
 
@@ -147,6 +141,49 @@
 .movie_info_section div h2 span {
     font-size: 1.2rem;
     margin-left: 10px;
+}
+
+.trailer_button {
+    color: white;
+    padding: 5px 10px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.55);
+    font-size: 1.2rem;
+    font-weight: bolder;
+    transition: 0.2s;
+    cursor: pointer;
+    margin: 0;
+    margin-top: 15px;
+    width: fit-content;
+    background-color: #B51B1B;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    border-radius: 50px;
+}
+
+.trailer_button:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+.mobile_time_rating {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    gap: 5px;
+    margin-top: 15px;
+    overflow: hidden;
+    
+
+}
+
+.mobile_time_rating aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 95%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.326);
+    background-color: #2e2e2e;
+    border-radius: 5px;
+    font-size: 1.3rem;
 }
 
 
@@ -180,6 +217,14 @@
 
     .movie_info_section div h2 {
         font-size: 1.5rem;
+    }
+
+    .trailer_button_container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 }

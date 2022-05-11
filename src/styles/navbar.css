@@ -59,6 +59,7 @@ li {
     padding: 0 25px;
     border-bottom: 3px solid transparent;
     border-radius: 10px;
+    transition: 0.3s;
 }
 
 .web_navholder li:hover {

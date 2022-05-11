@@ -1,46 +1,52 @@
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Fragment, useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import { fetchSelected } from '../../models/apiModel';
+import { Fragment, useState } from 'react';
 import { convertMinutes, splitDate } from '../../models/constants';
 import '../../styles/movie-info.css';
+import MovieTrailer from './movieTrailer';
 
 
-const MovieHeader = ({device}) => {
-
-    const [currentMovie, setCurrentMovie] = useState(null)
-
-    let params = useParams();
-    let location = useLocation();
-
-    useEffect(() => {
-        if('id' in params) {
-            fetchSelected(params.id, setCurrentMovie);
-        }
-    },[location])
+const MovieHeader = ({device, currentMovie, playTrailer}) => {
 
 
     const WebHeaderContent = () => {
 
-        return (
-            <section>
-                <h2>
-                    {currentMovie.title} <span><FontAwesomeIcon icon={faStar} style={{color: '#B51B1B'}}/> {currentMovie.vote_average}</span>
-                </h2>
-                <span className='info_date_time'>{splitDate(currentMovie.release_date)} • {convertMinutes(currentMovie.runtime)}</span>
-                <div className='movie_info_overview'>
-                    <h3>Overview</h3>
-                    <p>{currentMovie.overview}</p>
-                </div>
-                <div className='movie_info_purchase'>
-                    <h2>$9.99</h2>
-                    <article>In Stock</article>
-                    <button className='movie_info_addToCart'>ADD TO CART</button>
-                </div>
-            </section>
-        )
+        if (currentMovie != null) {
+            return (
+                <section>
+                    <h2>
+                        {currentMovie.title} ({splitDate(currentMovie.release_date)})
+                    </h2>
+                    
+                    <span className='info_date_time'>
+                        {convertMinutes(currentMovie.runtime)} <span><FontAwesomeIcon icon={faStar} style={{color: '#B51B1B'}}/> {currentMovie.vote_average}</span>
+                    </span>
+    
+                    <TrailerButton/>
+    
+                    <div className='movie_info_overview'>
+                        <h3>Overview</h3>
+                        <p>{currentMovie.overview}</p>
+                    </div>
+                    <div className='movie_info_purchase'>
+                        <h2>$9.99</h2>
+                        <article>In Stock</article>
+                        <button className='movie_info_addToCart'>ADD TO CART</button>
+                    </div>
+                </section>
+            )
+        }
+        
 
+    };
+
+    const TrailerButton = () => {
+
+        return (
+            <div className='trailer_button_container'>
+                <h3 className='trailer_button' onClick={playTrailer}> <FontAwesomeIcon icon={faPlay}/> Play Trailer </h3>
+            </div>
+        )
     };
 
 
@@ -48,6 +54,7 @@ const MovieHeader = ({device}) => {
         return (
 
             <Fragment>
+
             <div className='movie_info_header'>
     
                 <img src={'https://image.tmdb.org/t/p/original/' + (currentMovie.backdrop_path)}/>
@@ -60,14 +67,14 @@ const MovieHeader = ({device}) => {
 
 
                         {/* WEB VERSION */}
-                        {(device == 'web') ?
+                        {(device == 'web' && currentMovie != null) ?
                         (
                             <WebHeaderContent/>
                         
                         )
                         :
                         (
-                            null
+                            <TrailerButton/>
                         )
                     }
     
@@ -77,14 +84,23 @@ const MovieHeader = ({device}) => {
     
             </div>
 
-            {(device == 'mobile') ? 
+            {(device == 'mobile' && currentMovie != null) ? 
             (
+                <Fragment>
                 <section className='movie_info_section'>
                     <div>
                         <h2>
-                            {currentMovie.title} <span><FontAwesomeIcon icon={faStar} style={{color: '#B51B1B'}}/> {currentMovie.vote_average}</span>
+                            {currentMovie.title} ({splitDate(currentMovie.release_date)})
                         </h2>
-                        <span className='info_date_time'>{splitDate(currentMovie.release_date)} • {convertMinutes(currentMovie.runtime)}</span>
+                        <section className='mobile_time_rating'>
+                            <aside>
+                                <span>{convertMinutes(currentMovie.runtime)}</span>
+                            </aside>
+                            <aside>
+                                <span><FontAwesomeIcon icon={faStar} style={{color: '#B51B1B'}}/> {currentMovie.vote_average}</span>
+                            </aside>
+                        </section>
+                        
                         <div className='movie_info_purchase'>
                         <h2>$9.99</h2>
                         <article>In Stock</article>
@@ -93,6 +109,15 @@ const MovieHeader = ({device}) => {
                         
                     </div>
                 </section>
+
+                <section className='movie_info_section'>
+
+                    <div>
+                        {currentMovie.overview}
+                    </div>
+
+                </section>
+                </Fragment>
             )
             :
             (
