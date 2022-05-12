@@ -5,6 +5,8 @@ import dramaLogo from "../../img/dramaLogo.jpg";
 import comedyLogo from "../../img/comedyLogo.jpg";
 import thrillerLogo from "../../img/thrillerLogo.jpg";
 import familyLogo from "../../img/familyLogo.jpg";
+import topScoreLogo from "../../img/topScoreLogo.jpg"
+import popularLogo from "../../img/popularLogo.jpg";
 import {
   apiAction,
   apiDrama,
@@ -225,75 +227,7 @@ const Filter = () => {
   }
 
 
-  const handleGenreAction = () => {
-    if (!genreActionChecked) {
-      setGenreActionChecked(true);
-      apiAction(setActionMovies);
-    } else {
-      setGenreActionChecked(false);
-      setActionMovies([]);
-    }
-  };
-
-  const handleGenreDrama = () => {
-    if (!genreDramaChecked) {
-      setGenreDramaChecked(true);
-      apiDrama(setDramaMovies);
-    } else {
-      setGenreDramaChecked(false);
-      setDramaMovies([]);
-    }
-  };
-
-  const handleGenreComedy = () => {
-    if (!genreComedyChecked) {
-      setGenreComedyChecked(true);
-      apiComedy(setComedyMovies);
-    } else {
-      setGenreComedyChecked(false);
-      setComedyMovies([]);
-    }
-  };
-
-  const handleGenreThriller = () => {
-    if (!genreThrillerChecked) {
-      setGenreThrillerChecked(true);
-      apiThriller(setThrillerMovies);
-    } else {
-      setGenreThrillerChecked(false);
-      setThrillerMovies([]);
-    }
-  };
-
-  const handleGenreFamily = () => {
-    if (!genreFamilyChecked) {
-      setGenereFamilyChecked(true);
-      apiFamily(setFamilyMovies);
-    } else {
-      setGenereFamilyChecked(false);
-      setFamilyMovies([]);
-    }
-  };
-
-  const handleGenrePopular = () => {
-    if (!genrePopularChecked) {
-      setGenrePopularChecked(true);
-      apiPopular(setPopularMovies);
-    } else {
-      setGenrePopularChecked(false);
-      setPopularMovies([]);
-    }
-  };
-
-  const handleGenreTopScore = () => {
-    if (!genreTopScoreChecked) {
-      setGenreTopScoreChecked(true);
-      apiTopScore(setTopScoreMovies);
-    } else {
-      setGenreTopScoreChecked(false);
-      setTopScoreMovies([]);
-    }
-  };
+  
 
   return (
     <div className="filter-component">
@@ -344,6 +278,23 @@ const Filter = () => {
               onClick={checkValueInGenreStateFamily}
               style={{opacity : genreFamilyChecked ? 1 : 0.5}}
             />
+            <img
+              src={topScoreLogo}
+              alt="logo"
+              className="topScoreLogo"
+              onClick={checkValueInGenreStateTopScore}
+              style={{opacity : genreTopScoreChecked ? 1 : 0.5}}
+              
+            />
+            <img
+              src={popularLogo}
+              alt="logo"
+              className="popularLogo"
+              // 
+              onClick={checkValueInGenreStatePopular}
+              style={{opacity : genrePopularChecked ? 1 : 0.5}}
+            />
+
           </div>
           <div className="label-action-container">
             <label className="label-action"
@@ -358,36 +309,30 @@ const Filter = () => {
 
           <div className="label-comedy-container">
             <label className="label-comedy" 
-             onClick={handleGenreComedy ? handleGenreComedy : null}>Comedy</label>
+             onClick={checkValueInGenreStateComedy}>Comedy</label>
           </div>
 
           <div className="label-thriller-container">
             <label className="label-thriller"
-             onClick={handleGenreThriller ? handleGenreThriller : null}>Thriller</label>
+             onClick={checkValueInGenreStateThriller}>Thriller</label>
           </div>
 
           <div className="label-family-container">
             <label className="label-family"
-             onClick={handleGenreFamily ? handleGenreFamily : null}>Family</label>
+             onClick={checkValueInGenreStateFamily}>Family</label>
           </div>
-          <div className="score-popular-container">
-          <input
-          className="score-checkbox"
-          type="checkbox"
-          onClick={checkValueInGenreStateTopScore}
-          
-        />
-        <label>Top Score</label> <br />
-        <input
-          className="popular-checkbox"
-          type="checkbox"
-          onClick={checkValueInGenreStatePopular}
-        />
-        <label>Popularity</label> <br />
 
-            
+          <div className="label-topScore-container">
+            <label className="label-topScore"
+             onClick={checkValueInGenreStateTopScore}>Top Score</label>
+             
           </div>
-          
+
+          <div className="label-popular-container">
+            <label className="label-popular"
+             onClick={checkValueInGenreStatePopular}>Popular</label>
+             
+          </div> 
         </h4>
 
         

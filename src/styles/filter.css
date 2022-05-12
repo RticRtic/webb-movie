@@ -20,7 +20,6 @@
     margin-left: 5px;
     font-size: large;
    
-     
 }
 
 
@@ -32,9 +31,10 @@
  
 }
 
-.filter-component .actionLogo, .dramaLogo, .comedyLogo, .thrillerLogo, .familyLogo {
+.filter-component .actionLogo, .dramaLogo, .comedyLogo, .thrillerLogo, .familyLogo,
+.topScoreLogo, .popularLogo {
   width: 150px;
-  height: 100px;
+  height: 91px;
   cursor: pointer;
   border-radius: 2px;
   opacity: 0.5;
@@ -44,13 +44,19 @@
 }
 
 .filter-component .actionLogo:hover, .dramaLogo:hover,
-.comedyLogo:hover, .thrillerLogo:hover, .familyLogo:hover {
+.comedyLogo:hover, .thrillerLogo:hover, .familyLogo:hover, .topScoreLogo:hover,
+.popularLogo:hover {
   transform: scale(102%);
+  cursor: pointer;
+}
+.filter-component .label-action:hover , .label-drama:hover, .label-comedy:hover,
+.label-thriller:hover, .label-family:hover, .label-topScore:hover, .label-popular:hover {
+  cursor: pointer;
 }
 
 .filter-component .label-action-container {
   position: relative;
-  bottom: 530px;
+  bottom: 695px;
   text-align: center;
   
  
@@ -59,38 +65,52 @@
 .filter-component .label-drama-container {
   
   position: relative;
-  bottom: 440px;
+  bottom: 615px;
   text-align: center;
   
 }
 
 .filter-component .label-comedy-container {
   position: relative;
-  bottom: 360px;
+  bottom: 540px;
   text-align: center;
 }
 
 
 .filter-component .label-thriller-container {
   position: relative;
-  bottom: 270px;
+  bottom: 460px;
   text-align: center;
 }
 
 .filter-component .label-family-container {
   position: relative;
-  bottom: 190px;
+  bottom: 385px;
   text-align: center;
 }
 
-.filter-component .label-action:hover , .label-drama:hover, .label-comedy:hover,
-.label-thriller:hover, .label-family:hover {
-  cursor: pointer;
+.filter-component .label-topScore-container {
+  position: relative;
+  bottom: 310px;
+  text-align: center;
 }
 
-.filter-component .score-popular-container {
+.filter-component .label-popular-container {
+  position: relative;
+  bottom: 235px;
+  text-align: center;
+}
+
+
+
+/* .filter-component .score-popular-container {
   position: absolute;
   bottom: 180px;
   
-}
+} */
+
+
+
+
+
 
