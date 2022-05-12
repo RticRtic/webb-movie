@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {Swiper, SwiperSlide} from "swiper/react";
 import '../../styles/trending-movies.css';
 import '../../styles/fa-icons.css'
-import 'swiper/css';
+//import 'swiper/css';
+
+
+import 'swiper/swiper-bundle.min.css'
+//import 'swiper/swiper.min.css'
+
 import { fetchTrending } from '../../models/apiModel';
 import { faShoppingCart, faStar, faDollarSign, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
