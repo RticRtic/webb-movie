@@ -8,7 +8,7 @@ const removeMovie = createAction('remove movie');
 
 const actions = {addMovie, removeMovie};
 
-const initialState = [{title: 'batman', id: '3'},{title: 'watchmen', id: '5'}]
+const initialState = [];
 
 
 
