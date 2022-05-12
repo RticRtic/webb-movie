@@ -16,7 +16,7 @@
     justify-content: flex-end;
     align-items: center;
     box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid black;
 }
 
 .movie_info_header img {
@@ -75,9 +75,11 @@
 }
 
 .movie_info_overview {
-    width: 85%;
+    width: 90%;
+    height: 100%;
     text-shadow: 0 0 3px black;
     color: rgb(214, 214, 214);
+    overflow-y: scroll;
 }
 
 .movie_info_purchase {

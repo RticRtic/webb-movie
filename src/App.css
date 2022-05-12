@@ -1,6 +1,7 @@
 
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px !important;
 }
 
 ::-webkit-scrollbar-track {
@@ -8,7 +9,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
+  background: #B51B1B;
   border-radius: 25px;
 }
 
@@ -29,7 +30,7 @@ html {
   font-size: 1.5rem;
   padding-right: 25px;
   color: white;
-  border-bottom: 5px solid #B51B1B;
+  border-bottom: 3px solid #B51B1B;
   width: fit-content;
   margin: 15px;
 }

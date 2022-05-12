@@ -36,13 +36,45 @@ export async function fetchSelected(movieId, setCurrentMovie) {
 
 }
 
+export async function fetchSelectedCast(movieId, setCurrentMovieCast) {
+
+
+    fetch(baseUrl + 'movie/' + movieId + '/credits?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US')
+    .then(res => res.json())
+    .then(data => {
+
+        let movieCast = [];
+
+        for(let member of data.cast) {
+            if(member.known_for_department === "Acting") {
+                movieCast.push(member)
+            }
+        }
+
+        for(let member of data.crew) {
+            if(member.known_for_department == "Directing") {
+                movieCast.push(member)
+            }
+        }
+        // let movieCast = data.cast.filter((member) => member.known_for_department === "Acting" || member.known_for_department === "Directing");
+
+        setCurrentMovieCast(movieCast);
+        
+
+        
+
+    })
+    .catch(err => console.log(err));
+
+}
+
 export async function fetchSelectedCollection(collectionId, setCurrentMovieCollection) {
 
 
     fetch(baseUrl + 'collection/' + collectionId + '?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US')
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+
         setCurrentMovieCollection(data);
     })
     .catch(err => console.log(err));
