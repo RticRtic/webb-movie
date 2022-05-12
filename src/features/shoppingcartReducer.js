@@ -8,13 +8,26 @@ const removeMovie = createAction('remove movie');
 
 const actions = {addMovie, removeMovie};
 
-const initialState = [];
+const initialState = []
 
 
 
 const reducer = createReducer(initialState, {
 
-    [addMovie] : (state, action) => ([...state, action.payload]),
+    [addMovie] : (state, action) => {
+        const found = state.find(cartItem => cartItem.id === action.payload.id);
+        if ( found ) {
+
+            return;
+
+        } else {
+            
+            return [ 
+                    ...state,
+                    action.payload
+                ]
+        }
+    },
 
     [removeMovie] : (state, action) => (state.filter(movie => movie.id != action.payload))
 

@@ -17,10 +17,13 @@ function App() {
 
   const [shoppingCartActive, setShoppingCartActive] = useState(false);
 
+
   const toggleShoppingCart = () => {
     setShoppingCartActive(!shoppingCartActive);
     console.log('toggled cart');
   };
+
+  
 
   let mediaQuery = window.matchMedia('(max-width: 700px)');
 
@@ -47,9 +50,10 @@ function App() {
 
   return (
     <div className="App">
+      
       {(shoppingCartActive) ? 
       (
-        <ShoppingCart/>
+        <ShoppingCart device={device} toggleShoppingCart={toggleShoppingCart}/>
       )
       :
       (

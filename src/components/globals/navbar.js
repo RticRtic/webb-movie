@@ -17,14 +17,16 @@ import {
 import SearchBar from "./searchBar";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ShoppingCart from "./shoppingCart";
 
-const NavigationBar = ({ device, toggleShoppingCart }) => {
+const NavigationBar = ({ device, toggleShoppingCart}) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
   let cartProducts = useSelector(state => state.shoppingCart);
 
   let location = useLocation();
+
 
   const toggleSearch = () => {
     setIsSearching(!isSearching);
@@ -96,6 +98,7 @@ const NavigationBar = ({ device, toggleShoppingCart }) => {
           </section>
         </div>
       </nav>
+
     </div>
   ) : (
     //Navigation Bar - Mobile
@@ -124,7 +127,7 @@ const NavigationBar = ({ device, toggleShoppingCart }) => {
             />
           </li>
           <li className="shopping_cart_holder">
-            <FontAwesomeIcon icon={faCartShopping} className="nav_icon" />
+            <FontAwesomeIcon icon={faCartShopping} className="nav_icon" onClick={toggleShoppingCart} />
             {(cartProducts.length > 0) ? (<span className="cart_icon_total">{cartProducts.length}</span>) : (null)}
           </li>
         </nav>
@@ -134,6 +137,7 @@ const NavigationBar = ({ device, toggleShoppingCart }) => {
 
       
       <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+
 
     </Fragment>
   );
