@@ -36,6 +36,21 @@ export async function fetchSelected(movieId, setCurrentMovie) {
 
 }
 
+export async function fetchSelectedCollection(collectionId, setCurrentMovieCollection) {
+
+
+    fetch(baseUrl + 'collection/' + collectionId + '?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        setCurrentMovieCollection(data);
+    })
+    .catch(err => console.log(err));
+
+
+}
+
+
 export async function fetchSelectedTrailer(movieId, setMovieTrailer) {
 
 
@@ -46,7 +61,6 @@ export async function fetchSelectedTrailer(movieId, setMovieTrailer) {
         let trailer = data.results.filter((video) => video.type === "Trailer");
 
         if(trailer.length > 0) {
-            console.log(trailer[0]);
             setMovieTrailer(trailer[0]);
         }
 

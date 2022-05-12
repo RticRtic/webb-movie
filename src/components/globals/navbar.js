@@ -15,13 +15,14 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./searchBar";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const NavigationBar = ({ device }) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
   let location = useLocation();
+  let navigate = useNavigate();
 
   const toggleSearch = () => {
     setIsSearching(!isSearching);
@@ -49,8 +50,8 @@ const NavigationBar = ({ device }) => {
               />
             </li>
           </header>
-          <li className="dropdown_item">
-            <FontAwesomeIcon icon={faHouse} className="nav_icon" />
+          <li className="dropdown_item" onClick={() => navigate('/')}>
+            <FontAwesomeIcon icon={faHouse} className="nav_icon"  />
             Home
           </li>
           <li className="dropdown_item">
@@ -75,7 +76,7 @@ const NavigationBar = ({ device }) => {
 
         <div>
           <section className="web_navholder">
-            <li>Home</li>
+            <li onClick={() => navigate('/')} >Home</li>
 
             <li>Catalog</li>
 

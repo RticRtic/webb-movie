@@ -22,16 +22,15 @@ html {
   margin: 0;
   padding: 0;
   background-color: #212121;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .section_title {
-  font-weight: bolder;
   font-size: 1.5rem;
   padding-right: 25px;
   color: white;
   border-bottom: 5px solid #B51B1B;
   width: fit-content;
-  margin-bottom: 1.5rem;
+  margin: 15px;
 }
 
