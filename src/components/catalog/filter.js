@@ -25,16 +25,205 @@ const Filter = () => {
   const [genreComedyChecked, setGenreComedyChecked] = useState(false);
   const [genreThrillerChecked, setGenreThrillerChecked] = useState(false);
   const [genreFamilyChecked, setGenereFamilyChecked] = useState(false);
-  const [genrePopularChecked, setGenrePopularChecked] = useState(false);
   const [genreTopScoreChecked, setGenreTopScoreChecked] = useState(false);
+  const [genrePopularChecked, setGenrePopularChecked] = useState(false);
+  
 
   const [actionMovies, setActionMovies] = useState([]);
   const [dramaMovies, setDramaMovies] = useState([]);
   const [comedyMovies, setComedyMovies] = useState([]);
   const [thrillerMovies, setThrillerMovies] = useState([]);
   const [familyMovies, setFamilyMovies] = useState([]);
-  const [popularMovies, setPopularMovies] = useState([]);
   const [topScoreMovies, setTopScoreMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
+ 
+
+  
+  const stateValueArray = [
+    setGenreActionChecked,
+    setGenreDramaChecked,
+    setGenreComedyChecked,
+    setGenreThrillerChecked,
+    setGenereFamilyChecked
+
+  ];
+
+  const checkValueInGenreStateAction = () => {
+    stateValueArray.forEach((state) => {
+      if(!state.genreActionChecked) {
+        setGenreActionChecked(true);
+        apiAction(setActionMovies)
+
+        setGenreDramaChecked(false);
+        setGenreComedyChecked(false);
+        setGenreThrillerChecked(false);
+        setGenereFamilyChecked(false);
+        setGenreTopScoreChecked(false);
+        setGenrePopularChecked(false);
+
+        setDramaMovies([]);
+        setComedyMovies([]);
+        setThrillerMovies([]);
+        setFamilyMovies([]);
+        setTopScoreMovies([]);
+        setPopularMovies([]);
+
+      } 
+      
+    })
+   
+  }
+
+  const checkValueInGenreStateDrama = () => {
+    stateValueArray.forEach((state) => {
+      if(!state.genreDramaChecked) {
+        setGenreDramaChecked(true);
+        apiDrama(setDramaMovies)
+
+        setGenreActionChecked(false);
+        setGenreComedyChecked(false);
+        setGenreThrillerChecked(false);
+        setGenereFamilyChecked(false);
+        setGenreTopScoreChecked(false);
+        setGenrePopularChecked(false);
+
+        setActionMovies([]);
+        setComedyMovies([]);
+        setThrillerMovies([]);
+        setFamilyMovies([]);
+        setTopScoreMovies([]);
+        setPopularMovies([]);
+      } 
+      
+    })
+   
+  }
+
+  const checkValueInGenreStateComedy = () => {
+    stateValueArray.forEach((state) => {
+      if(!state.genreComedyChecked) {
+        setGenreComedyChecked(true);
+        apiComedy(setComedyMovies)
+
+        setGenreActionChecked(false);
+        setGenreDramaChecked(false);
+        setGenreThrillerChecked(false);
+        setGenereFamilyChecked(false);
+        setGenreTopScoreChecked(false);
+        setGenrePopularChecked(false);
+
+        setActionMovies([]);
+        setDramaMovies([]);
+        setThrillerMovies([]);
+        setFamilyMovies([]);
+        setTopScoreMovies([]);
+        setPopularMovies([]);
+      } 
+      
+    })
+   
+  }
+
+  const checkValueInGenreStateThriller = () => {
+    stateValueArray.forEach((state) => {
+      if(!state.genreThrillerChecked) {
+        setGenreThrillerChecked(true);
+        apiThriller(setThrillerMovies)
+
+        setGenreActionChecked(false);
+        setGenreDramaChecked(false);
+        setGenreComedyChecked(false);
+        setGenereFamilyChecked(false);
+        setGenreTopScoreChecked(false);
+        setGenrePopularChecked(false);
+
+        setActionMovies([]);
+        setDramaMovies([]);
+        setComedyMovies([]);
+        setFamilyMovies([]);
+        setTopScoreMovies([]);
+        setPopularMovies([]);
+      } 
+      
+    })
+   
+  }
+
+  const checkValueInGenreStateFamily = () => {
+    stateValueArray.forEach((state) => {
+      if(!state.genreFamilyChecked) {
+        setGenereFamilyChecked(true);
+        apiFamily(setFamilyMovies)
+
+        setGenreActionChecked(false);
+        setGenreDramaChecked(false);
+        setGenreComedyChecked(false);
+        setGenreThrillerChecked(false);
+        setGenreTopScoreChecked(false);
+        setGenrePopularChecked(false);
+
+        setActionMovies([]);
+        setDramaMovies([]);
+        setComedyMovies([]);
+        setThrillerMovies([]);
+        setTopScoreMovies([]);
+        setPopularMovies([]);
+      } 
+      
+    })
+   
+  }
+
+  const checkValueInGenreStateTopScore = () => {
+    stateValueArray.forEach((state) => {
+      if(!state.genreTopScoreChecked) {
+        setGenreTopScoreChecked(true);
+        apiTopScore(setTopScoreMovies)
+
+        setGenreActionChecked(false);
+        setGenreDramaChecked(false);
+        setGenreComedyChecked(false);
+        setGenreThrillerChecked(false);
+        setGenereFamilyChecked(false);
+        setGenrePopularChecked(false);
+
+        setActionMovies([]);
+        setDramaMovies([]);
+        setComedyMovies([]);
+        setThrillerMovies([]);
+        setFamilyMovies([])
+        setPopularMovies([]);
+      } 
+      
+    })
+   
+  }
+
+  const checkValueInGenreStatePopular = () => {
+    stateValueArray.forEach((state) => {
+      if(!state.genrePopularChecked) {
+        setGenrePopularChecked(true);
+        apiPopular(setPopularMovies)
+
+        setGenreActionChecked(false);
+        setGenreDramaChecked(false);
+        setGenreComedyChecked(false);
+        setGenreThrillerChecked(false);
+        setGenereFamilyChecked(false);
+        setGenreTopScoreChecked(false);
+
+        setActionMovies([]);
+        setDramaMovies([]);
+        setComedyMovies([]);
+        setThrillerMovies([]);
+        setFamilyMovies([])
+        setTopScoreMovies([]);
+      } 
+      
+    })
+   
+  }
+
 
   const handleGenreAction = () => {
     if (!genreActionChecked) {
@@ -121,41 +310,50 @@ const Filter = () => {
               src={actionLogo}
               alt="logo"
               className="actionLogo"
-              onClick={handleGenreAction ? handleGenreAction : null}
+              // 
+              onClick={checkValueInGenreStateAction}
+              style={{opacity : genreActionChecked ? 0.8 : 0.5}}
+              
             />
             <img
               src={dramaLogo}
               alt="logo"
               className="dramaLogo"
-              onClick={handleGenreDrama ? handleGenreDrama : null}
+              // 
+              onClick={checkValueInGenreStateDrama}
+              style={{opacity : genreDramaChecked ? 1 : 0.5}}
             />
             <img
               src={comedyLogo}
               alt="logo"
               className="comedyLogo"
-              onClick={handleGenreComedy ? handleGenreComedy : null}
+              onClick={checkValueInGenreStateComedy}
+              style={{opacity : genreComedyChecked ? 1 : 0.5}}
             />
              <img
               src={thrillerLogo}
               alt="logo"
               className="thrillerLogo"
-              onClick={handleGenreComedy ? handleGenreComedy : null}
+              onClick={checkValueInGenreStateThriller}
+              style={{opacity : genreThrillerChecked ? 1 : 0.5}}
             />
             <img
               src={familyLogo}
               alt="logo"
               className="familyLogo"
-              onClick={handleGenreFamily ? handleGenreFamily : null}
+              onClick={checkValueInGenreStateFamily}
+              style={{opacity : genreFamilyChecked ? 1 : 0.5}}
             />
           </div>
           <div className="label-action-container">
             <label className="label-action"
-             onClick={handleGenreAction ? handleGenreAction : null}>Action</label>
+             onClick={checkValueInGenreStateAction}>Action</label>
+              {/* <h2 className="app_logo"> Movie<span style={{ color: "white" }}>Collector</span></h2> */}
           </div>
 
           <div className="label-drama-container">
             <label className="label-drama"
-             onClick={handleGenreDrama ? handleGenreDrama : null}>Drama</label>
+             onClick={checkValueInGenreStateDrama}>Drama</label>
           </div>
 
           <div className="label-comedy-container">
@@ -176,15 +374,14 @@ const Filter = () => {
           <input
           className="score-checkbox"
           type="checkbox"
-          checked={genreTopScoreChecked}
-          onChange={handleGenreTopScore}
+          onClick={checkValueInGenreStateTopScore}
+          
         />
-        <label>Score</label> <br />
+        <label>Top Score</label> <br />
         <input
           className="popular-checkbox"
           type="checkbox"
-          checked={genrePopularChecked}
-          onChange={handleGenrePopular}
+          onClick={checkValueInGenreStatePopular}
         />
         <label>Popularity</label> <br />
 
@@ -203,6 +400,7 @@ const Filter = () => {
         familyMovieData={familyMovies}
         topScoreMovieData={topScoreMovies}
         popularMovieData={popularMovies}
+        stateArrayData={stateValueArray}
       />
     </div>
   );

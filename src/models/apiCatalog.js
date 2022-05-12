@@ -5,7 +5,6 @@ export const apiAction = async (setActionMovies) => {
     const response = await fetch(url);
     const data = await response.json();
     setActionMovies(data.results);
-    console.log(data);
   } catch (error) {
     return [];
   }

@@ -16,6 +16,7 @@ const MovieList = ({
   familyMovieData,
   topScoreMovieData,
   popularMovieData,
+  stateArrayData
 }) => {
   const actionMovies = actionMovieData.map((movie, index) => (
     <div key={index}>
