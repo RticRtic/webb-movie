@@ -10,17 +10,17 @@ const Catalog = ({device}) => {
         </div>
     );
   
-    // return (device === "web") ? (
-    //     <div>
-    //         <Filter />
-    //     </div>
-    // )
-    // :
-    // (
-    //     <div>
+//     return (device === "web") ? (
+//         <div>
+//             <Filter />
+//         </div>
+//     )
+//     :
+//     (
+//         <div>
             
-    //     </div>
-    // )
+//         </div>
+//     )
 
 };
 

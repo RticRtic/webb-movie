@@ -1,64 +1,96 @@
-.text-filter {
-  margin-left: 10px;
-  font-weight: bolder;
-  font-size: 1.5rem;
-  /* padding-right: 25px; */
-  color: white;
-  border-bottom: 5px solid #B51B1B;
-  width: fit-content;
-  margin-bottom: 1.5rem;
-  /* border: solid 2px green; */
-  
 
-  
-}
 
 .filter-component {
-  margin: 11vh 0;
+  margin: 12vh 0;
   width: 120px;
-  height: 500px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 10px;
-  
-  
-  /* overflow: scroll; */
-  /* border: solid 2px green; */
-  
- 
+  margin-left: 10px; 
   
 }
 .filter-component .filter-categories .h4-genre {
   margin-top: 2px;
-  border-bottom: 5px solid #B51B1B;
-  /* border: solid 2px blue; */
-  
+  height: 550px;
 }
 
 .filter-categories {
     color: white;
     margin-left: 5px;
     font-size: large;
-    /* border: solid 2px yellow; */
-    
    
      
 }
 
-.filter-component .header-title-cotainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+
+.filter-component .img-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
  
+ 
+}
+
+.filter-component .actionLogo, .dramaLogo, .comedyLogo, .thrillerLogo, .familyLogo {
+  width: 150px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0.5;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 1);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
   
 }
 
-.filter-component .header-title-action, .header-title-drama, .header-title-comedy,
-.header-title-thriller, .header-title-family {
-  font-family: "Avenir Book";
-  margin-bottom: 0px;
-  margin-top: 0px;
+.filter-component .actionLogo:hover, .dramaLogo:hover,
+.comedyLogo:hover, .thrillerLogo:hover, .familyLogo:hover {
+  transform: scale(102%);
+}
+
+.filter-component .label-action-container {
+  position: relative;
+  bottom: 530px;
+  text-align: center;
+  
  
 }
+
+.filter-component .label-drama-container {
+  
+  position: relative;
+  bottom: 440px;
+  text-align: center;
+  
+}
+
+.filter-component .label-comedy-container {
+  position: relative;
+  bottom: 360px;
+  text-align: center;
+}
+
+
+.filter-component .label-thriller-container {
+  position: relative;
+  bottom: 270px;
+  text-align: center;
+}
+
+.filter-component .label-family-container {
+  position: relative;
+  bottom: 190px;
+  text-align: center;
+}
+
+.filter-component .label-action:hover , .label-drama:hover, .label-comedy:hover,
+.label-thriller:hover, .label-family:hover {
+  cursor: pointer;
+}
+
+.filter-component .score-popular-container {
+  position: absolute;
+  bottom: 180px;
+  
+}
+

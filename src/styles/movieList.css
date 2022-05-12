@@ -1,14 +1,15 @@
 .movieList-component {
   /* border: solid 2px red; */
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 
   align-items: center;
-  margin-left: 150px;
+  margin-left: 175px;
   position: absolute;
-  height: 650px;
+  height: 730px;
   width: 90%;
   overflow: scroll;
+  top: 104px
   
   
   
@@ -17,6 +18,7 @@
 .movieList-component .movies-title {
   font-family: Avenir;
   color: white;
+  
 }
 
 .movieList-component .movie-img {
