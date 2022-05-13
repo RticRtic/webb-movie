@@ -3,24 +3,24 @@ import MovieList from "./movieList";
 
 const Catalog = ({device}) => {
 
-    // return(
-    //     <div>
-    //         <Filter />
-           
-    //     </div>
-    // );
-  
-    return (device === "web") ? (
+    return(
         <div>
             <Filter />
+           
         </div>
-    )
-    :
-    (
-        <div>
+    );
+  
+    // return (device === "web") ? (
+    //     <div>
+    //         <Filter />
+    //     </div>
+    // )
+    // :
+    // (
+    //     <div>
             
-        </div>
-    )
+    //     </div>
+    // )
 
 };
 
