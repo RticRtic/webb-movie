@@ -69,65 +69,68 @@ const MovieDetails = ({device, currentMovie, currentMovieCollection, currentMovi
 
     const MovieInformation = () => {
 
-        return (
-        <div className='detail_columns'>
-            <ul>
+        if(currentMovie != null && currentMovieCast != null && currentMovieCollection != null) {
+            return (
+                <div className='detail_columns'>
+                    <ul>
+        
+                        <li>Directors</li>
+                        {(currentMovieCast.filter((cast) => cast.known_for_department === "Directing")).map((director) => (
+                        <li key={director.id}> ● {director.name}</li>
+                        ))}
+        
+                    </ul>
+                    
+                    {(currentMovie.tagline == "") ? 
+                    (
+                        null
+                    )
+                    :
+                    (
+                        <ul>
+                            <li>Taglines</li>
+                            <li> ● {currentMovie.tagline}</li>
+                        </ul>
+                    )}
+        
+                    <ul>
+                        <li>Genres</li>
+                        {currentMovie.genres.map((genre) => (
+                            <li key={genre.id}> ● {genre.name}</li>
+                        ))}
+                    </ul>
+        
+                    <ul>
+                        <li>Release Date</li>
+                        <li> ● {currentMovie.release_date}</li>
+                    </ul>
+        
+                    <ul>
+                        <li>Runtime</li>
+                        <li> ● {currentMovie.runtime}m</li>
+                    </ul>
+        
+                    <ul>
+                        <li>Production Company</li>
+                        {currentMovie.production_companies.slice(0,3).map((company) => (
+                            <li key={company.id}> ● {company.name}</li>
+                        ))}
+                    </ul>
+        
+                    <ul>
+                        <li>Budget</li>
+                        <li> ● ${currentMovie.budget}</li>
+                    </ul>
+        
+                    <ul>
+                        <li>Revenue</li>
+                        <li> ● ${currentMovie.revenue}</li>
+                    </ul>
+                                    
+                    </div>
+                )
+        }
 
-                <li>Directors</li>
-                {(currentMovieCast.filter((cast) => cast.known_for_department === "Directing")).map((director) => (
-                <li key={director.id}> ● {director.name}</li>
-                ))}
-
-            </ul>
-            
-            {(currentMovie.tagline == "") ? 
-            (
-                null
-            )
-            :
-            (
-                <ul>
-                    <li>Taglines</li>
-                    <li> ● {currentMovie.tagline}</li>
-                </ul>
-            )}
-
-            <ul>
-                <li>Genres</li>
-                {currentMovie.genres.map((genre) => (
-                    <li key={genre.id}> ● {genre.name}</li>
-                ))}
-            </ul>
-
-            <ul>
-                <li>Release Date</li>
-                <li> ● {currentMovie.release_date}</li>
-            </ul>
-
-            <ul>
-                <li>Runtime</li>
-                <li> ● {currentMovie.runtime}m</li>
-            </ul>
-
-            <ul>
-                <li>Production Company</li>
-                {currentMovie.production_companies.slice(0,3).map((company) => (
-                    <li key={company.id}> ● {company.name}</li>
-                ))}
-            </ul>
-
-            <ul>
-                <li>Budget</li>
-                <li> ● ${currentMovie.budget}</li>
-            </ul>
-
-            <ul>
-                <li>Revenue</li>
-                <li> ● ${currentMovie.revenue}</li>
-            </ul>
-                            
-            </div>
-        )
 
     }
 
