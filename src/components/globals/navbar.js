@@ -15,9 +15,12 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./searchBar";
-import { useLocation } from "react-router-dom";
+
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 import ShoppingCart from "./shoppingCart";
+
 
 const NavigationBar = ({ device, toggleShoppingCart}) => {
   const [dropdownActive, setDropdownActive] = useState(false);
@@ -26,6 +29,7 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
   let cartProducts = useSelector(state => state.shoppingCart);
 
   let location = useLocation();
+  let navigate = useNavigate();
 
 
   const toggleSearch = () => {
@@ -54,8 +58,8 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
               />
             </li>
           </header>
-          <li className="dropdown_item">
-            <FontAwesomeIcon icon={faHouse} className="nav_icon" />
+          <li className="dropdown_item" onClick={() => navigate('/')}>
+            <FontAwesomeIcon icon={faHouse} className="nav_icon"  />
             Home
           </li>
           <li className="dropdown_item">
@@ -80,7 +84,7 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
 
         <div>
           <section className="web_navholder">
-            <li>Home</li>
+            <li onClick={() => navigate('/')} >Home</li>
 
             <li>Catalog</li>
 

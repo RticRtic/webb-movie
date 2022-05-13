@@ -1,3 +1,6 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 import TrendingMovies from "./trendingMovies";
 
 const Home = ({device}) => {

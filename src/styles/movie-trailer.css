@@ -1,0 +1,55 @@
+.movie_trailer_cover {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0;
+}
+
+.movie_trailer_cover i {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.movie_trailer_cover i:hover {
+    color: rgb(101, 101, 101);
+}
+
+.movie_trailer_container {
+    width: 70%;
+    height: 75%;
+}
+
+
+.movie_trailer_container iframe {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+}
+
+@media screen and (max-width: 700px) {
+
+    .movie_trailer_container {
+        width: 90%;
+        height: 33%;
+    }
+
+
+}

@@ -39,7 +39,7 @@ const TrendingMovies = () => {
     :
     (
         <div className="trending_container">
-            <header>Trending Movies</header>
+            <header className="section_title">Trending Movies</header>
             <div>
 
                 
