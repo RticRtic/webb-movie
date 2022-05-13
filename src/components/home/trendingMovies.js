@@ -4,10 +4,10 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import { actions } from '../../features/shoppingcartReducer';
 import '../../styles/trending-movies.css';
 import '../../styles/fa-icons.css'
-import 'swiper/css';
+//import 'swiper/css';
 
 
-// import 'swiper/swiper-bundle.min.css'
+ import 'swiper/swiper-bundle.min.css'
 //import 'swiper/swiper.min.css'
 
 import { fetchTrending } from '../../models/apiModel';
