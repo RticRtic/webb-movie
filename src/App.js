@@ -10,11 +10,27 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home/homepage';
 import Checkout from './components/shopping/checkout';
 import MovieInfoPage from './components/movie-info/movieInfoPage';
+
 import Catalog from './components/catalog/Catalog';
+
+import ShoppingCart from './components/globals/shoppingCart';
+
+
 
 
 
 function App() {
+
+  const [shoppingCartActive, setShoppingCartActive] = useState(false);
+
+
+  const toggleShoppingCart = () => {
+    setShoppingCartActive(!shoppingCartActive);
+    console.log('toggled cart');
+  };
+
+  
+
 
   // const [catalogMovieList, setcatalogMovieList] = ([]);
   let mediaQuery = window.matchMedia('(max-width: 700px)');
@@ -43,7 +59,17 @@ function App() {
 
   return (
     <div className="App">
-      <NavigationBar device={device}/>
+      
+      {(shoppingCartActive) ? 
+      (
+        <ShoppingCart device={device} toggleShoppingCart={toggleShoppingCart}/>
+      )
+      :
+      (
+        null
+      )}
+      
+      <NavigationBar device={device} toggleShoppingCart={toggleShoppingCart}/>
       
       <Routes>
 

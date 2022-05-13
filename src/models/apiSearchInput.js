@@ -1,5 +1,5 @@
-import { faTeeth } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
+
+
 import { actions } from "../features/searchMovieReducer";
 
 const getSearchedApi = async (input, dispatch) => {

@@ -14,14 +14,23 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./searchBar";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
 
-const NavigationBar = ({ device }) => {
+
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { useSelector } from "react-redux";
+import ShoppingCart from "./shoppingCart";
+
+
+const NavigationBar = ({ device, toggleShoppingCart}) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
+  let cartProducts = useSelector(state => state.shoppingCart);
+
   let location = useLocation();
+  let navigate = useNavigate();
+
 
   const toggleSearch = () => {
     setIsSearching(!isSearching);
@@ -48,8 +57,8 @@ const NavigationBar = ({ device }) => {
               />
             </li>
           </header>
-          <li className="dropdown_item">
-            <FontAwesomeIcon icon={faHouse} className="nav_icon" />
+          <li className="dropdown_item" onClick={() => navigate('/')}>
+            <FontAwesomeIcon icon={faHouse} className="nav_icon"  />
             Home
           </li>
           <li className="dropdown_item">
@@ -73,20 +82,18 @@ const NavigationBar = ({ device }) => {
 
         <div>
           <section className="web_navholder">
-            <li>Home</li>
-            <Link to="/catalog">
-              <li>Catalog</li>
-            </Link>
 
-            <SearchBar
-              isSearching={isSearching}
-              toggleSearch={toggleSearch}
-              device={device}
-            />
+            <li onClick={() => navigate('/')} >Home</li>
+
+            <li onClick={() => navigate('/catalog')}>Catalog</li>
+
+            <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+
           </section>
           <section className="web_iconholder">
-            <li>
-              <FontAwesomeIcon icon={faCartShopping} className="nav_icon" />
+            <li className="shopping_cart_holder">
+              <FontAwesomeIcon icon={faCartShopping} className="nav_icon" onClick={toggleShoppingCart} />
+              {(cartProducts.length > 0) ? (<span className="cart_icon_total">{cartProducts.length}</span>) : (null)}
             </li>
 
             <li>
@@ -95,6 +102,7 @@ const NavigationBar = ({ device }) => {
           </section>
         </div>
       </nav>
+
     </div>
   ) : (
     //Navigation Bar - Mobile
@@ -122,19 +130,21 @@ const NavigationBar = ({ device }) => {
               onClick={toggleSearch}
             />
           </li>
-          <li>
-            <FontAwesomeIcon icon={faCartShopping} className="nav_icon" />
+          <li className="shopping_cart_holder">
+            <FontAwesomeIcon icon={faCartShopping} className="nav_icon" onClick={toggleShoppingCart} />
+            {(cartProducts.length > 0) ? (<span className="cart_icon_total">{cartProducts.length}</span>) : (null)}
           </li>
         </nav>
       </div>
 
       <DropdownMenu />
 
-      <SearchBar
-        isSearching={isSearching}
-        toggleSearch={toggleSearch}
-        device={device}
-      />
+
+      
+      <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+
+
+
     </Fragment>
   );
 };

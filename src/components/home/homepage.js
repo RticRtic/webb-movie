@@ -1,3 +1,5 @@
+
+
 import TrendingMovies from "./trendingMovies";
 
 const Home = ({device}) => {

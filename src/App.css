@@ -1,6 +1,7 @@
 
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px !important;
 }
 
 ::-webkit-scrollbar-track {
@@ -8,13 +9,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
+  background: #B51B1B;
   border-radius: 25px;
 }
 
-.App {
 
-}
 
 * {
   font-family: 'Avenir Book';
@@ -24,5 +23,45 @@ html {
   margin: 0;
   padding: 0;
   background-color: #212121;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
+
+.section_title {
+  font-size: 1.5rem;
+  padding-right: 25px;
+  color: white;
+  border-bottom: 3px solid #B51B1B;
+  width: fit-content;
+  margin: 15px;
+}
+
+
+/* Animations */
+
+@keyframes slideInFromLeft {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  } 
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform:  translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
