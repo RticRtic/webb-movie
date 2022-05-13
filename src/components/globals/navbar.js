@@ -42,6 +42,7 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
 
   useEffect(() => {
     setIsSearching(false);
+    setDropdownActive(false);
   }, [location]);
 
   const DropdownMenu = () => {
@@ -61,7 +62,7 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
             <FontAwesomeIcon icon={faHouse} className="nav_icon"  />
             Home
           </li>
-          <li className="dropdown_item">
+          <li className="dropdown_item" onClick={() => navigate('/catalog')}>
             <FontAwesomeIcon icon={faFilm} className="nav_icon" />
             Catalog
           </li>
@@ -96,9 +97,6 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
               {(cartProducts.length > 0) ? (<span className="cart_icon_total">{cartProducts.length}</span>) : (null)}
             </li>
 
-            <li>
-              <FontAwesomeIcon icon={faUser} className="nav_icon" />
-            </li>
           </section>
         </div>
       </nav>

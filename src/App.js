@@ -33,7 +33,7 @@ function App() {
 
 
   // const [catalogMovieList, setcatalogMovieList] = ([]);
-  let mediaQuery = window.matchMedia('(max-width: 700px)');
+  let mediaQuery = window.matchMedia('(max-width: 900px)');
 
   const [device, setDevice] = useState(() => {
 
