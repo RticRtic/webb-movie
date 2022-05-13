@@ -1,4 +1,3 @@
-
 import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/navbar.css";
 import "../../styles/fa-icons.css";
@@ -15,6 +14,7 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./searchBar";
+
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -42,8 +42,7 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
 
   useEffect(() => {
     setIsSearching(false);
-  },[location])
-
+  }, [location]);
 
   const DropdownMenu = () => {
     return dropdownActive ? (
@@ -71,7 +70,6 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
     ) : null;
   };
 
-  
   return device == "web" ? (
     //Navigation Bar - Web
     <div className={"navbar" + " " + "web"}>
@@ -84,11 +82,13 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
 
         <div>
           <section className="web_navholder">
+
             <li onClick={() => navigate('/')} >Home</li>
 
-            <li>Catalog</li>
+            <li onClick={() => navigate('/catalog')}>Catalog</li>
 
             <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+
           </section>
           <section className="web_iconholder">
             <li className="shopping_cart_holder">
@@ -139,8 +139,10 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
 
       <DropdownMenu />
 
+
       
       <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+
 
 
     </Fragment>
