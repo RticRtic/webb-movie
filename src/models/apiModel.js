@@ -1,7 +1,4 @@
-import { async } from "@firebase/util";
-import { useDispatch } from "react-redux";
-import { store } from "..";
-import { STATUS } from '../models/constants.js';
+
 import { actions } from "../features/trendingMoviesReducer";
 
 

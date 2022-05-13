@@ -15,14 +15,22 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./searchBar";
+
 import { useLocation, useNavigate } from "react-router-dom";
 
-const NavigationBar = ({ device }) => {
+import { useSelector } from "react-redux";
+import ShoppingCart from "./shoppingCart";
+
+
+const NavigationBar = ({ device, toggleShoppingCart}) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
+  let cartProducts = useSelector(state => state.shoppingCart);
+
   let location = useLocation();
   let navigate = useNavigate();
+
 
   const toggleSearch = () => {
     setIsSearching(!isSearching);
@@ -83,8 +91,9 @@ const NavigationBar = ({ device }) => {
             <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
           </section>
           <section className="web_iconholder">
-            <li>
-              <FontAwesomeIcon icon={faCartShopping} className="nav_icon" />
+            <li className="shopping_cart_holder">
+              <FontAwesomeIcon icon={faCartShopping} className="nav_icon" onClick={toggleShoppingCart} />
+              {(cartProducts.length > 0) ? (<span className="cart_icon_total">{cartProducts.length}</span>) : (null)}
             </li>
 
             <li>
@@ -93,6 +102,7 @@ const NavigationBar = ({ device }) => {
           </section>
         </div>
       </nav>
+
     </div>
   ) : (
     //Navigation Bar - Mobile
@@ -120,8 +130,9 @@ const NavigationBar = ({ device }) => {
               onClick={toggleSearch}
             />
           </li>
-          <li>
-            <FontAwesomeIcon icon={faCartShopping} className="nav_icon" />
+          <li className="shopping_cart_holder">
+            <FontAwesomeIcon icon={faCartShopping} className="nav_icon" onClick={toggleShoppingCart} />
+            {(cartProducts.length > 0) ? (<span className="cart_icon_total">{cartProducts.length}</span>) : (null)}
           </li>
         </nav>
       </div>
@@ -130,6 +141,7 @@ const NavigationBar = ({ device }) => {
 
       
       <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
+
 
     </Fragment>
   );
