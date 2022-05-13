@@ -75,6 +75,12 @@ li {
     height: 100%;
 }
 
+.shopping_cart_holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .web_iconholder li .nav_icon:hover {
     color: red;
 }
@@ -85,6 +91,23 @@ li {
     font-size: 25px;
     margin: 0 15px;
     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
+}
+
+.cart_icon_total {
+    position: absolute;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    background-color: #b6142f;
+    color: white;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bolder;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
@@ -150,22 +173,3 @@ li {
 }
 
 
-/* Animations */
-
-@keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    } 
-    100% {
-        opacity: 1;
-    }
-}
