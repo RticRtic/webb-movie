@@ -4,9 +4,19 @@ import { Fragment, useState } from 'react';
 import { convertMinutes, splitDate } from '../../models/constants';
 import '../../styles/movie-info.css';
 import MovieTrailer from './movieTrailer';
+import { actions } from '../../features/shoppingcartReducer';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 
 const MovieHeader = ({device, currentMovie, playTrailer}) => {
+    
+    let dispatch = useDispatch();
+    let navigate = useNavigate();
+
+    const handleAdd = () => {
+        dispatch(actions.addMovie(currentMovie));
+    };
 
 
     const WebHeaderContent = () => {
@@ -29,9 +39,9 @@ const MovieHeader = ({device, currentMovie, playTrailer}) => {
                         <p>{currentMovie.overview}</p>
                     </div>
                     <div className='movie_info_purchase'>
-                        <h2>$9.99</h2>
+                        <h2>$8</h2>
                         <article>In Stock</article>
-                        <button className='movie_info_addToCart'>ADD TO CART</button>
+                        <button className='movie_info_addToCart' onClick={handleAdd}>ADD TO CART</button>
                     </div>
                 </section>
             )
@@ -104,7 +114,7 @@ const MovieHeader = ({device, currentMovie, playTrailer}) => {
                         <div className='movie_info_purchase'>
                         <h2>$9.99</h2>
                         <article>In Stock</article>
-                        <button className='movie_info_addToCart'>ADD TO CART</button>
+                        <button className='movie_info_addToCart' onClick={handleAdd}>ADD TO CART</button>
                         </div>
                         
                     </div>
