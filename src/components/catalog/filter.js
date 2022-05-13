@@ -4,9 +4,9 @@ import actionLogo from "../../img/actionLogo.jpg";
 import dramaLogo from "../../img/dramaLogo.jpg";
 import comedyLogo from "../../img/comedyLogo.jpg";
 import thrillerLogo from "../../img/thrillerLogo.jpg";
-import familyLogo from "../../img/familyLogo.jpg";
 import topScoreLogo from "../../img/topScoreLogo.jpg"
 import popularLogo from "../../img/popularLogo.jpg";
+import baloonsLogo from "../../img/baloonsLogo.jpg";
 import {
   apiAction,
   apiDrama,
@@ -15,6 +15,7 @@ import {
   apiFamily,
   apiPopular,
   apiTopScore,
+  apiActionPageAdder
 } from "../../models/apiCatalog";
 
 import MovieList from "./movieList";
@@ -22,6 +23,9 @@ import MovieList from "./movieList";
 import "../../styles/filter.css";
 
 const Filter = () => {
+
+  const [actionApiPages, setActionApiPages] = useState([]);
+
   const [genreActionChecked, setGenreActionChecked] = useState(false);
   const [genreDramaChecked, setGenreDramaChecked] = useState(false);
   const [genreComedyChecked, setGenreComedyChecked] = useState(false);
@@ -39,7 +43,9 @@ const Filter = () => {
   const [topScoreMovies, setTopScoreMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
  
-
+// useEffect(() => {
+//   apiActionPageAdder();
+// },[])
   
   const stateValueArray = [
     setGenreActionChecked,
@@ -272,7 +278,7 @@ const Filter = () => {
               style={{opacity : genreThrillerChecked ? 1 : 0.5}}
             />
             <img
-              src={familyLogo}
+              src={baloonsLogo}
               alt="logo"
               className="familyLogo"
               onClick={checkValueInGenreStateFamily}
@@ -299,7 +305,6 @@ const Filter = () => {
           <div className="label-action-container">
             <label className="label-action"
              onClick={checkValueInGenreStateAction}>Action</label>
-              {/* <h2 className="app_logo"> Movie<span style={{ color: "white" }}>Collector</span></h2> */}
           </div>
 
           <div className="label-drama-container">
@@ -345,7 +350,7 @@ const Filter = () => {
         familyMovieData={familyMovies}
         topScoreMovieData={topScoreMovies}
         popularMovieData={popularMovies}
-        stateArrayData={stateValueArray}
+       
       />
     </div>
   );

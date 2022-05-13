@@ -16,10 +16,10 @@ const MovieList = ({
   familyMovieData,
   topScoreMovieData,
   popularMovieData,
-  stateArrayData
+ 
 }) => {
-  const actionMovies = actionMovieData.map((movie, index) => (
-    <div key={index}>
+  const actionMovies = actionMovieData.map((movie) => (
+    <div key={movie.id}>
       <img
         className="movie-img"
         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
@@ -52,8 +52,8 @@ const MovieList = ({
     </div>
   ));
 
-  const dramaMovies = dramaMovieData.map((movie, index) => (
-    <div key={index}>
+  const dramaMovies = dramaMovieData.map((movie) => (
+    <div key={movie.id}>
       <img
         className="movie-img"
         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
@@ -86,8 +86,8 @@ const MovieList = ({
     </div>
   ));
 
-  const comedyMovies = comedyMovieData.map((movie, index) => (
-    <div key={index}>
+  const comedyMovies = comedyMovieData.map((movie) => (
+    <div key={movie.id}>
       <img
         className="movie-img"
         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
@@ -120,8 +120,8 @@ const MovieList = ({
     </div>
   ));
 
-  const thrillerMovies = thrillerMovieData.map((movie, index) => (
-    <div key={index}>
+  const thrillerMovies = thrillerMovieData.map((movie) => (
+    <div key={movie.id}>
       <img
         className="movie-img"
         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
@@ -154,8 +154,8 @@ const MovieList = ({
     </div>
   ));
 
-  const familyMovies = familyMovieData.map((movie, index) => (
-    <div key={index}>
+  const familyMovies = familyMovieData.map((movie) => (
+    <div key={movie.id}>
       <img
         className="movie-img"
         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
@@ -188,8 +188,8 @@ const MovieList = ({
     </div>
   ));
 
-  const topScoreMovies = topScoreMovieData.map((movie, index) => (
-    <div key={index}>
+  const topScoreMovies = topScoreMovieData.map((movie) => (
+    <div key={movie.id}>
       <img
         className="movie-img"
         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
@@ -222,8 +222,8 @@ const MovieList = ({
     </div>
   ));
 
-  const popularMovies = popularMovieData.map((movie, index) => (
-    <div key={index}>
+  const popularMovies = popularMovieData.map((movie) => (
+    <div key={movie.id}>
       <img
         className="movie-img"
         src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}

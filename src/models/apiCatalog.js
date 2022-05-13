@@ -1,7 +1,6 @@
 export const apiAction = async (setActionMovies) => {
   try {
-    let url =
-      "https://api.themoviedb.org/3/discover/movie?api_key=435c3f45aa5de36644fb911458c35f2b&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=28&with_watch_monetization_types=flatrate";
+    let url ="https://api.themoviedb.org/3/discover/movie?api_key=435c3f45aa5de36644fb911458c35f2b&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=28&with_watch_monetization_types=flatrate";
     const response = await fetch(url);
     const data = await response.json();
     setActionMovies(data.results);
@@ -9,6 +8,25 @@ export const apiAction = async (setActionMovies) => {
     return [];
   }
 };
+
+// export const apiActionPageAdder = async(setActionMoviesPages) => {
+
+  
+
+//   const page1 = "https://api.themoviedb.org/3/discover/movie?api_key=435c3f45aa5de36644fb911458c35f2b&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=28&with_watch_monetization_types=flatrate";
+//   const page2 = "https://api.themoviedb.org/3/discover/movie?api_key=435c3f45aa5de36644fb911458c35f2b&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=2&with_genres=28&with_watch_monetization_types=flatrate";
+//   const page3 = "https://api.themoviedb.org/3/discover/movie?api_key=435c3f45aa5de36644fb911458c35f2b&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=3&with_genres=28&with_watch_monetization_types=flatrate";
+//   const page4 = "https://api.themoviedb.org/3/discover/movie?api_key=435c3f45aa5de36644fb911458c35f2b&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=4&with_genres=28&with_watch_monetization_types=flatrate";
+//   const page5 = "https://api.themoviedb.org/3/discover/movie?api_key=435c3f45aa5de36644fb911458c35f2b&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=5&with_genres=28&with_watch_monetization_types=flatrate";
+
+//   let actionPages = [page1, page2, page3, page4, page5];
+
+//     actionPages.forEach((page) => {
+
+//     })
+
+   
+// }
 
 export const apiDrama = async (setDramaMovies) => {
   try {
