@@ -17,20 +17,21 @@ const MovieList = ({topScoreMovieData, popularMovieData, movieData}) => {
     <MovieCard movie = {movie} key={movie.id} />
   ))
 
-  const topScoreMovies = topScoreMovieData.map((movie) => (
-    <MovieCard movie = {movie} key={movie.id}/>
+  // const topScoreMovies = topScoreMovieData.map((movie) => (
+  //   <MovieCard movie = {movie} key={movie.id}/>
 
-  ));
+  // ));
 
-  const popularMovies = popularMovieData.map((movie) => (
-    <MovieCard movie = {movie} key={movie.id}/>
-  ));
+  // const popularMovies = popularMovieData.map((movie) => (
+  //   <MovieCard movie = {movie} key={movie.id}/>
+  // ));
+
 
   return (
     <div className="movieList-component">
       {movies}
-      {topScoreMovies}
-      {popularMovies} 
+      {/* {topScoreMovies}
+      {popularMovies} */}
     </div>
   );
 };

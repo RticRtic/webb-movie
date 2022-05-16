@@ -4,7 +4,8 @@
 //! 18 drama
 //! 35 comedy
 //! 53 thriller
-//! 10751
+//! 10751 family
+//! topscore
 
 export const apiMovies = async (setMovies, setGenreNumber) => {
   try {
@@ -19,20 +20,20 @@ export const apiMovies = async (setMovies, setGenreNumber) => {
 
 
 
-export const apiTopScore = async(setTopScore) => {
+export const apiTopScore = async(setTopScoreMovies, input) => {
   try{
-    let url = "https://api.themoviedb.org/3/movie/top_rated?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US&page=1";
+    let url = `https://api.themoviedb.org/3/movie/${input}?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US&page=1`;
     const response = await fetch(url);
     const data = await response.json();
-    setTopScore(data.results);
+    setTopScoreMovies(data.results);
   } catch {
     return[];
   }
 }
 
-export const apiPopular = async(setPopularMovies) => {
+export const apiPopular = async(setPopularMovies, input) => {
   try {
-    let url = "https://api.themoviedb.org/3/movie/popular?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US&page=1";
+    let url = `https://api.themoviedb.org/3/movie/${input}?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff&language=en-US&page=1`;
     const response = await fetch(url);
     const data = await response.json();
     setPopularMovies(data.results);
