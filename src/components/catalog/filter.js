@@ -7,14 +7,14 @@ import thrillerLogo from "../../img/thrillerLogo.jpg";
 import topScoreLogo from "../../img/topScoreLogo.jpg";
 import popularLogo from "../../img/popularLogo.jpg";
 import baloonsLogo from "../../img/baloonsLogo.jpg";
-import { apiPopular, apiTopScore, apiMovies } from "../../models/apiCatalog";
+import { apiMovies, apiTopScoreOrPopular } from "../../models/apiCatalog";
 
 import MovieList from "./movieList";
+import MovieListMobil from "./movieListMobil";
 
 import "../../styles/filter.css";
 
 const Filter = () => {
-  const [actionApiPages, setActionApiPages] = useState([]);
   const [movies, setMovies] = useState([]);
 
   const [genreActionChecked, setGenreActionChecked] = useState(false);
@@ -22,7 +22,7 @@ const Filter = () => {
   const [genreComedyChecked, setGenreComedyChecked] = useState(false);
   const [genreThrillerChecked, setGenreThrillerChecked] = useState(false);
   const [genreFamilyChecked, setGenereFamilyChecked] = useState(false);
-  const [genreTopScoreChecked, setGenreTopScoreChecked] = useState(false);
+  const [genreTopScoreChecked, setGenreTopScoreChecked] = useState(true);
   const [genrePopularChecked, setGenrePopularChecked] = useState(false);
 
 
@@ -37,7 +37,7 @@ const Filter = () => {
   ];
 
   useEffect(() => {
-    
+    apiTopScoreOrPopular(setMovies, "top_rated")
   },[])
 
   //* Api genreNumbers
@@ -47,7 +47,7 @@ const Filter = () => {
   //! 53 thriller
   //! 10751 family
 
-  const handleGenre = (input) => {
+  const handleGenre = (input, page) => {
     stateValueArray.forEach(() => {
       if ("28" === input) {
         setGenreActionChecked(true);
@@ -102,11 +102,24 @@ const Filter = () => {
         
       } else if ("top_rated" === input) {
         setGenreTopScoreChecked(true);
-        apiTopScore(setMovies, input)
+        apiTopScoreOrPopular(setMovies, input)
 
+        setGenreActionChecked(false);
+        setGenreDramaChecked(false);
+        setGenreThrillerChecked(false);
+        setGenreComedyChecked(false);
+        setGenereFamilyChecked(false);
+        setGenrePopularChecked(false);
       } else {
         setGenrePopularChecked(true)
-        apiPopular(setMovies, input)
+        apiTopScoreOrPopular(setMovies, input)
+
+        setGenreActionChecked(false);
+        setGenreDramaChecked(false);
+        setGenreThrillerChecked(false);
+        setGenreComedyChecked(false);
+        setGenreTopScoreChecked(false);
+        setGenereFamilyChecked(false);
       }
     });
   };
@@ -170,25 +183,37 @@ const Filter = () => {
             />
           </div>
           <div className="label-action-container">
-            <label className="label-action" onClick={() => handleGenre("28")}>
+            <label 
+            className="label-action" 
+            onClick={() => handleGenre("28")}
+            style={{color: genreActionChecked ? "#B51B1B" : "white"}}>
               Action
             </label>
           </div>
 
           <div className="label-drama-container">
-            <label className="label-drama" onClick={() => handleGenre("18")}>
+            <label 
+            className="label-drama"
+            onClick={() => handleGenre("18")}
+            style={{color : genreDramaChecked ? "#B51B1B" : "white" }}>
               Drama
             </label>
           </div>
 
           <div className="label-comedy-container">
-            <label className="label-comedy" onClick={() => handleGenre("35")}>
+            <label 
+            className="label-comedy"
+            onClick={() => handleGenre("35")}
+            style={{color : genreComedyChecked ? "#B51B1B" : "white"}}>
               Comedy
             </label>
           </div>
 
           <div className="label-thriller-container">
-            <label className="label-thriller" onClick={() => handleGenre("53")}>
+            <label 
+            className="label-thriller"
+            onClick={() => handleGenre("53")}
+            style={{color : genreThrillerChecked ? "#B51B1B" : "white"}} >
               Thriller
             </label>
           </div>
@@ -197,6 +222,7 @@ const Filter = () => {
             <label
               className="label-family"
               onClick={() => handleGenre("10751")}
+              style={{color : genreFamilyChecked ? "#B51B1B" : "white"}}
             >
               Family
             </label>
@@ -206,6 +232,7 @@ const Filter = () => {
             <label
               className="label-topScore"
               onClick={() => handleGenre("top_rated")}
+              style={{color : genreTopScoreChecked ? "#B51B1B" : "white"}}
             >
               Top Score
             </label>
@@ -215,15 +242,16 @@ const Filter = () => {
             <label
               className="label-popular"
               onClick={() => handleGenre("popular")}
+              style={{color : genrePopularChecked ? "#B51B1B" : "white"}}
             >
               Popular
             </label>
           </div>
         </h4>
       </div>
-      <MovieList
-        movieData={movies}
-      />
+      <MovieList movieData={movies}/>
+      
+
     </div>
   );
 };
