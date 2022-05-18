@@ -1,22 +1,125 @@
 import { useEffect, useState } from "react";
 import { apiMovies, apiTopScoreOrPopular } from "../../models/apiCatalog";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faArrowDown} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+
 import "../../styles/movielist-mobil.css";
+import actionLogo from "../../img/actionLogo.jpg";
+import dramaLogo from "../../img/dramaLogo.jpg";
+import baloonsLogo from "../../img/baloonsLogo.jpg";
+import thrillerLogo from "../../img/thrillerLogo.jpg";
+import topScoreLogo from "../../img/topScoreLogo.jpg";
+import popularLogo from "../../img/popularLogo.jpg";
+import comedyLogo from "../../img/comedyLogo.jpg";
+
 
 const MovieListMobil = () => {
   const [mobilMovies, setMobilMovies] = useState([]);
+  const [genreInput, setGenreInput] = useState(false);
+
+  const [title, setTitle] = useState("Top rated")
+
+  const [action, setAction] = useState(false);
+  const [drama, setDrama] = useState(false);
+  const [comedy, setComedy] = useState(false);
+  
 
   useEffect(() => {
     apiTopScoreOrPopular(setMobilMovies, "top_rated");
-  }, []);
+  }, [action, drama, comedy]);
 
-  const movies = mobilMovies.map((movie) => (
+  
+  const handleTitlesAndGenres = (input, pageNumber) => {
+    let states = [action, drama, comedy];
+    states.forEach((state) => {
+      if(!state.action) {
+        setAction(true);
+        console.log(state)
+      }
+     
+    })
+    
+    
+  }
+  
+
+  const handleGenre = (input, pageNumber) => {
+    apiMovies(setMobilMovies, input, pageNumber)
+    
+  }
+
+  const handleGenreTopScoreOrPopular = (input) => {
+    apiTopScoreOrPopular(setMobilMovies, input)
+    
+  }
+
+  let navigate = useNavigate()
+
+  const selectMovie = (movie) => {
+    let title = movie.title.replace(/\s+/g, '-');
+    navigate('/movie/' + (movie.id) + '/' + (title.toLowerCase()));
+};
+
+//*Api genreNumbers
+//! 28 action
+//! 18 drama
+//! 35 comedy
+//! 53 thriller
+//! 10751 family
+//! top_rated
+//! popular
+
+const handleGenreInput = () => {
+  if(!genreInput) {
+    setGenreInput(true)
+    
+
+  } else {
+    setGenreInput(false)
+  }
+}
+
+ 
+  const movies = mobilMovies.slice(0,5).map((movie) => (
     <div key={movie.id} className="movielistMobil-component">
       <div className="top-rated-container">
-        <h2 className="toprated">Top Rated</h2>
-      </div>
+        <h2 className="toprated">{title}</h2>
+        
 
+         <h3  
+         onClick={handleGenreInput} 
+         className="genre">Genre
+          <FontAwesomeIcon 
+            className="arrowDown" 
+            icon={faArrowDown}  /></h3>
+         {
+          genreInput?<div className="genre-menu">
+            <div className="menu-imgs">
+              <img className="action-img" src={actionLogo} alt="img" />
+              <img className="drama-img" src={dramaLogo} alt="img" />
+              <img className="comedy-img" src={comedyLogo} alt="img" />
+              <img className="family-img" src={baloonsLogo} alt="img" />
+              <img className="thriller-img" src={thrillerLogo} alt="img" />
+              <img className="topscore-img" src={topScoreLogo} alt="img" />
+              <img className="popular-img" src={popularLogo} alt="img" />              
+            </div>
+            
+            <div className="titles">
+            <p onClick={() => handleTitlesAndGenres("28", "1")} className="action-title">Action</p>
+              <p onClick={() => handleTitlesAndGenres("18", "1")} className="drama-title">Drama</p>
+              <p onClick={() => handleTitlesAndGenres("35", "1")} className="comedy-title">Comedy</p>
+              <p onClick={() => handleGenre("10751", "1")} className="family-title">Family</p>
+              <p onClick={() => handleGenre("53", "1") } className="thriller-title">Thriller</p>
+              <p onClick={() => handleGenreTopScoreOrPopular("top_rated")} className="topscore-title">Top Rated</p>
+              <p onClick={() => handleGenreTopScoreOrPopular("popular")} className="popular-title">Popular</p>
+            </div>
+          </div>
+         : null }
+        
+         
+      </div>
+      
       <div className="moviecard-container">
         <div className="img-container">
           <img
@@ -43,7 +146,9 @@ const MovieListMobil = () => {
           </div>
 
           <div className="button-container">
-            <button className="button">Learn More</button>
+            <button 
+            className="button"
+            onClick={() => selectMovie(movie)}>Learn More</button>
           </div>
         
       </div>
