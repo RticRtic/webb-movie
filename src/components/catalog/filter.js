@@ -16,7 +16,7 @@ import "../../styles/filter.css";
 
 const Filter = () => {
   const [movies, setMovies] = useState([]);
-  const [apiPage, setApiPage] = useState(1)
+  const [apiPage, setApiPage] = useState(1);
 
   const [genreActionChecked, setGenreActionChecked] = useState(false);
   const [genreDramaChecked, setGenreDramaChecked] = useState(false);
@@ -38,20 +38,23 @@ const Filter = () => {
   useEffect(() => {
     apiTopScoreOrPopular(setMovies, "top_rated");
     
-  }, [apiPage]);
+  }, []);
 
-  const handleIncreaseApiPage = () => {
+  const handleIncreaseApiPage = (genre, page) => {
     setApiPage(apiPage + 1);
+    apiMovies(setMovies, genre, page)
+   
   
   };
 
-  const handleDecreaseApiPage = () => {
-    setApiPage(apiPage - 1)
-    console.log("Page: ", apiPage)
-  }
+  // const handleDecreaseApiPage = (genre, pageNumber) => {
+  //   apiMovies(setMovies, genre,pageNumber)
+  //   setApiPage(apiPage - 1)
+    
+  // }
 
-  const handleGenre = (input, page) => {
-    apiMovies(setMovies, input);
+  const handleGenre = (input, pageNumber) => {
+    // apiMovies(setMovies, input);
     setGenreActionChecked(false);
     setGenreDramaChecked(false);
     setGenreComedyChecked(false);
@@ -87,8 +90,8 @@ const Filter = () => {
               alt="logo"
               className="actionLogo"
               onClick={() => {
-                console.log(apiPage.toString())
-                handleIncreaseApiPage()
+                handleIncreaseApiPage("28", apiPage.toString())
+                handleGenre("28")
               }}
               style={{ opacity: genreActionChecked ? 0.8 : 0.5 }}
             />

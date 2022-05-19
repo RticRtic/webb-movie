@@ -17,6 +17,7 @@ import comedyLogo1 from "../../img/comedyLogo1.webp";
 const MovieListMobil = () => {
   const [mobilMovies, setMobilMovies] = useState([]);
   const [genreInput, setGenreInput] = useState(false);
+  
 
   const [title, setTitle] = useState("Top rated")
 

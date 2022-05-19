@@ -10,11 +10,24 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  import { apiMovies } from "../../models/apiCatalog";
 
 
 
 const MovieList = ({ movieData }) => {
+  const [apiPage, setApiPage] = useState(1);
+  // const [movieList, setMoveList] = useState([]);
+
+  // const handleIncreaseApiPage = (genre, page) => {
+  //   setApiPage(apiPage + 1);
+  //   apiMovies(setMoveList, genre, page)
+   
+  
+  // };
+
+  
   const movies = movieData.map((movie) => (
+    
     <MovieCard movie={movie} key={movie.id} />
   ));
 
@@ -29,7 +42,8 @@ const MovieList = ({ movieData }) => {
       <div className="arrow-container">
         <i className="arrow-right">
           <FontAwesomeIcon icon={faArrowRight}
-          style={{color : "white"}} />
+          style={{color : "white"}}
+          />
         </i>
       </div>
     </div>
