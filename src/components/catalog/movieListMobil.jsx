@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { apiMovies, apiTopScoreOrPopular } from "../../models/apiCatalog";
-import { faStar, faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import { faStar, faArrowDown, faL} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 
 import "../../styles/movielist-mobil.css";
-import actionLogo from "../../img/actionLogo.jpg";
+import actionLogo1 from "../../img/actionLogo1.png";
 import dramaLogo from "../../img/dramaLogo.jpg";
 import baloonsLogo from "../../img/baloonsLogo.jpg";
 import thrillerLogo from "../../img/thrillerLogo.jpg";
 import topScoreLogo from "../../img/topScoreLogo.jpg";
 import popularLogo from "../../img/popularLogo.jpg";
-import comedyLogo from "../../img/comedyLogo.jpg";
+import comedyLogo1 from "../../img/comedyLogo1.webp";
 
 
 const MovieListMobil = () => {
@@ -20,37 +20,48 @@ const MovieListMobil = () => {
 
   const [title, setTitle] = useState("Top rated")
 
-  const [action, setAction] = useState(false);
-  const [drama, setDrama] = useState(false);
-  const [comedy, setComedy] = useState(false);
   
 
   useEffect(() => {
     apiTopScoreOrPopular(setMobilMovies, "top_rated");
-  }, [action, drama, comedy]);
+  }, []);
 
   
   const handleTitlesAndGenres = (input, pageNumber) => {
-    let states = [action, drama, comedy];
-    states.forEach((state) => {
-      if(!state.action) {
-        setAction(true);
-        console.log(state)
-      }
-     
-    })
-    
-    
+    if(input === "28") {
+      setTitle("Action");
+      apiMovies(setMobilMovies, input, pageNumber)
+
+    } else if (input === "18") {
+      setTitle("Drama");
+      apiMovies(setMobilMovies, input, pageNumber)
+
+    } else if(input === "35") {
+      setTitle("Comedy");
+      apiMovies(setMobilMovies, input, pageNumber)
+
+    } else if (input === "10751") {
+      setTitle("Family");
+      apiMovies(setMobilMovies, input, pageNumber)
+
+    } else if (input ==="53") {
+      setTitle("Thriller");
+      apiMovies(setMobilMovies, input, pageNumber)
+
+    } 
   }
   
+  const handleGenreTopScoreOrPopular = (input, pageNumber) => {
+    if(input === "top_rated") {
+      setTitle("Top Rated");
+      apiTopScoreOrPopular(setMobilMovies, input, pageNumber)
 
-  const handleGenre = (input, pageNumber) => {
-    apiMovies(setMobilMovies, input, pageNumber)
-    
-  }
+    } else {
+      setTitle("Popular")
+      apiTopScoreOrPopular(setMobilMovies, input, pageNumber)
 
-  const handleGenreTopScoreOrPopular = (input) => {
-    apiTopScoreOrPopular(setMobilMovies, input)
+    }
+   
     
   }
 
@@ -96,9 +107,9 @@ const handleGenreInput = () => {
          {
           genreInput?<div className="genre-menu">
             <div className="menu-imgs">
-              <img className="action-img" src={actionLogo} alt="img" />
+              <img className="action-img" src={actionLogo1} alt="img" />
               <img className="drama-img" src={dramaLogo} alt="img" />
-              <img className="comedy-img" src={comedyLogo} alt="img" />
+              <img className="comedy-img" src={comedyLogo1} alt="img" />
               <img className="family-img" src={baloonsLogo} alt="img" />
               <img className="thriller-img" src={thrillerLogo} alt="img" />
               <img className="topscore-img" src={topScoreLogo} alt="img" />
@@ -109,10 +120,10 @@ const handleGenreInput = () => {
             <p onClick={() => handleTitlesAndGenres("28", "1")} className="action-title">Action</p>
               <p onClick={() => handleTitlesAndGenres("18", "1")} className="drama-title">Drama</p>
               <p onClick={() => handleTitlesAndGenres("35", "1")} className="comedy-title">Comedy</p>
-              <p onClick={() => handleGenre("10751", "1")} className="family-title">Family</p>
-              <p onClick={() => handleGenre("53", "1") } className="thriller-title">Thriller</p>
-              <p onClick={() => handleGenreTopScoreOrPopular("top_rated")} className="topscore-title">Top Rated</p>
-              <p onClick={() => handleGenreTopScoreOrPopular("popular")} className="popular-title">Popular</p>
+              <p onClick={() => handleTitlesAndGenres("10751", "1")} className="family-title">Family</p>
+              <p onClick={() => handleTitlesAndGenres("53", "1") } className="thriller-title">Thriller</p>
+              <p onClick={() => handleGenreTopScoreOrPopular("top_rated", "1")} className="topscore-title">Top Rated</p>
+              <p onClick={() => handleGenreTopScoreOrPopular("popular", "1")} className="popular-title">Popular</p>
             </div>
           </div>
          : null }

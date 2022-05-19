@@ -1,17 +1,17 @@
 .movielistMobil-component{
-    border: solid 2px green;
+    /* border: solid 2px green; */
     display: grid;
     grid-template-rows: repeat(1, 65px);
     margin-top: 150px;
 }
 
 .footer-container {
-    border: solid 2px blue;
+    /* border: solid 2px blue; */
     margin-top: 160px;
 }
 
 .movielistMobil-component .top-rated-container {
-    border: solid 2px blue;
+    /* border: solid 2px blue; */
     width: 320px;
     position: absolute;
     margin-right: 260px;
@@ -107,7 +107,7 @@
 }
 
 .movielistMobil-component .moviecard-container {
-    border: solid 2px red;
+    /* border: solid 2px red; */
     border-radius: 20px;
     margin-left: 15px;
     position: relative;
