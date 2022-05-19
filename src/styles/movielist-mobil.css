@@ -1,0 +1,181 @@
+.movielistMobil-component{
+    /* border: solid 2px green; */
+    display: grid;
+    grid-template-rows: repeat(1, 65px);
+    margin-top: 150px;
+}
+
+.footer-container {
+    /* border: solid 2px blue; */
+    margin-top: 160px;
+}
+
+.movielistMobil-component .top-rated-container {
+    /* border: solid 2px blue; */
+    width: 320px;
+    position: absolute;
+    margin-right: 260px;
+    bottom: 690px;
+    margin-left: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    
+    
+}
+/* -------------------!genre menu!------------------------ */
+.movielistMobil-component .genre {
+    color: white;
+    font-family: "Avenir";
+    font-weight: normal;
+    margin-left: 100px;
+    
+    
+}
+
+
+
+.movielistMobil-component .arrowDown {
+    font-size: 15px;
+    padding-left: 3px;
+    
+}
+
+.movielistMobil-component .genre-menu {
+    position: absolute;
+    height: 420px;
+    width: 120px;
+    margin-left: 225px;
+    margin-top: 450px;
+    background-color: rgb(17, 17, 17);
+    border-radius: 5px;
+       
+ 
+}
+
+.movielistMobil-component .menu-imgs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 9px;
+    
+    
+    
+}
+
+.movielistMobil-component .drama-img, .action-img, .family-img, .thriller-img,
+.topscore-img, .popular-img, .comedy-img {
+    height: 55px;
+    width: 98px;
+    opacity: 0.8;
+    border: solid 1px gray;
+    position: relative;
+    
+}
+
+.movielistMobil-component .drama-title:active, .action-title:active, .family-title:active,
+ .thriller-title:active, .topscore-title:active, .popular-title:active, .comedy-title:active {
+    transform: translate3d(3px, 3px, 0px);
+}
+
+.movielistMobil-component .titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 30px;
+    left: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+
+/* -------------------!genre menu!------------------------ */
+
+.movielistMobil-component .toprated {
+    color: white;
+    font-family: "Avenir";
+    font-weight: normal;
+    border-bottom: 5px solid rgb(132, 1, 1);
+    
+}
+
+.movielistMobil-component .moviecard-container {
+    /* border: solid 2px red; */
+    border-radius: 20px;
+    margin-left: 15px;
+    position: relative;
+    height: 210px;
+    width: 350px;
+    box-shadow: inset 1px 1px 5px 3px rgba(0, 0, 0, 1);
+    
+    
+    
+     
+}
+
+.movielistMobil-component .img {
+    /* border: solid 2px yellow; */
+    height: 180px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-top: 15px;
+    position: absolute;
+    border: solid 1px gray;
+    
+}
+
+.movielistMobil-component .img-backdrop-path {
+    border-radius: 20px;
+    height: 210px;
+    width: 350px;
+    opacity: 0.2;
+   
+    
+}
+
+.movielistMobil-component .info-text-container {
+    /* border: solid 2px red; */
+    position: absolute;
+    bottom: 25px;
+    left: 140px;
+    width: 210px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+   
+    
+}   
+
+.movielistMobil-component .title, .info {
+    color: white;
+}
+
+.movielistMobil-component .star-logo {
+    color: rgb(132, 1, 1);
+}
+
+.movielistMobil-component .button-container {
+    position: absolute;
+    bottom: 60px;
+    left: 220px
+}
+
+.movielistMobil-component .button {
+    background-color: rgb(132, 1, 1);
+    border: none;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    
+}

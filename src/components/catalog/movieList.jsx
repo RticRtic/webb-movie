@@ -1,270 +1,37 @@
 import { useState } from "react";
 import "../../styles/movieList.css";
+// import "../../styles/movie-card.css";
+import MovieCard from "../globals/movieCard";
 
 import {
   faStar,
   faShoppingCart,
   faDollarSign,
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MovieList = ({
-  actionMovieData,
-  dramaMovieData,
-  comedyMovieData,
-  thrillerMovieData,
-  familyMovieData,
-  topScoreMovieData,
-  popularMovieData,
+
+
+const MovieList = ({ movieData }) => {
+  const movies = movieData.map((movie) => (
+    <MovieCard movie={movie} key={movie.id} />
+  ));
+
  
-}) => {
-  const actionMovies = actionMovieData.map((movie) => (
-    <div key={movie.id}>
-      <img
-        className="movie-img"
-        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        alt=""
-      />
-      <div className="shoppingcart-container">
-        <i className="icon-shoppingcart">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </i>
-      </div>
-      <div className="movie-vote_average-container">
-        <p className="movie-vote_average">
-          <FontAwesomeIcon className="icon-star" icon={faStar} />
-          {movie.vote_average}
-        </p>
-      </div>
-      <div className="movie_price-container">
-        <p className="movie-price">
-          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
-          99.9
-        </p>
-      </div>
-      <div className="movie-title-release-date-container">
-        <article className="movie-title-release-date">
-          {movie.title}
-          <br />
-          {movie.release_date}
-        </article>
-      </div>
-    </div>
-  ));
 
-  const dramaMovies = dramaMovieData.map((movie) => (
-    <div key={movie.id}>
-      <img
-        className="movie-img"
-        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        alt=""
-      />
-      <div className="shoppingcart-container">
-        <i className="icon-shoppingcart">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </i>
-      </div>
-      <div className="movie-vote_average-container">
-        <p className="movie-vote_average">
-          <FontAwesomeIcon className="icon-star" icon={faStar} />
-          {movie.vote_average}
-        </p>
-      </div>
-      <div className="movie_price-container">
-        <p className="movie-price">
-          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
-          99.9
-        </p>
-      </div>
-      <div className="movie-title-release-date-container">
-        <article className="movie-title-release-date">
-          {movie.title}
-          <br />
-          {movie.release_date}
-        </article>
-      </div>
-    </div>
-  ));
-
-  const comedyMovies = comedyMovieData.map((movie) => (
-    <div key={movie.id}>
-      <img
-        className="movie-img"
-        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        alt=""
-      />
-      <div className="shoppingcart-container">
-        <i className="icon-shoppingcart">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </i>
-      </div>
-      <div className="movie-vote_average-container">
-        <p className="movie-vote_average">
-          <FontAwesomeIcon className="icon-star" icon={faStar} />
-          {movie.vote_average}
-        </p>
-      </div>
-      <div className="movie_price-container">
-        <p className="movie-price">
-          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
-          99.9
-        </p>
-      </div>
-      <div className="movie-title-release-date-container">
-        <article className="movie-title-release-date">
-          {movie.title}
-          <br />
-          {movie.release_date}
-        </article>
-      </div>
-    </div>
-  ));
-
-  const thrillerMovies = thrillerMovieData.map((movie) => (
-    <div key={movie.id}>
-      <img
-        className="movie-img"
-        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        alt=""
-      />
-      <div className="shoppingcart-container">
-        <i className="icon-shoppingcart">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </i>
-      </div>
-      <div className="movie-vote_average-container">
-        <p className="movie-vote_average">
-          <FontAwesomeIcon className="icon-star" icon={faStar} />
-          {movie.vote_average}
-        </p>
-      </div>
-      <div className="movie_price-container">
-        <p className="movie-price">
-          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
-          99.9
-        </p>
-      </div>
-      <div className="movie-title-release-date-container">
-        <article className="movie-title-release-date">
-          {movie.title}
-          <br />
-          {movie.release_date}
-        </article>
-      </div>
-    </div>
-  ));
-
-  const familyMovies = familyMovieData.map((movie) => (
-    <div key={movie.id}>
-      <img
-        className="movie-img"
-        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        alt=""
-      />
-      <div className="shoppingcart-container">
-        <i className="icon-shoppingcart">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </i>
-      </div>
-      <div className="movie-vote_average-container">
-        <p className="movie-vote_average">
-          <FontAwesomeIcon className="icon-star" icon={faStar} />
-          {movie.vote_average}
-        </p>
-      </div>
-      <div className="movie_price-container">
-        <p className="movie-price">
-          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
-          99.9
-        </p>
-      </div>
-      <div className="movie-title-release-date-container">
-        <article className="movie-title-release-date">
-          {movie.title}
-          <br />
-          {movie.release_date}
-        </article>
-      </div>
-    </div>
-  ));
-
-  const topScoreMovies = topScoreMovieData.map((movie) => (
-    <div key={movie.id}>
-      <img
-        className="movie-img"
-        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        alt=""
-      />
-      <div className="shoppingcart-container">
-        <i className="icon-shoppingcart">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </i>
-      </div>
-      <div className="movie-vote_average-container">
-        <p className="movie-vote_average">
-          <FontAwesomeIcon className="icon-star" icon={faStar} />
-          {movie.vote_average}
-        </p>
-      </div>
-      <div className="movie_price-container">
-        <p className="movie-price">
-          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
-          99.9
-        </p>
-      </div>
-      <div className="movie-title-release-date-container">
-        <article className="movie-title-release-date">
-          {movie.title}
-          <br />
-          {movie.release_date}
-        </article>
-      </div>
-    </div>
-  ));
-
-  const popularMovies = popularMovieData.map((movie) => (
-    <div key={movie.id}>
-      <img
-        className="movie-img"
-        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        alt=""
-      />
-      <div className="shoppingcart-container">
-        <i className="icon-shoppingcart">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </i>
-      </div>
-      <div className="movie-vote_average-container">
-        <p className="movie-vote_average">
-          <FontAwesomeIcon className="icon-star" icon={faStar} />
-          {movie.vote_average}
-        </p>
-      </div>
-      <div className="movie_price-container">
-        <p className="movie-price">
-          <FontAwesomeIcon className="icon-price" icon={faDollarSign} />
-          99.9
-        </p>
-      </div>
-      <div className="movie-title-release-date-container">
-        <article className="movie-title-release-date">
-          {movie.title}
-          <br />
-          {movie.release_date}
-        </article>
-      </div>
-    </div>
-  ));
+  
 
   return (
     <div className="movieList-component">
-      {actionMovies}
-      {dramaMovies}
-      {comedyMovies}
-      {thrillerMovies}
-      {familyMovies}
-      {topScoreMovies}
-      {popularMovies}
+      {movies}
+
+      <div className="arrow-container">
+        <i className="arrow-right">
+          <FontAwesomeIcon icon={faArrowRight}
+          style={{color : "white"}} />
+        </i>
+      </div>
     </div>
   );
 };

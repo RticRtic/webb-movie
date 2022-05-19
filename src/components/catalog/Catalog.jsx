@@ -1,5 +1,6 @@
 import Filter from "./filter";
 import MovieList from "./movieList";
+import MovieListMobil from "./movieListMobil";
 
 const Catalog = ({device}) => {
 
@@ -18,7 +19,7 @@ const Catalog = ({device}) => {
     :
     (
         <div>
-            
+            <MovieListMobil />
         </div>
     )
 
