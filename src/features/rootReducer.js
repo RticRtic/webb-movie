@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 
 import { reducer as trendingMoviesReducer } from './trendingMoviesReducer';
 import { reducer as shoppingCartReducer} from './shoppingcartReducer';
-import { reducer as searchedMovieReducer } from "./searchMovieReducer"
+import { reducer as searchedMovieReducer } from "./searchMovieReducer";
+import { reducer as authReducer } from "./authReducer";
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,11 @@ const rootReducer = combineReducers({
 
     trendingMovies : trendingMoviesReducer,
 
-    searchedMovie : searchedMovieReducer
+    searchedMovie : searchedMovieReducer,
+
+    user : authReducer
+
+
 
 });
 
