@@ -95,9 +95,15 @@ li {
 .nav_icon {
     color: white;
     font-size: 25px;
-    margin: 0 15px;
+    margin: 0 30px;
     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
     transition: 0.3s;
+}
+
+
+
+.nav_icon:last-of-type {
+    margin-top: 5px;
 }
 
 
@@ -247,10 +253,10 @@ li {
 }
 
 
-/* @media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
 
-    .user_dropdown {
-        margin-top: 10vh;
+    .nav_icon {
+        margin: 0 15px;
     }
     
-} */
+}
