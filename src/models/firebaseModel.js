@@ -3,7 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, doc, addDoc, setDoc, getDoc, getDocs, collection, query, where } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { actions } from "../features/authReducer";
-import { Password } from "@mui/icons-material";
 
 
 

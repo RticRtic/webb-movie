@@ -62,6 +62,11 @@ li {
     transition: 0.3s;
 }
 
+.nav_active {
+    border-bottom: 3px solid red !important;
+    background-color: rgba(120, 120, 120, 0.05);
+}
+
 .web_navholder li:hover {
     border-bottom: 3px solid red;
     background-color: rgba(120, 120, 120, 0.05);

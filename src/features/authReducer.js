@@ -1,7 +1,6 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 
 
-
 const signIn = createAction('sign in');
 const signUp = createAction('sign up');
 const signOut = createAction('sign out');

@@ -140,9 +140,9 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
         <div>
           <section className="web_navholder">
 
-            <li onClick={() => navigate('/')} >Home</li>
+            <li className={(location.pathname == "/") ? "nav_active" : ""} onClick={() => navigate('/')} >Home</li>
 
-            <li onClick={() => navigate('/catalog')}>Catalog</li>
+            <li className={(location.pathname == "/catalog") ? "nav_active" : ""} onClick={() => navigate('/catalog')} >Catalog</li>
 
             <SearchBar isSearching={isSearching} toggleSearch={toggleSearch} device={device}/>
 
