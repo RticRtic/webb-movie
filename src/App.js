@@ -82,7 +82,7 @@ function App() {
         }/>
 
         <Route exact path='/checkout' element = {
-          <Checkout/>
+          <Checkout device={device}/>
         }
         />
 
