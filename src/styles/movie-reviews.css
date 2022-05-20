@@ -111,20 +111,21 @@
 }
 
 .reviews_wrapper {
-    width: 98%;
+    width: 95vw;
     height: fit-content;
     margin: 30px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
+
 }
 
 
 /* ----------- Review card ----------- */
 
 .review_card {
-    width: 100%;
+    width: 85vw;
     height: 45vh;
     background-color: rgb(31, 31, 31);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
