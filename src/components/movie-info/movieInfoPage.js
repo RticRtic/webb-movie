@@ -24,15 +24,18 @@ const MovieInfoPage = ({device}) => {
     
     useEffect(() => {
 
-
-
         if('id' in params) {
+            
             fetchSelected(params.id, setCurrentMovie);
             
         }
     },[location])
 
     useEffect(() => {
+
+        setCurrentMovieCast(null);
+        setCurrentMovieCollection(null);
+        
         if(currentMovie != null) {
 
             fetchSelectedCast(params.id, setCurrentMovieCast);

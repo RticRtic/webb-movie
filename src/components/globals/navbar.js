@@ -18,18 +18,23 @@ import SearchBar from "./searchBar";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ShoppingCart from "./shoppingCart";
+import { signOut } from "../../models/firebaseModel";
 
 
 const NavigationBar = ({ device, toggleShoppingCart}) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
+  const [isShowingUserMenu, setIsShowingUserMenu] = useState(false);
+  const [isSigningOut, setIsSigningOut] = useState(false);
 
   let cartProducts = useSelector(state => state.shoppingCart);
+  let user = useSelector(state => state.user);
 
   let location = useLocation();
   let navigate = useNavigate();
+  let dispatch = useDispatch();
 
 
   const toggleSearch = () => {
@@ -40,9 +45,59 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
     setDropdownActive(!dropdownActive);
   };
 
+  const toggleUserDropdown = () => {
+    setIsShowingUserMenu(!isShowingUserMenu);
+  };
+
   useEffect(() => {
     setIsSearching(false);
+    setDropdownActive(false);
   }, [location]);
+
+  //-----------------------------------------------------
+
+  const UserDropdown = () => {
+
+    if(isShowingUserMenu) {
+      return (
+      <ul className="user_dropdown">
+
+        {(isSigningOut) ? 
+        (
+          <li className="loader"/>
+        )
+        :
+        (
+          <Fragment>
+            <li>
+              Signed in as 
+              <br/>
+              <span>{user.username}</span>
+            </li>
+            
+            <li onClick={() => {
+              navigate("user/" + user.username);
+              toggleUserDropdown();
+              }}> View Profile </li>
+              
+            <li onClick={() => {
+              
+              signOut(dispatch);
+              toggleUserDropdown();
+              }}> Sign Out</li>
+          </Fragment>
+        )
+      }
+        
+
+      </ul>
+      )
+    }
+
+  };
+
+
+  //-----------------------------------------------------
 
   const DropdownMenu = () => {
     return dropdownActive ? (
@@ -61,7 +116,7 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
             <FontAwesomeIcon icon={faHouse} className="nav_icon"  />
             Home
           </li>
-          <li className="dropdown_item">
+          <li className="dropdown_item" onClick={() => navigate('/catalog')}>
             <FontAwesomeIcon icon={faFilm} className="nav_icon" />
             Catalog
           </li>
@@ -69,6 +124,8 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
       </div>
     ) : null;
   };
+
+  //-----------------------------------------------------
 
   return device == "web" ? (
     //Navigation Bar - Web
@@ -97,8 +154,24 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
             </li>
 
             <li>
-              <FontAwesomeIcon icon={faUser} className="nav_icon" />
+              {(user.signedIn && user.username != undefined) ?
+              (
+                <Fragment>
+                <i className="user_icon" onClick={() => toggleUserDropdown()}>{user.username[0].toUpperCase()}</i>
+
+                <UserDropdown/>
+              </Fragment>
+              )
+              :
+              (
+              <FontAwesomeIcon icon={faUser} className="nav_icon" onClick={() => {
+                navigate("/login");
+              }}/>
+              )
+              }
+              
             </li>
+
           </section>
         </div>
       </nav>
@@ -134,6 +207,26 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
             <FontAwesomeIcon icon={faCartShopping} className="nav_icon" onClick={toggleShoppingCart} />
             {(cartProducts.length > 0) ? (<span className="cart_icon_total">{cartProducts.length}</span>) : (null)}
           </li>
+
+          <li>
+              {(user.signedIn && user.username != undefined) ?
+              (
+                <Fragment>
+                <i className="user_icon" onClick={() => toggleUserDropdown()}>{user.username[0].toUpperCase()}</i>
+
+                <UserDropdown/>
+              </Fragment>
+              )
+              :
+              (
+              <FontAwesomeIcon icon={faUser} className="nav_icon" onClick={() => {
+                navigate("/login");
+              }}/>
+              )
+              }
+              
+            </li>
+
         </nav>
       </div>
 

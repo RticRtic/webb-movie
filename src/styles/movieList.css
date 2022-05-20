@@ -6,16 +6,34 @@
   align-items: center;
   margin-left: 165px;
   position: absolute;
-  height: 730px;
+  height: 630px;
   width: 90%;
-  overflow: scroll;
-  top: 104px
+  overflow-x: hidden;
+  overflow-y: scroll;
+  top: 104px;
   
+  /* display: flex;
+  flex-direction: repeat(7, 1fr);
+  position: absolute;
+  margin-left: 165px;
+  align-items: center;
+  overflow-x: scroll; */
   
   
 }
 
-.movieList-component .movies-title {
+.movieList-component .arrow-container {
+  margin-left: 80px;
+}
+
+.movieList-component .arrow-right {
+  font-size: 80px;
+  cursor: pointer;
+}
+
+
+
+ /* .movieList-component .movies-title {
   font-family: Avenir;
   color: white;
   
@@ -38,7 +56,7 @@
 }
 
 .movieList-component .movie-vote_average-container {
-  /* border: solid 2px red; */
+  border: solid 2px red; 
   height: 20px;
   position: relative;
   bottom: 90px;
@@ -81,7 +99,7 @@
   font-family: "Avenir Book";
   color: white;
   font-size: 15px;
-  /* border: solid 2px red; */
+  border: solid 2px red; 
 }
 
 .movieList-component .icon-price {
@@ -91,14 +109,14 @@
 }
 
 .movieList-component .movie-title-release-date-container {
-  /* border: solid 2px yellow; */
+   border: solid 2px yellow; 
   position: relative;
   bottom: 110px;
   left: 8px;
 }
 
 .movieList-component .movie-title-release-date {
-  /* border: solid 2px red; */
+  border: solid 2px red;
   height: 40px;
   position: absolute;
   color: white;
@@ -130,4 +148,4 @@
   top: 8px;
   
  
-}
+}  */

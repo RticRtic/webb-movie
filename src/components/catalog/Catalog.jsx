@@ -1,26 +1,27 @@
 import Filter from "./filter";
 import MovieList from "./movieList";
+import MovieListMobil from "./movieListMobil";
 
 const Catalog = ({device}) => {
 
-    return(
+    // return(
+    //     <div>
+    //         <Filter />
+           
+    //     </div>
+    // );
+  
+    return (device === "web") ? (
         <div>
             <Filter />
-           
         </div>
-    );
-  
-//     return (device === "web") ? (
-//         <div>
-//             <Filter />
-//         </div>
-//     )
-//     :
-//     (
-//         <div>
-            
-//         </div>
-//     )
+    )
+    :
+    (
+        <div>
+            <MovieListMobil />
+        </div>
+    )
 
 };
 
