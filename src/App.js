@@ -14,11 +14,15 @@ import MovieInfoPage from './components/movie-info/movieInfoPage';
 import Catalog from './components/catalog/Catalog';
 
 import ShoppingCart from './components/globals/shoppingCart';
+
+import PopularGenres from './components/home/popularGenres';
+
 import Login from './components/login/login';
 import SignUp from './components/login/signup';
 import { useDispatch } from 'react-redux';
 import { checkForUser } from './models/firebaseModel';
 import UserProfile from './components/login/profile';
+
 
 
 
@@ -114,6 +118,8 @@ function App() {
         />
 
       </Routes>
+
+      <PopularGenres />
 
       <Footer />
 
