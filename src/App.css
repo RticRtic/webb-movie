@@ -35,12 +35,30 @@ html {
   margin: 15px;
 }
 
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #8b0000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
 
 /* Animations */
 
 @keyframes slideInFromLeft {
   0% {
       transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+      transform: translateX(200%);
   }
   100% {
       transform: translateX(0);
@@ -65,3 +83,7 @@ html {
   }
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,144 @@
+.login_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+    margin-inline: auto;
+    height: 75vh;
+    width: 380px;
+    background-color: #191919;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    color: white;
+    animation: fadeIn 1s;
+    transition: 0.3s;
+}
+
+.login_wrapper form, .login_wrapper div {
+    width: 90%;
+}
+
+.login_wrapper div {
+    margin-top: auto;
+}
+
+
+.login_form section input {
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 5px;
+}
+
+.login_form section input:focus {
+    box-shadow: 0 0 3px red;
+}
+
+.login_button {
+    width: 100%;
+    padding: 8px 0;
+    outline: none;
+    border: none;
+    background-color: #B11A1A;
+    border-radius: 5px;
+    color: white;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.login_button:hover {
+    transition: 0.3s;
+    background-color: gray;
+}
+
+.divider_text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.5px;
+    border-top: 0.5px solid rgb(69, 69, 69);
+    margin: 10px 0;
+}
+
+.divider_text span {
+    font-size: 0.8rem;
+    padding: 0 8px;
+    background-color: #191919;
+}
+
+
+/* --------------- Profile --------------- */
+
+.profile_header {
+    width: 100%;
+    height: 30vh;
+    margin-top: 10vh;
+    background-color: #0f0f0f;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-bottom: 2px solid rgba(0, 0, 0);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.profile_header div {
+    width: 90%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+
+}
+
+.profile_header div h3 {
+    font-weight: normal;
+    font-size: 2rem;
+    margin: auto 25px;
+}
+
+.profile_info {
+    height: 60vh;
+    width: 100%;
+}
+
+.profile_user_icon {
+    width: 20vh;
+    height: 20vh;
+    background-color: rgb(153, 0, 0);
+    border-radius: 200px;
+    text-align: center;
+    line-height: 20vh;
+    font-weight: bolder;
+    font-size: 4rem;
+    font-style: normal;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(27, 27, 27, 0.3);
+}
+
+
+/* --------------- Profile --------------- */
+
+@media screen and (max-width: 700px) {
+    .login_wrapper {
+        background-color: transparent;
+        box-shadow: none;
+        width: 100%;
+        height: 70%;
+    }
+
+    .divider_text span {
+        background-color: #212121;
+    }
+
+    .profile_user_icon {
+        width: 15vh;
+        height: 15vh;
+        line-height: 15vh;
+    }
+}
