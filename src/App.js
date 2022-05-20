@@ -14,6 +14,7 @@ import MovieInfoPage from './components/movie-info/movieInfoPage';
 import Catalog from './components/catalog/Catalog';
 
 import ShoppingCart from './components/globals/shoppingCart';
+import PopularGenres from './components/home/popularGenres';
 
 
 
@@ -89,6 +90,8 @@ function App() {
         <Route path="/catalog" element={<Catalog device={device}/>}/>
 
       </Routes>
+
+      <PopularGenres />
 
       <Footer />
 
