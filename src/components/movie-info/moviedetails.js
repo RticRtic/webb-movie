@@ -4,7 +4,7 @@ import '../../styles/movie-info.css';
 import '../../styles/movie-reviews.css';
 import MovieCard from '../globals/movieCard';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import MovieReviews from './movieReviews';
 import { faPen, faPencil, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,16 +18,16 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
 
     let user = useSelector(state => state.user);
     let navigate = useNavigate();
+    const [reviewChange, setReviewChange] = useState(0);
 
     const [isWritingReview, setIsWritingReview] = useState(false);
-    const [rating, setRating] = useState(0);
     let reviewRef = useRef("");
     let ratingRef = useRef(0);
 
     const submitReview = () => {
         let date = getDate();
         
-        if(ratingRef.current.value != 0 && reviewRef.current.value != "") {
+        if(ratingRef.current.value != 0 && reviewRef.current.value != "" && user.signedIn) {
             if(createReviewEntry(
                 user.username,
                 currentMovie.title,
@@ -37,11 +37,12 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
                 ratingRef.current.value,
                 reviewRef.current.value)) {
                     setIsWritingReview(false);
+                    setReviewChange(reviewChange + 1);
                 }
             
         };
         
-    }
+    };
 
 
 
@@ -179,7 +180,6 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
                 <div className='movie_write_review_wrapper'>
                     <div className='inner'>
                         <div className='movie_review_rating_container'>
-
                             <i>{user.username[0].toUpperCase()}</i>
                             <h3>Review by {user.username}</h3>
                             <h3>Movie to Review: {currentMovie.title}</h3>
@@ -199,7 +199,7 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
 
                         </div>
                         <div className='movie_review_input_container'>
-                            <textarea ref={reviewRef}></textarea>
+                            <textarea ref={reviewRef} placeholder="Start writing ..."></textarea>
                             <button onClick={submitReview}>Submit</button>
                         </div>
                     </div>
@@ -261,7 +261,7 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
 
                             </section>
                             <WriteReview />
-                            <MovieReviews currentMovie={currentMovie}/>
+                            <MovieReviews currentMovie={currentMovie} device={device} reviewChange={reviewChange} setReviewChange={setReviewChange}/>
                         </div>
 
                     </Fragment>

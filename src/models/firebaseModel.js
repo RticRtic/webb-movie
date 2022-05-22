@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, addDoc, setDoc, getDoc, getDocs, collection, query, where } from "firebase/firestore";
+import { getFirestore, doc, addDoc, setDoc, getDoc, getDocs, collection, query, where, updateDoc, FieldValue, arrayUnion, arrayRemove } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { actions } from "../features/authReducer";
 
@@ -42,8 +42,6 @@ export function signIn(dispatch, email, password) {
 
 
 export async function signUp(dispatch, username, email, password) {
-
-  console.log(username + " " + email + " " + password);
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -99,7 +97,8 @@ async function createUserEntry(dispatch, username, email, userID) {
     await setDoc(doc(db, "users", (userID)), {
       username: username,
       email: email,
-      userID: userID
+      userID: userID,
+      reviews: []
     });
 
     dispatch(actions.signUp({ username: username, email: email, userID: userID, signedIn: true }));
@@ -137,9 +136,21 @@ export async function createReviewEntry(username, movieName, userID, movieID, ti
       rating: rating,
       timestamp: timestamp,
       upvotes: []
-    });
+    })
+      .then(async (docRef) => {
 
-    return true;
+        const userReviewRef = doc(db, "users", userID);
+
+        await updateDoc(userReviewRef, {
+          reviews: arrayUnion(docRef.id)
+        })
+          .then(() => {
+            return true;
+          })
+
+      })
+
+
 
   } catch (e) {
     console.error("Error adding document: ", e);
@@ -157,9 +168,37 @@ export async function getReviewDocuments(movieID, setReviews) {
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    reviews.push(doc.data());
+    let review = doc.data();
+    review.reviewID = doc.id;
+    reviews.push(review);
 
   });
 
   setReviews(reviews);
 }
+
+export async function upvoteReview(reviewID, userID, reviewChange, setReviewChange ) {
+
+  const reviewRef = doc(db, "reviews", reviewID);
+
+  await updateDoc(reviewRef, {
+    upvotes: arrayUnion(userID)
+  })
+    .then(() => {
+      setReviewChange(reviewChange + 1);
+    })
+
+};
+
+export async function undoUpvote(reviewID, userID, reviewChange, setReviewChange ) {
+
+  const reviewRef = doc(db, "reviews", reviewID);
+
+  await updateDoc(reviewRef, {
+    upvotes: arrayRemove(userID)
+  })
+    .then(() => {
+      setReviewChange(reviewChange + 1);
+    })
+
+};

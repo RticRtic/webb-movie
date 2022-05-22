@@ -111,17 +111,18 @@ li {
     width: 33px;
     height: 33px;
     border-radius: 50px;
-    background-color: rgb(153, 0, 0);
+    background-image: linear-gradient(to bottom right, rgb(99, 0, 0), rgb(130, 1, 1), rgb(173, 0, 0));
     display: flex;
     align-items: center;
     justify-content: center;
     font-style: normal;
     font-weight: bolder;
     transition: 0.3s;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .user_icon:hover {
-    background-color: gray;
+    transform: rotateZ(360deg);
 }
 
 .user_dropdown {
@@ -178,6 +179,7 @@ li {
     margin-bottom: 20px;
     margin-left: 25px;
     background-color: #b6142f;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
     color: white;
     border-radius: 50px;
     font-size: 15px;
