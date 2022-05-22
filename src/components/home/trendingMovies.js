@@ -5,13 +5,11 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import '../../styles/trending-movies.css';
 import '../../styles/fa-icons.css'
 
-// import 'swiper/swiper-bundle.min.css'
+//import 'swiper/swiper-bundle.min.css'
 
 import 'swiper/css';
-
-
  
-// import 'swiper/swiper.min.css'
+//import 'swiper/swiper.min.css'
 
 
 import { fetchTrending } from '../../models/apiModel';
