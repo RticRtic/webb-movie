@@ -163,6 +163,7 @@
     background-color: #B51B1B;
     color: white;
     padding: 10px 35px;
+    text-decoration: none;
 
 }
 
@@ -211,7 +212,7 @@
     cursor: pointer;
     box-shadow: 0 3px 3px rgba(39, 39, 39, 0.7);
     transition: 0.3s;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .cart_checkout_btn:hover {
