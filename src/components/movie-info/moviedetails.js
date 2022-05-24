@@ -25,9 +25,10 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
     let ratingRef = useRef(0);
 
     const submitReview = () => {
-        let date = getDate();
+        
 
         if (ratingRef.current.value != 0 && reviewRef.current.value != "" && user.signedIn) {
+            let date = getDate();
             if (createReviewEntry(
                 user.username,
                 currentMovie.title,
@@ -40,9 +41,7 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
                 setReviewChange(reviewChange + 1);
             }
 
-        } else {
-            navigate("/login");
-        }
+        } 
 
     };
 
@@ -264,7 +263,12 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
                                 <span>Reviews</span>
 
                                 <span className='write' onClick={() => {
-                                    setIsWritingReview(!isWritingReview);
+                                    if(user.signedin) {
+                                        setIsWritingReview(!isWritingReview);
+                                    } else {
+                                        navigate("/login");
+                                    }
+                                    
                                 }}>Write a review <FontAwesomeIcon icon={faPen} /></span>
 
                             </section>

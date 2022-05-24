@@ -45,10 +45,6 @@
     background-color: #b51b1bbc;
 }
 
-.movie_poster {
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); 
-    height: fit-content;
-}
 
 .movie_poster i {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -58,16 +54,58 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     
 }
 
-.movie_poster i:first-child {
+.movie_poster {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); 
+    height: fit-content;
+}
+
+.movie_poster_bottom_info {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+}
+
+.movie_poster_bottom_info i:first-child {
+    background-color: rgba(0, 0, 0, 0.75);
+
+    position: relative;
+    left: 0;
+    width: 55px;
+    height: 25px;
+    border-top-right-radius: 25px;
+}
+
+.movie_poster_bottom_info i:last-child {
+    background-color: rgba(0, 0, 0, 0.75);
+
+
+    position: relative;
+    right: 0;
+    width: 55px;
+    height: 25px;
+    border-top-left-radius: 25px;
+ 
+
+}
+
+
+
+.movie_poster_cart {
     background-color: #ff0000b4;
 
     font-size: 18px;
 
-    top: 0;
-    left: 0;
     width: 45px;
     height: 45px;
     border-bottom-right-radius: 25px;
@@ -76,41 +114,25 @@
     
 }
 
-.movie_poster i:first-child:hover {
+.movie_poster_cart:hover {
     background-color: #aa3b3ba5;
 }
 
-.movie_poster i:nth-child(2) {
-    background-color: rgba(0, 0, 0, 0.75);
-
-    bottom: 0;
-    left: 0;
-    width: 55px;
-    height: 25px;
-    border-top-right-radius: 25px;
-    margin-bottom: 5px;
-}
-
-.movie_poster i:nth-child(3) {
-    background-color: rgba(0, 0, 0, 0.75);
-
-    bottom: 0;
-    right: 0;
-    width: 55px;
-    height: 25px;
-    border-top-left-radius: 25px;
-    margin-bottom: 5px;
-}
 
 
 .movie_poster img {
     height: auto;
     width: 100%;
-
     background-size: cover;
     cursor: pointer;
 }
 
 .poster_bottom_icon {
     color: #B51B1B;
+}
+
+@media screen and (max-width: 900px) {
+    .movie_card:hover {
+        transform: none;
+    }
 }

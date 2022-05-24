@@ -340,22 +340,23 @@
         flex-direction: column;
         justify-content: center;
         gap: 10px;
-        grid-column: auto / span 9;
+        grid-column: auto / span 8;
     }
 
     .review_details_header aside {
-        grid-column: auto / span 3;
+        grid-column: auto / span 2;
     }
 
     .review_details_header {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(10fr, 1fr);
         grid-template-rows: auto;
     }
 
 
     .review_details_header div {
         width: fit-content !important;
+        margin: 5px;
     }
 
     .review_details_header aside {

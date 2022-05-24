@@ -265,7 +265,14 @@ li {
 @media screen and (max-width: 900px) {
 
     .nav_icon {
-        margin: 0 15px;
+        margin: 0 10px;
+        font-size: 20px;
     }
+
+    .app_logo {
+        font-size: 1.5rem;
+        margin-top: 3vh;
+    }
+    
     
 }
