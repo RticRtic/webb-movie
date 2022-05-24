@@ -59,11 +59,9 @@
 }
 
 .movie_poster {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); 
-    height: fit-content;
+    height: 300px;
+    position: relative;
 }
 
 .movie_poster_bottom_info {
@@ -121,10 +119,11 @@
 
 
 .movie_poster img {
-    height: auto;
-    width: 100%;
+    height: 300px;
+    width: auto;
     background-size: cover;
     cursor: pointer;
+    display: block;
 }
 
 .poster_bottom_icon {

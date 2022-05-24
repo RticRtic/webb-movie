@@ -175,6 +175,7 @@
     align-items: center;
     justify-content: center;
     margin: 10px auto;
+    overflow-x: hidden !important;
 }
 
 .review_card div {
@@ -341,6 +342,7 @@
         justify-content: center;
         gap: 10px;
         grid-column: auto / span 8;
+        overflow-x: hidden !important;
     }
 
     .review_details_header aside {

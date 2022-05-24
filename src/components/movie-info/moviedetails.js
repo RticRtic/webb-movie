@@ -263,7 +263,7 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
                                 <span>Reviews</span>
 
                                 <span className='write' onClick={() => {
-                                    if(user.signedin) {
+                                    if(user.signedIn) {
                                         setIsWritingReview(!isWritingReview);
                                     } else {
                                         navigate("/login");

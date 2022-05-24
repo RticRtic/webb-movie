@@ -122,8 +122,8 @@
 }
 
 .search_result_img {
-    height: auto;
-    width: 60px;
+    height: 100px;
+    width: 30px;
 
     margin-inline: 10px;
 
@@ -134,13 +134,13 @@
 .search_result_info {
     color: white;
 
-    height: 60px;
     height: 100%;
     width: fit-content;
-    margin-left: 10px;
 
     display: flex;
     flex-direction: column;
+
+    margin: 10px;
    
     
     
