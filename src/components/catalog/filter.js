@@ -1,5 +1,6 @@
 import { faL, faMobileRetro } from "@fortawesome/free-solid-svg-icons";
 import { Fragment, useEffect, useState } from "react";
+import {useLocation} from 'react-router-dom';
 import actionLogo1 from "../../img/actionLogo1.png";
 import dramaLogo from "../../img/dramaLogo.jpg";
 import comedyLogo1 from "../../img/comedyLogo1.webp";
@@ -15,6 +16,11 @@ import MovieListMobil from "./movieListMobil";
 import "../../styles/filter.css";
 
 const Filter = () => {
+
+  const location = useLocation();
+
+
+
   const [movies, setMovies] = useState([]);
   const [apiPage, setApiPage] = useState(1)
 
@@ -26,6 +32,8 @@ const Filter = () => {
   const [genreTopScoreChecked, setGenreTopScoreChecked] = useState(true);
   const [genrePopularChecked, setGenrePopularChecked] = useState(false);
 
+  
+
   //* Api genreNumbers
   //! 28 action
   //! 18 drama
@@ -36,9 +44,32 @@ const Filter = () => {
   //! popular
 
   useEffect(() => {
-    apiTopScoreOrPopular(setMovies, "top_rated");
-    
-  }, [apiPage]);
+
+    if (location.state !== null ) {
+      setGenreTopScoreChecked(false);
+        if (location.state.genre === "18") {
+          setGenreDramaChecked(true);
+        } else if (location.state.genre === "28") {
+            setGenreActionChecked(true);
+        } else if (location.state.genre === "35") {
+          setGenreComedyChecked(true);
+        } else if (location.state.genre === "53") {
+          setGenreThrillerChecked(true);
+        } else if (location.state.genre === "10751") {
+          setGenereFamilyChecked(true);
+        } else if (location.state.genre === "top_rated") {
+          setGenreTopScoreChecked(true);
+        }
+    }
+
+      if (location.state === null ) {
+        apiTopScoreOrPopular(setMovies, "top_rated");
+      } else { 
+        apiMovies(setMovies, location.state.genre)
+      }
+  }, []);
+
+  
 
   const handleIncreaseApiPage = () => {
     setApiPage(apiPage + 1);
@@ -75,6 +106,9 @@ const Filter = () => {
     } else {
       setGenrePopularChecked(true);
     }
+        if (location.state !== null) {
+          location.state.genre = null
+        }
   };
 
   return (
