@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {Swiper, SwiperSlide} from "swiper/react";
 
 import '../../styles/trending-movies.css';
@@ -15,36 +14,27 @@ import 'swiper/css';
 
 
 import { fetchTrending } from '../../models/apiModel';
-import { faShoppingCart, faStar, faDollarSign, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
 import MovieCard from "../globals/movieCard";
 
-const TrendingMovies = () => {
+const MovieSwiper = ({ movies, sectionTitle }) => {
 
-    const dispatch = useDispatch();
-    const trending = useSelector(state => state.trendingMovies);
 
     const [my_swiper, set_my_swiper] = useState({});
 
-    useEffect(() => {
-        fetchTrending(dispatch);
-    },[])
 
-
-    // If currently fetching, display the status else load the movies
-
-    return (trending.data == null) ? 
+    return (movies == null) ? 
 
     (
         <div>
-            {trending.status}
+            LOADING...
         </div>
     )
     :
     (
         <div className="trending_container">
-            <header className="section_title">Trending Movies</header>
+            <header className="section_title">{sectionTitle}</header>
             <div>
 
                 
@@ -64,7 +54,7 @@ const TrendingMovies = () => {
                         <FontAwesomeIcon icon={faChevronLeft}/>
                         </button>
                     
-                    {trending.data.results.map(movie => (
+                    {movies.results.map(movie => (
                         <SwiperSlide key={movie.id} className='swiper-slide'>
                             <MovieCard movie={movie}/>
                         </SwiperSlide>
@@ -86,4 +76,4 @@ const TrendingMovies = () => {
 
 
 
-export default TrendingMovies;
+export default MovieSwiper;

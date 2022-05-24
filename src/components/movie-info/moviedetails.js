@@ -26,22 +26,24 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
 
     const submitReview = () => {
         let date = getDate();
-        
-        if(ratingRef.current.value != 0 && reviewRef.current.value != "" && user.signedIn) {
-            if(createReviewEntry(
+
+        if (ratingRef.current.value != 0 && reviewRef.current.value != "" && user.signedIn) {
+            if (createReviewEntry(
                 user.username,
                 currentMovie.title,
-                user.userID, 
+                user.userID,
                 currentMovie.id,
                 date,
                 ratingRef.current.value,
                 reviewRef.current.value)) {
-                    setIsWritingReview(false);
-                    setReviewChange(reviewChange + 1);
-                }
-            
-        };
-        
+                setIsWritingReview(false);
+                setReviewChange(reviewChange + 1);
+            }
+
+        } else {
+            navigate("/login");
+        }
+
     };
 
 
@@ -56,6 +58,7 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
         const selectMovie = (movie) => {
             let title = movie.title.replace(/\s+/g, '-');
             navigate('/movie/' + (movie.id) + '/' + (title.toLowerCase()));
+            window.location.reload();
         };
 
         if (currentMovieCollection != null) {
@@ -106,7 +109,7 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
 
     const MovieInformation = () => {
 
-        if (currentMovie != null && currentMovieCast != null && currentMovieCollection != null) {
+        if (currentMovie != null && currentMovieCast != null) {
             return (
                 <div className='detail_columns'>
                     <ul>
@@ -215,7 +218,7 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
 
     return (
         <div>
-            {(currentMovieCollection != null) ?
+            {(currentMovie != null) ?
                 (
                     <Fragment>
 
@@ -226,42 +229,47 @@ const MovieDetails = ({ device, currentMovie, currentMovieCollection, currentMov
                             <MovieInformation />
                         </div>
 
-                        <div className='movie_detail_section'>
-                            <section className='section_title'>
-                                Top Cast
-                            </section>
-                            <div className='top_cast_container'>
-                                <TopCast />
+                        {(currentMovieCast != null) ? (
+                            <div className='movie_detail_section'>
+                                <section className='section_title'>
+                                    Top Cast
+                                </section>
+                                <div className='top_cast_container'>
+                                    <TopCast />
+                                </div>
                             </div>
-                        </div>
+                        )
+                            :
+                            (
+                                null
+                            )}
 
 
-                        <div className='movie_detail_section'>
-                            <section className='section_title'>
-                                Part of the {currentMovieCollection.name}
-                            </section>
-                            <MovieCollection />
-                        </div>
+                        {(currentMovieCollection != null) ? (
+                            <div className='movie_detail_section'>
+                                <section className='section_title'>
+                                    Part of the {currentMovieCollection.name}
+                                </section>
+                                <MovieCollection />
+                            </div>
+                        )
+                            :
+                            (
+                                null
+                            )}
 
-                        <div className='movie_detail_section'>
+
+                        <div className='movie_detail_section reviews'>
                             <section className='section_title section_title_review'>
                                 <span>Reviews</span>
-                                {(user.signedIn) ?
-                                    (
-                                        <span className='write' onClick={() => {
-                                            setIsWritingReview(!isWritingReview);
-                                        }}>Write a review <FontAwesomeIcon icon={faPen} /></span>
-                                    )
-                                    :
-                                    (
-                                        null
-                                    )
 
-                                }
+                                <span className='write' onClick={() => {
+                                    setIsWritingReview(!isWritingReview);
+                                }}>Write a review <FontAwesomeIcon icon={faPen} /></span>
 
                             </section>
                             <WriteReview />
-                            <MovieReviews currentMovie={currentMovie} device={device} reviewChange={reviewChange} setReviewChange={setReviewChange}/>
+                            <MovieReviews currentMovie={currentMovie} device={device} reviewChange={reviewChange} setReviewChange={setReviewChange} />
                         </div>
 
                     </Fragment>
