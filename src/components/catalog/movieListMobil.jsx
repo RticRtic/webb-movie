@@ -126,6 +126,7 @@ const handleGenreInput = () => {
       <div className="title-container">
         <h2 className="toprated">{title}</h2> 
 
+        <div className="arrows-container">
         <i><FontAwesomeIcon icon={faArrowLeft}
          className="arrow-left-mobil"
          onClick={handleDecreaseApiPage}/></i>
@@ -134,7 +135,7 @@ const handleGenreInput = () => {
         <i><FontAwesomeIcon icon={faArrowRight}
          className="arrow-right-mobil"
          onClick={handleIncreaseApiPage}/></i>
-
+        </div>
 
          <h3  
          onClick={handleGenreInput} 
@@ -155,13 +156,13 @@ const handleGenreInput = () => {
             </div>
             
             <div className="titles">
-            <p onClick={() => handleTitlesAndGenres("28", "1")} className="action-title">Action</p>
-              <p onClick={() => handleTitlesAndGenres("18", "1")} className="drama-title">Drama</p>
-              <p onClick={() => handleTitlesAndGenres("35", "1")} className="comedy-title">Comedy</p>
-              <p onClick={() => handleTitlesAndGenres("10751", "1")} className="family-title">Family</p>
-              <p onClick={() => handleTitlesAndGenres("53", "1") } className="thriller-title">Thriller</p>
-              <p onClick={() => handleGenreTopScoreOrPopular("top_rated", "1")} className="topscore-title">Top Rated</p>
-              <p onClick={() => handleGenreTopScoreOrPopular("popular", "1")} className="popular-title">Popular</p>
+            <p onClick={() => handleTitlesAndGenres("28")} className="action-title">Action</p>
+              <p onClick={() => handleTitlesAndGenres("18")} className="drama-title">Drama</p>
+              <p onClick={() => handleTitlesAndGenres("35")} className="comedy-title">Comedy</p>
+              <p onClick={() => handleTitlesAndGenres("10751")} className="family-title">Family</p>
+              <p onClick={() => handleTitlesAndGenres("53")} className="thriller-title">Thriller</p>
+              <p onClick={() => handleGenreTopScoreOrPopular("top_rated")} className="topscore-title">Top Rated</p>
+              <p onClick={() => handleGenreTopScoreOrPopular("popular")} className="popular-title">Popular</p>
             </div>
           </div>
          : null }
