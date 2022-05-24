@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/webb-movie/static/css/main.de695d11.css",
+    "main.js": "/webb-movie/static/js/main.d4c15b25.js",
+    "static/js/787.96f6d466.chunk.js": "/webb-movie/static/js/787.96f6d466.chunk.js",
+    "static/media/baloonsLogo.jpg": "/webb-movie/static/media/baloonsLogo.8eb193be2c77e14f2874.jpg",
+    "static/media/dramaLogo.jpg": "/webb-movie/static/media/dramaLogo.2649e925ea1f01e03633.jpg",
+    "static/media/popularLogo.jpg": "/webb-movie/static/media/popularLogo.41fea1e5f40f45117321.jpg",
+    "static/media/thrillerLogo.jpg": "/webb-movie/static/media/thrillerLogo.ead5d1bae781c016fa69.jpg",
+    "static/media/topScoreLogo.jpg": "/webb-movie/static/media/topScoreLogo.95cb5a1d5abbb6db2af2.jpg",
+    "static/media/drama-poster.jpeg": "/webb-movie/static/media/drama-poster.a8ae04b1058ecbf838e4.jpeg",
+    "static/media/action-movie-poster.jpeg": "/webb-movie/static/media/action-movie-poster.fff12047b017b7afab11.jpeg",
+    "static/media/actionLogo1.png": "/webb-movie/static/media/actionLogo1.fff12047b017b7afab11.png",
+    "static/media/family-poster.jpeg": "/webb-movie/static/media/family-poster.bb13a537493af97dcf3b.jpeg",
+    "static/media/top-rated-poster.jpeg": "/webb-movie/static/media/top-rated-poster.4db6f8aa3fb9b5bc9172.jpeg",
+    "static/media/tmbdlogo.png": "/webb-movie/static/media/tmbdlogo.0052344d9dbe9a98d95f.png",
+    "static/media/thriller-poster.jpeg": "/webb-movie/static/media/thriller-poster.027f27cec4c19d092a89.jpeg",
+    "static/media/comedy-poster.webp": "/webb-movie/static/media/comedy-poster.2b8ba8666afe90b57126.webp",
+    "static/media/comedyLogo1.webp": "/webb-movie/static/media/comedyLogo1.2b8ba8666afe90b57126.webp",
+    "index.html": "/webb-movie/index.html",
+    "main.de695d11.css.map": "/webb-movie/static/css/main.de695d11.css.map",
+    "main.d4c15b25.js.map": "/webb-movie/static/js/main.d4c15b25.js.map",
+    "787.96f6d466.chunk.js.map": "/webb-movie/static/js/787.96f6d466.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.de695d11.css",
+    "static/js/main.d4c15b25.js"
+  ]
+}
