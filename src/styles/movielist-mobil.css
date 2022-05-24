@@ -1,29 +1,36 @@
-.movielistMobil-component{
-    /* border: solid 2px green; */
-    display: grid;
-    grid-template-rows: repeat(1, 65px);
-    margin-top: 150px;
-}
+
+    .movielistMobil-component{
+        /* border: solid 2px green; */
+        display: grid;
+        grid-template-rows: repeat(1, 65px);
+        margin-top: 150px;
+    }
+    
+
+
 
 .footer-container {
     /* border: solid 2px blue; */
     margin-top: 160px;
 }
 
-.movielistMobil-component .top-rated-container {
+.movielistMobil-component .title-container {
     /* border: solid 2px blue; */
-    width: 320px;
+    width: 350px;
     position: absolute;
     margin-right: 260px;
     bottom: 690px;
     margin-left: 18px;
+    top: 70px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    
-    
+    justify-content: space-evenly;
+    align-items: center;   
+}
+.movielistMobil-component .arrow-left-mobil, .arrow-right-mobil, .number {
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
 }
 /* -------------------!genre menu!------------------------ */
 .movielistMobil-component .genre {
@@ -76,7 +83,8 @@
 }
 
 .movielistMobil-component .drama-title:active, .action-title:active, .family-title:active,
- .thriller-title:active, .topscore-title:active, .popular-title:active, .comedy-title:active {
+ .thriller-title:active, .topscore-title:active, .popular-title:active, .comedy-title:active, 
+ .arrow-left-mobil:active, .arrow-right-mobil:active {
     transform: translate3d(3px, 3px, 0px);
 }
 
@@ -96,7 +104,7 @@
 
 
 
-/* -------------------!genre menu!------------------------ */
+/* -------------------!genre menu end!------------------------ */
 
 .movielistMobil-component .toprated {
     color: white;

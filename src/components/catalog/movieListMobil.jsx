@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiMovies, apiTopScoreOrPopular } from "../../models/apiCatalog";
-import { faStar, faArrowDown, faL} from "@fortawesome/free-solid-svg-icons";
+import { faStar, faArrowDown, faArrowRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 
@@ -17,6 +17,9 @@ import comedyLogo1 from "../../img/comedyLogo1.webp";
 const MovieListMobil = () => {
   const [mobilMovies, setMobilMovies] = useState([]);
   const [genreInput, setGenreInput] = useState(false);
+  const [genreNumber, setGenreNumber] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
+  
 
   const [title, setTitle] = useState("Top rated")
 
@@ -26,39 +29,65 @@ const MovieListMobil = () => {
     apiTopScoreOrPopular(setMobilMovies, "top_rated");
   }, []);
 
+  const handleIncreaseApiPage = () => {
+    if(pageNumber < 10) {
+      let page = pageNumber + 1;
+      setPageNumber(page);
+      apiMovies(setMobilMovies, genreNumber, page.toString());
+    }   
+  };
+
+  const handleDecreaseApiPage = () => {
+    if(pageNumber > 1) {
+     let page = pageNumber - 1;
+      setPageNumber(page);
+      apiMovies(setMobilMovies, genreNumber, page.toString());
+      
+    }
+  }
+
   
-  const handleTitlesAndGenres = (input, pageNumber) => {
+  const handleTitlesAndGenres = (input) => {
+    setPageNumber(1);
     if(input === "28") {
       setTitle("Action");
-      apiMovies(setMobilMovies, input, pageNumber)
+      setGenreNumber(input);
+      apiMovies(setMobilMovies, input)
 
     } else if (input === "18") {
       setTitle("Drama");
-      apiMovies(setMobilMovies, input, pageNumber)
+      setGenreNumber(input);
+      apiMovies(setMobilMovies, input)
 
     } else if(input === "35") {
       setTitle("Comedy");
-      apiMovies(setMobilMovies, input, pageNumber)
+      setGenreNumber(input);
+      apiMovies(setMobilMovies, input)
 
     } else if (input === "10751") {
       setTitle("Family");
-      apiMovies(setMobilMovies, input, pageNumber)
+      setGenreNumber(input);
+      apiMovies(setMobilMovies, input)
 
     } else if (input ==="53") {
       setTitle("Thriller");
-      apiMovies(setMobilMovies, input, pageNumber)
+      setGenreNumber(input);
+      apiMovies(setMobilMovies, input)
 
     } 
   }
   
-  const handleGenreTopScoreOrPopular = (input, pageNumber) => {
+  const handleGenreTopScoreOrPopular = (input) => {
+    setPageNumber(1);
     if(input === "top_rated") {
       setTitle("Top Rated");
-      apiTopScoreOrPopular(setMobilMovies, input, pageNumber)
+      setGenreNumber(input);
+      apiTopScoreOrPopular(setMobilMovies, input)
 
     } else {
       setTitle("Popular")
-      apiTopScoreOrPopular(setMobilMovies, input, pageNumber)
+      setGenreNumber(input);
+      apiTopScoreOrPopular(setMobilMovies, input)
 
     }
    
@@ -94,9 +123,18 @@ const handleGenreInput = () => {
  
   const movies = mobilMovies.slice(0,5).map((movie) => (
     <div key={movie.id} className="movielistMobil-component">
-      <div className="top-rated-container">
-        <h2 className="toprated">{title}</h2>
-        
+      <div className="title-container">
+        <h2 className="toprated">{title}</h2> 
+
+        <i><FontAwesomeIcon icon={faArrowLeft}
+         className="arrow-left-mobil"
+         onClick={handleDecreaseApiPage}/></i>
+
+        <p className="number">{pageNumber}</p>
+        <i><FontAwesomeIcon icon={faArrowRight}
+         className="arrow-right-mobil"
+         onClick={handleIncreaseApiPage}/></i>
+
 
          <h3  
          onClick={handleGenreInput} 

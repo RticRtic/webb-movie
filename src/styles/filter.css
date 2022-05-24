@@ -45,12 +45,13 @@
 
 .filter-component .actionLogo:hover, .dramaLogo:hover,
 .comedyLogo:hover, .thrillerLogo:hover, .familyLogo:hover, .topScoreLogo:hover,
-.popularLogo:hover {
+.popularLogo:hover, .arrow-left:hover, .arrow-right:hover {
   transform: scale(102%);
   cursor: pointer;
 }
 .filter-component .label-action:hover , .label-drama:hover, .label-comedy:hover,
-.label-thriller:hover, .label-family:hover, .label-topScore:hover, .label-popular:hover {
+.label-thriller:hover, .label-family:hover, .label-topScore:hover, .label-popular:hover,
+.arrow-left, .arrow-right {
   cursor: pointer;
 }
 
@@ -99,6 +100,30 @@
   position: relative;
   bottom: 235px;
   text-align: center;
+}
+
+.filter-component .arrow-container {
+  border: solid 2px red;
+  width: 150px;
+  position: absolute;
+  margin-left: 820px;
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  
+  
+ 
+}
+
+.filter-component .arrow-right, .arrow-left {
+  color: white;
+  font-size: 60px;
+}
+
+.filter-component .page-number {
+  color: white;
+  font-size: 20px;
+  font-family: 20px;
 }
 
 

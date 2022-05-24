@@ -22,6 +22,7 @@ import SignUp from './components/login/signup';
 import { useDispatch } from 'react-redux';
 import { checkForUser } from './models/firebaseModel';
 import UserProfile from './components/login/profile';
+import OrderConfirmation from './components/shopping/orderConfirmation';
 
 
 
@@ -97,6 +98,11 @@ function App() {
 
         <Route exact path='/checkout' element = {
           <Checkout device={device}/>
+        }
+        />
+
+        <Route exact path='/orderConfirmation' element = {
+          <OrderConfirmation device={device} />
         }
         />
 
