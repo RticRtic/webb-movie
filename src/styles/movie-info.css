@@ -1,0 +1,232 @@
+
+.movie_info_wrapper {
+    height: fit-content;
+    width: 100%;
+    margin: 10vh 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.movie_info_header {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid black;
+}
+
+.movie_info_header img {
+    object-fit: cover;
+    width: auto;
+    height: 100%;
+}
+
+.movie_info_container {
+    background-image: linear-gradient(to right, black, black, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.35) );
+    position: absolute;
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.movie_info_inner_container {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.movie_info_inner_container img {
+    padding: 10px 0;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+.movie_info_inner_container section {
+    width: 100%;
+    height: 100%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.movie_info_inner_container section h2, .movie_info_purchase h2 {
+    font-weight: lighter;
+    font-family: 'Avenir';
+    font-size: 2rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.movie_info_inner_container section h2 span {
+    font-size: 1.5rem !important;
+    margin-left: 10px;
+}
+
+.movie_info_overview {
+    width: 90%;
+    height: 100%;
+    text-shadow: 0 0 3px black;
+    color: rgb(214, 214, 214);
+    overflow-y: scroll;
+}
+
+.movie_info_purchase {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.movie_info_purchase article {
+    font-size: 1rem;
+    background-color: #ADFFB0;
+    padding: 2px 20px;
+    width: fit-content;
+    color: #0F5F21;
+}
+
+.movie_info_addToCart {
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    background-color: #B51B1B;
+    text-align: center;
+    line-height: 1.2rem;
+    width: fit-content;
+    padding: 10px 50px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.movie_info_addToCart:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+.movie_info_section {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 2px solid rgb(74, 74, 74);
+}
+
+.movie_info_section div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+    font-size: 1.1rem;
+
+}
+
+.movie_info_section div h2 {
+    font-weight: lighter;
+    font-family: 'Avenir';
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.movie_info_section div h2 span {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.trailer_button {
+    color: white;
+    padding: 5px 10px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.55);
+    font-size: 1.2rem;
+    font-weight: bolder;
+    transition: 0.2s;
+    cursor: pointer;
+    margin: 0;
+    margin-top: 15px;
+    width: fit-content;
+    background-color: #B51B1B;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    border-radius: 50px;
+}
+
+.trailer_button:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+.mobile_time_rating {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    gap: 5px;
+    margin-top: 15px;
+    overflow: hidden;
+    
+
+}
+
+.mobile_time_rating aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 95%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.326);
+    background-color: #2e2e2e;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+
+
+@media screen and (max-width: 900px) {
+    .movie_info_header {
+        height: 30vh;
+    }
+
+    .movie_info_container {
+        height: 30vh;
+    }
+
+    .movie_info_purchase {
+        margin: 10px 0 !important;
+        position: relative;
+        width: 100%;
+    }
+
+    .info_date_time {
+        font-size: 1.2rem;
+    }
+
+    .movie_info_addToCart {
+        position: fixed;
+        bottom: 20px;
+        margin: 0 !important;
+        height: 50px;
+        width: 90%;
+        z-index: 20;
+    }
+
+    .movie_info_section div h2 {
+        font-size: 1.5rem;
+    }
+
+    .trailer_button_container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

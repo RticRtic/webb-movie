@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar-track {
+  background: transparent !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar-thumb {
+  background: #B51B1B;
+  border-radius: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+
+* {
+  font-family: 'Avenir Book';
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #212121;
+  overflow-x: hidden !important;
+}
+
+.section_title {
+  font-size: 1.5rem;
+  padding-right: 25px;
   color: white;
+  border-bottom: 3px solid #B51B1B;
+  width: fit-content;
+  margin: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #8b0000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+/* Animations */
+
+@keyframes slideInFromLeft {
+  0% {
+      transform: translateX(-100%);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+      transform: translateX(0);
   }
+}
+
+@keyframes slideInFromRight {
+  0% {
+      transform: translateX(200%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  } 
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform:  translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

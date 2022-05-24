@@ -1,0 +1,152 @@
+.movieList-component {
+  /* border: solid 2px red; */
+  /* display: grid;
+  grid-template-columns: repeat(7, 1fr); */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 165px;
+  position: absolute;
+  height: 630px;
+  width: 90%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  top: 104px;
+  
+  /* display: flex;
+  flex-direction: repeat(7, 1fr);
+  position: absolute;
+  margin-left: 165px;
+  align-items: center;
+  overflow-x: scroll; */
+  
+  
+}
+
+.movieList-component .arrow-container {
+  margin-left: 80px;
+}
+
+.movieList-component .arrow-right {
+  font-size: 80px;
+  cursor: pointer;
+}
+
+
+
+ /* .movieList-component .movies-title {
+  font-family: Avenir;
+  color: white;
+  
+}
+
+.movieList-component .movie-img {
+  height: 300px;
+  margin-top: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 1);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
+  position: relative;
+ 
+}
+
+
+.movieList-component .movie-img:hover {
+  transform: scale(102%);
+}
+
+.movieList-component .movie-vote_average-container {
+  border: solid 2px red; 
+  height: 20px;
+  position: relative;
+  bottom: 90px;
+  left: 6px;
+}
+
+.movieList-component .movie-vote_average {
+  background-color: rgba(0, 0, 0, 0.75);
+
+  width: 55px;
+  height: 26px;
+  border-top-right-radius: 20px;
+  position: relative;
+  color: white;
+  font-family: "Avenir Book";
+ 
+}
+
+.movieList-component .icon-star {
+  color: rgb(142, 3, 3);
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.movieList-component .movie_price-container {
+  height: 20px;
+  position: relative;
+  bottom: 125px;
+  left: 6px;
+}
+
+.movieList-component .movie-price {
+  background-color: rgba(0, 0, 0, 0.75);
+
+  width: 55px;
+  height: 26px;
+  border-top-left-radius: 20px;
+  margin-left: 149px;
+  text-align: center;
+  font-family: "Avenir Book";
+  color: white;
+  font-size: 15px;
+  border: solid 2px red; 
+}
+
+.movieList-component .icon-price {
+  color: rgb(142, 3, 3);
+  font-size: 15px;
+  padding-right: 2px;
+}
+
+.movieList-component .movie-title-release-date-container {
+   border: solid 2px yellow; 
+  position: relative;
+  bottom: 110px;
+  left: 8px;
+}
+
+.movieList-component .movie-title-release-date {
+  border: solid 2px red;
+  height: 40px;
+  position: absolute;
+  color: white;
+  font-size: 15px;
+}
+
+.movieList-component .shoppingcart-container {
+  position: relative;
+  bottom: 310px;
+  margin-left: 6.5px;
+  background-color: #c01a1ab4;
+  font-size: 18px;
+  width: 45px;
+  height: 45px;
+  border-bottom-right-radius: 25px;
+  cursor: pointer;
+  
+  
+}
+
+.movieList-component .shoppingcart-container:hover {
+  background-color: #aa3b3ba5;
+}
+
+.movieList-component .icon-shoppingcart {
+  color: white;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  
+ 
+}  */

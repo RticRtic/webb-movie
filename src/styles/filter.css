@@ -1,0 +1,141 @@
+
+
+.filter-component {
+  margin: 12vh 0;
+  width: 120px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px; 
+  
+}
+.filter-component .filter-categories .h4-genre {
+  margin-top: 2px;
+  height: 550px;
+}
+
+.filter-categories {
+    color: white;
+    margin-left: 5px;
+    font-size: large;
+   
+}
+
+
+.filter-component .img-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+ 
+ 
+}
+
+.filter-component .actionLogo, .dramaLogo, .comedyLogo, .thrillerLogo, .familyLogo,
+.topScoreLogo, .popularLogo {
+  width: 150px;
+  height: 91px;
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0.5;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 1);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
+  
+}
+
+.filter-component .actionLogo:hover, .dramaLogo:hover,
+.comedyLogo:hover, .thrillerLogo:hover, .familyLogo:hover, .topScoreLogo:hover,
+.popularLogo:hover, .arrow-left:hover, .arrow-right:hover {
+  transform: scale(102%);
+  cursor: pointer;
+}
+.filter-component .label-action:hover , .label-drama:hover, .label-comedy:hover,
+.label-thriller:hover, .label-family:hover, .label-topScore:hover, .label-popular:hover,
+.arrow-left, .arrow-right {
+  cursor: pointer;
+}
+
+.filter-component .label-action-container {
+  position: relative;
+  bottom: 695px;
+  text-align: center;
+  
+ 
+}
+
+.filter-component .label-drama-container {
+  
+  position: relative;
+  bottom: 615px;
+  text-align: center;
+  
+}
+
+.filter-component .label-comedy-container {
+  position: relative;
+  bottom: 540px;
+  text-align: center;
+}
+
+
+.filter-component .label-thriller-container {
+  position: relative;
+  bottom: 460px;
+  text-align: center;
+}
+
+.filter-component .label-family-container {
+  position: relative;
+  bottom: 385px;
+  text-align: center;
+}
+
+.filter-component .label-topScore-container {
+  position: relative;
+  bottom: 310px;
+  text-align: center;
+}
+
+.filter-component .label-popular-container {
+  position: relative;
+  bottom: 235px;
+  text-align: center;
+}
+
+.filter-component .arrow-container {
+  border: solid 2px red;
+  width: 150px;
+  position: absolute;
+  margin-left: 820px;
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  
+  
+ 
+}
+
+.filter-component .arrow-right, .arrow-left {
+  color: white;
+  font-size: 60px;
+}
+
+.filter-component .page-number {
+  color: white;
+  font-size: 20px;
+  font-family: 20px;
+}
+
+
+
+/* .filter-component .score-popular-container {
+  position: absolute;
+  bottom: 180px;
+  
+} */
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+
+
+.Add_card {
+    margin-left: 8px;
+    
+    
+}
+
+.checkout_container {
+    margin: 226px;
+    margin-top: 20px;
+
+}
+
+
+
+.order_summary_container {
+    
+  
+  
+    
+    
+   
+}
+
+.subtotal_text{
+    text-align: left;
+}
+
+
+
+.cart_checkout_mobile {
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    background-color: #b51b1b;
+    color: white;
+    padding: 10px 60px;
+    cursor: pointer;
+    box-shadow: 0 3px 3px rgba(39, 39, 39, 0.7);
+    transition: 0.3s;
+}
+
+
+
+.checkout_infos_mobile {
+    margin-top: 30px;
+    margin-left: 30px;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+
