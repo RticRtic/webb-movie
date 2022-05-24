@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {Swiper, SwiperSlide} from "swiper/react";
 
-import '../../styles/trending-movies.css';
+import '../../styles/home-page.css';
 import '../../styles/fa-icons.css'
 
 //import 'swiper/swiper-bundle.min.css'
@@ -11,38 +10,27 @@ import 'swiper/css';
  
 //import 'swiper/swiper.min.css'
 
-
-import { fetchTrending } from '../../models/apiModel';
-import { faShoppingCart, faStar, faDollarSign, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
 import MovieCard from "../globals/movieCard";
 
-const TrendingMovies = () => {
+const MovieSwiper = ({ movies, sectionTitle }) => {
 
-    const dispatch = useDispatch();
-    const trending = useSelector(state => state.trendingMovies);
 
     const [my_swiper, set_my_swiper] = useState({});
 
-    useEffect(() => {
-        fetchTrending(dispatch);
-    },[])
 
-
-    // If currently fetching, display the status else load the movies
-
-    return (trending.data == null) ? 
+    return (movies == null) ? 
 
     (
         <div>
-            {trending.status}
+            LOADING...
         </div>
     )
     :
     (
-        <div className="trending_container">
-            <header className="section_title">Trending Movies</header>
+        <div className="movieswiper_container">
+            <header className="section_title">{sectionTitle}</header>
             <div>
 
                 
@@ -58,17 +46,17 @@ const TrendingMovies = () => {
                 }}
                 >
                     
-                    <button className={('trending_pagination_button') + (' left')} onClick={() => { my_swiper.slidePrev() }}>
+                    <button className={('movieswiper_pagination_button') + (' left')} onClick={() => { my_swiper.slidePrev() }}>
                         <FontAwesomeIcon icon={faChevronLeft}/>
                         </button>
                     
-                    {trending.data.results.map(movie => (
+                    {movies.results.map(movie => (
                         <SwiperSlide key={movie.id} className='swiper-slide'>
                             <MovieCard movie={movie}/>
                         </SwiperSlide>
                     ))}
                     
-                    <button className={('trending_pagination_button') + (' right')} onClick={() => { my_swiper.slideNext() }}>
+                    <button className={('movieswiper_pagination_button') + (' right')} onClick={() => { my_swiper.slideNext() }}>
                         <FontAwesomeIcon icon={faChevronRight}/>
                         </button>
 
@@ -84,4 +72,4 @@ const TrendingMovies = () => {
 
 
 
-export default TrendingMovies;
+export default MovieSwiper;

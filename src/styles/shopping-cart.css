@@ -32,30 +32,36 @@
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .shopping_cart_info header span {
     margin: 0 25px;
+    display: flex;
+    align-items: center;
 }
 
 .shopping_cart_total header {
     width: 90%;
     color: white;
     font-size: 1.1rem;
-    display: flex;
-    justify-content: space-between;
     width: 100%;
     padding: 10px 0;
     margin: 0 10px;
-    justify-content: center;
-    align-items: center;
     border-bottom: 1px solid #2e2e2ec6;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.shopping_cart_total header i {
-    font-size: 1.5rem;
+.shopping_cart_close {
     cursor: pointer;
+    font-size: 1.2rem;
 }
+
+
+
 
 .cart_item_container {
     height: 85%;
@@ -108,7 +114,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 
 }
 
@@ -130,10 +136,6 @@
     background-color: #B51B1B;
 }
 
-.shopping_cart_close {
-    font-size: 2rem;
-    margin: 0 10px;
-}
 
 .shopping_cart_total_mobile {
     width: 100%;
@@ -163,6 +165,7 @@
     background-color: #B51B1B;
     color: white;
     padding: 10px 35px;
+    text-decoration: none;
 
 }
 
@@ -195,7 +198,7 @@
 .cart_checkout {
     width: 100%;
     font-size: 1.2rem;
-    margin: 10px 0;
+    margin: 20px 0;
     display: flex;
     justify-content: space-between;
     color: white;
@@ -211,6 +214,7 @@
     cursor: pointer;
     box-shadow: 0 3px 3px rgba(39, 39, 39, 0.7);
     transition: 0.3s;
+    text-decoration: none !important;
 }
 
 .cart_checkout_btn:hover {
@@ -228,16 +232,16 @@
 
     .shopping_cart_info header {
         width: 100%;
-        padding: 10px 0;
-        margin: 0;
-        justify-content: center;
+        padding: 15px 0;
+        justify-content: space-between;
         align-items: center;
-        background-color: rgb(26, 26, 26);
+        background-image: linear-gradient(rgb(123, 0, 0), rgb(167, 0, 0), rgb(200, 0, 0));
+
     }
 
-    .shopping_cart_info header i {
-        position: absolute;
-        right: 0;
+
+    .shopping_cart_close {
+        font-size: 1.8rem;
     }
 
 

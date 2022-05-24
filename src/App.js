@@ -1,21 +1,17 @@
 
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { getSearchedApi } from './models/apiSearchInput';
 
 import NavigationBar from './components/globals/navbar';
 import Footer from './components/globals/footer';
-import TrendingMovies from './components/home/trendingMovies';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/home/homepage';
+import Home from './components/home/homePage';
 import Checkout from './components/shopping/checkout';
 import MovieInfoPage from './components/movie-info/movieInfoPage';
 
 import Catalog from './components/catalog/Catalog';
 
 import ShoppingCart from './components/globals/shoppingCart';
-
-import PopularGenres from './components/home/popularGenres';
 
 import Login from './components/login/login';
 import SignUp from './components/login/signup';

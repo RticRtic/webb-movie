@@ -95,6 +95,7 @@
     padding: 2px 20px;
     width: fit-content;
     color: #0F5F21;
+    border-radius: 5px;
 }
 
 .movie_info_addToCart {
@@ -110,6 +111,7 @@
     padding: 10px 50px;
     transition: 0.3s;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .movie_info_addToCart:hover {
@@ -158,7 +160,7 @@
     width: fit-content;
     background-color: #B51B1B;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .trailer_button:hover {
@@ -211,10 +213,11 @@
     .movie_info_addToCart {
         position: fixed;
         bottom: 20px;
-        margin: 0 !important;
+        margin: 0 10px;
         height: 50px;
         width: 90%;
         z-index: 20;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
     }
 
     .movie_info_section div h2 {

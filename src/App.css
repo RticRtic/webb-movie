@@ -30,7 +30,8 @@ html {
   font-size: 1.5rem;
   padding-right: 25px;
   color: white;
-  border-bottom: 3px solid #B51B1B;
+  border-bottom: 5px solid #B51B1B;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
   width: fit-content;
   margin: 15px;
 }
