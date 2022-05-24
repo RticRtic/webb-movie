@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/webb-movie/static/css/main.de695d11.css",
-    "main.js": "/webb-movie/static/js/main.d4c15b25.js",
+    "main.css": "/webb-movie/static/css/main.ef790732.css",
+    "main.js": "/webb-movie/static/js/main.0624b7e5.js",
     "static/js/787.96f6d466.chunk.js": "/webb-movie/static/js/787.96f6d466.chunk.js",
     "static/media/baloonsLogo.jpg": "/webb-movie/static/media/baloonsLogo.8eb193be2c77e14f2874.jpg",
     "static/media/dramaLogo.jpg": "/webb-movie/static/media/dramaLogo.2649e925ea1f01e03633.jpg",
@@ -18,12 +18,12 @@
     "static/media/comedy-poster.webp": "/webb-movie/static/media/comedy-poster.2b8ba8666afe90b57126.webp",
     "static/media/comedyLogo1.webp": "/webb-movie/static/media/comedyLogo1.2b8ba8666afe90b57126.webp",
     "index.html": "/webb-movie/index.html",
-    "main.de695d11.css.map": "/webb-movie/static/css/main.de695d11.css.map",
-    "main.d4c15b25.js.map": "/webb-movie/static/js/main.d4c15b25.js.map",
+    "main.ef790732.css.map": "/webb-movie/static/css/main.ef790732.css.map",
+    "main.0624b7e5.js.map": "/webb-movie/static/js/main.0624b7e5.js.map",
     "787.96f6d466.chunk.js.map": "/webb-movie/static/js/787.96f6d466.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.de695d11.css",
-    "static/js/main.d4c15b25.js"
+    "static/css/main.ef790732.css",
+    "static/js/main.0624b7e5.js"
   ]
 }
