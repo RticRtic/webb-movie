@@ -62,21 +62,6 @@
     text-align: left;
 }
 
-.cart_checkout_mobile {
-    outline: none;
-    border: none;
-    font-size: 1.2rem;
-    background-color: #b51b1b;
-    color: white;
-    padding: 10px 60px;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 3px 3px rgba(39, 39, 39, 0.7);
-    transition: 0.3s;
-    width: 100vw;
-    margin: 0;
-}
-
 .cart_item.checkout {
     width: 100%;
     margin-right: 60px;

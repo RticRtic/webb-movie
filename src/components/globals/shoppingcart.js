@@ -6,13 +6,15 @@ import { splitDate } from '../../models/constants';
 import { actions } from '../../features/shoppingcartReducer';
 
 import '../../styles/shopping-cart.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const ShoppingCart = ({ device, toggleShoppingCart }) => {
 
 
     let cartProducts = useSelector(state => state.shoppingCart);
+
+    let navigate = useNavigate();
 
     let dispatch = useDispatch();
 
@@ -100,10 +102,10 @@ const ShoppingCart = ({ device, toggleShoppingCart }) => {
                             <span>To Pay</span>
                             <span>${cartProducts.length * 8}</span>
                         </article>
-                        <Link onClick={() => toggleShoppingCart(false)} to="/checkout"
-                            className='cart_checkout_btn'>CHECKOUT
-
-                        </Link>
+                        <button className='cart_checkout_btn' onClick={() => {
+                            toggleShoppingCart(false);
+                            navigate("/checkout");
+                        }}>CHECKOUT</button>
                     </div>
                 </div>
             </div>
@@ -119,9 +121,10 @@ const ShoppingCart = ({ device, toggleShoppingCart }) => {
                             <span>Total <br /> ${cartProducts.length * 8}</span>
                         </span>
                         <span>
-                            <Link to="/checkout"
-                                className='cart_checkout_mobile'>CHECKOUT
-                            </Link>
+                            <button className='cart_checkout_mobile' onClick={() => {
+                                toggleShoppingCart(false);
+                                navigate("/checkout");
+                            }}>CHECKOUT</button>
                         </span>
                     </div>
                 )

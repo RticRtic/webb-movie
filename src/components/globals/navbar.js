@@ -131,7 +131,7 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
     //Navigation Bar - Web
     <div className={"navbar" + " " + "web"}>
       <nav>
-        <li>
+        <li onClick={() => navigate("/")}>
           <h2 className="app_logo">
             Movie<span style={{ color: "white" }}>Collector</span>
           </h2>
@@ -190,11 +190,10 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
               onClick={toggleDropdown}
             />
           </li>
-          <li>
-            {""}
+          <li onClick={() => navigate("/")}>
             <h2 className="app_logo">
               Movie<span style={{ color: "white" }}>Collector</span>
-            </h2>{" "}
+            </h2>
           </li>
           <li>
             <FontAwesomeIcon

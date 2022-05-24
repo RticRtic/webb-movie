@@ -165,10 +165,28 @@
         transform: none;
     }
 
+    .search_result_card {
+        height: fit-content;
+    }
+
+    .search_result_info {
+        height: 100%;
+    }
+
+    .search_result_img {
+        height: 100%;
+        width: 60px;
+    
+        margin-inline: 10px;
+    
+        object-fit: contain;
+        
+    }
+
     .search_result_container {
         position: fixed;
-        height: 90% !important;
-        width: 100% !important;
+        height: 90vh !important;
+        width: 100vw !important;
         top: 0;
         padding: 0;
         z-index: 20;
