@@ -30,9 +30,6 @@ function App() {
   const [shoppingCartActive, setShoppingCartActive] = useState(false);
   let dispatch = useDispatch();
 
-  useEffect(() => {
-    checkForUser(dispatch);
-  },[])
 
 
   const toggleShoppingCart = () => {

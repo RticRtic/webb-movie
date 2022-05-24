@@ -355,7 +355,17 @@
 
 
     .review_details_header div {
-        width: 30vw !important;
+        width: fit-content !important;
+    }
+
+    .review_details_header aside {
+        width: 80px !important;
+        height: 80px !important;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
     }
 
 

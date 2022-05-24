@@ -62,17 +62,17 @@ export async function signUp(dispatch, username, email, password) {
 
 }
 
-export function checkForUser(dispatch) {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
+// export function checkForUser(dispatch) {
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
 
-      getUserDocument(dispatch, user.email, user.uid);
+//       getUserDocument(dispatch, user.email, user.uid);
 
-    } else {
+//     } else {
 
-    }
-  });
-}
+//     }
+//   });
+// }
 
 export async function signOut(dispatch) {
   signOut(auth)

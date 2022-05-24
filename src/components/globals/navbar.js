@@ -62,12 +62,6 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
       return (
       <ul className="user_dropdown">
 
-        {(isSigningOut) ? 
-        (
-          <li className="loader"/>
-        )
-        :
-        (
           <Fragment>
             <li>
               Signed in as 
@@ -77,17 +71,16 @@ const NavigationBar = ({ device, toggleShoppingCart}) => {
             
             <li onClick={() => {
               navigate("user/" + user.username);
-              toggleUserDropdown();
+              isShowingUserMenu(false);
               }}> View Profile </li>
               
             <li onClick={() => {
               
               signOut(dispatch);
-              toggleUserDropdown();
+              isShowingUserMenu(false);
               }}> Sign Out</li>
           </Fragment>
-        )
-      }
+      
         
 
       </ul>
