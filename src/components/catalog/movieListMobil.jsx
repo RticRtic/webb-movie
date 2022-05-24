@@ -152,8 +152,10 @@ const handleGenreInput = () => {
               <img className="family-img" src={baloonsLogo} alt="img" />
               <img className="thriller-img" src={thrillerLogo} alt="img" />
               <img className="topscore-img" src={topScoreLogo} alt="img" />
-              <img className="popular-img" src={popularLogo} alt="img" />    
-              <div className="titles">
+              <img className="popular-img" src={popularLogo} alt="img" />              
+            </div>
+            
+            <div className="titles">
             <p onClick={() => handleTitlesAndGenres("28")} className="action-title">Action</p>
               <p onClick={() => handleTitlesAndGenres("18")} className="drama-title">Drama</p>
               <p onClick={() => handleTitlesAndGenres("35")} className="comedy-title">Comedy</p>
@@ -162,10 +164,7 @@ const handleGenreInput = () => {
               <p onClick={() => handleGenreTopScoreOrPopular("top_rated")} className="topscore-title">Top Rated</p>
               <p onClick={() => handleGenreTopScoreOrPopular("popular")} className="popular-title">Popular</p>
             </div>
-          </div>          
-            </div>
-            
-            
+          </div>
          : null }
         
          

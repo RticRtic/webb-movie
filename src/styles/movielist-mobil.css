@@ -18,13 +18,15 @@
 .movielistMobil-component .title-container {
     /* border: solid 2px blue; */
     width: 350px;
+    /* height: 500px; */
     position: absolute;
     margin-right: 260px;
     bottom: 690px;
     margin-left: 18px;
     top: 100px;
     display: flex;
-    align-items: center;   
+    align-items: center;
+    justify-content: space-evenly;  
    
 }
 .movielistMobil-component .arrows-container {
@@ -43,6 +45,7 @@
     font-family: "Avenir";
     font-weight: normal;
     margin-left: 30px;
+    
    
     
 }
@@ -60,8 +63,9 @@
     position: absolute;
     height: 420px;
     width: 120px;
-    margin-left: 235px;
-    margin-top: 450px;
+    top: 45px;
+    right: -20px;
+
     background-color: rgb(17, 17, 17);
     border-radius: 5px;
     
@@ -91,7 +95,7 @@
 
 .movielistMobil-component .drama-title:active, .action-title:active, .family-title:active,
  .thriller-title:active, .topscore-title:active, .popular-title:active, .comedy-title:active, 
- .arrow-left-mobil:active, .arrow-right-mobil:active {
+ .arrow-left-mobil:active, .arrow-right-mobil:active, .genre:active {
     transform: translate3d(3px, 3px, 0px);
 }
 
@@ -180,7 +184,7 @@
 
 .movielistMobil-component .button-container {
     position: absolute;
-    bottom: 60px;
+    bottom: 25px;
     left: 220px
 }
 
