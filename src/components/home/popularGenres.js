@@ -21,7 +21,7 @@ const PopularGenres = () => {
 
     return (
         <div className="popular_genres_container">
-            <div className="title">
+            <div className="section_title">
                 <span>Popular genres</span>
             </div>
             <div className="genre_card_container">

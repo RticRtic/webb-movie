@@ -9,7 +9,7 @@ import '../../styles/shopping-cart.css';
 import { Link } from 'react-router-dom';
 
 
-const ShoppingCart = ({device, toggleShoppingCart}) => {
+const ShoppingCart = ({ device, toggleShoppingCart }) => {
 
 
     let cartProducts = useSelector(state => state.shoppingCart);
@@ -23,33 +23,33 @@ const ShoppingCart = ({device, toggleShoppingCart}) => {
 
     const CartItems = () => {
 
-       
+
 
         return (
             <ul className='cart_item_container'>
                 {cartProducts.map(movie => (
-                <li key={movie.id} className='cart_item'>
+                    <li key={movie.id} className='cart_item'>
 
-                    <img className='cart_item_image' src={'https://image.tmdb.org/t/p/original/' + movie.poster_path}/>
+                        <img className='cart_item_image' src={'https://image.tmdb.org/t/p/original/' + movie.poster_path} />
 
-                    <div className='cart_item_name'>
+                        <div className='cart_item_name'>
 
-                        <span>{movie.title} <span style={{color: 'rgb(203, 203, 203)', fontWeight: 'lighter'}}>({splitDate(movie.release_date)})</span></span>
-                        <span style={{fontWeight: 'lighter'}}>$8</span>
+                            <span>{movie.title} <span style={{ color: 'rgb(203, 203, 203)', fontWeight: 'lighter' }}>({splitDate(movie.release_date)})</span></span>
+                            <span style={{ fontWeight: 'lighter' }}>$8</span>
 
-                    </div>
+                        </div>
 
-                    <aside className='cart_item_remove'>
+                        <aside className='cart_item_remove'>
 
-                        <i onClick={() => handleRemove(movie.id)}>
-                            <FontAwesomeIcon icon={faXmark}/>
-                        </i>
-                        
-                    </aside>
-                </li>
+                            <i onClick={() => handleRemove(movie.id)}>
+                                <FontAwesomeIcon icon={faXmark} />
+                            </i>
+
+                        </aside>
+                    </li>
                 ))}
             </ul>
-            
+
         )
 
     }
@@ -59,76 +59,75 @@ const ShoppingCart = ({device, toggleShoppingCart}) => {
             <div className='shopping_cart_container'>
                 <div className='shopping_cart_info'>
                     <header>
-                        {(device == 'web') ? 
-                        (
-                            <Fragment>
-                                <span>Product</span>
-                            </Fragment>
-                        
-                        )
-                        :
-                        (
-                            <Fragment>
-                                <span>You have {cartProducts.length} items in your cart</span>
-                                <i className='shopping_cart_close'>
-                                    <span><FontAwesomeIcon icon={faXmark} onClick={toggleShoppingCart}/></span>
-                                </i>
-                                
-                            </Fragment>
-                            
-                        )
-                    }
-                        
+                        {(device == 'web') ?
+                            (
+                                <Fragment>
+                                    <span>Product</span>
+                                </Fragment>
+
+                            )
+                            :
+                            (
+                                <Fragment>
+                                    <span><span>You have {cartProducts.length} items in your cart </span><FontAwesomeIcon className='shopping_cart_close' onClick={toggleShoppingCart} icon={faXmark} /></span>
+                                </Fragment>
+
+                            )
+                        }
+
                     </header>
-                    <CartItems/>
+                    <CartItems />
                 </div>
                 <div className='shopping_cart_total'>
+
                     <header>
+
                         <span>You have {cartProducts.length} items in your cart</span>
-                        <i className='shopping_cart_close'>
-                            <span><FontAwesomeIcon icon={faXmark} onClick={toggleShoppingCart}/></span>
-                        </i>
+                        <FontAwesomeIcon className='shopping_cart_close' icon={faXmark} onClick={toggleShoppingCart} />
+
                     </header>
+
                     <div className='shopping_cart_pricetotal'>
                         <article className='cart_total'>
                             <span>Total</span>
                             <span>${cartProducts.length * 8}</span>
                         </article>
-                        
+
                     </div>
+
                     <div className='shopping_cart_checkout'>
                         <article className='cart_checkout'>
                             <span>To Pay</span>
                             <span>${cartProducts.length * 8}</span>
                         </article>
-                        <Link to ="/checkout"
-                          className='cart_checkout_btn'>CHECKOUT
-                        
+                        <Link to="/checkout"
+                            className='cart_checkout_btn'>CHECKOUT
+
                         </Link>
                     </div>
                 </div>
             </div>
-            
-            {(device == 'web') ?
-            (
-                null
-            )
-            :
-            (
-                <div className='shopping_cart_total_mobile'>
-                    <span >
-                        <span>Total <br/> ${cartProducts.length * 8}</span>
-                    </span>
-                    <span>
-                        <Link to="/checkout"
-                        className='cart_checkout_mobile'>CHECKOUT
-                        </Link>
-                    </span>
-                </div>
-            )
-        }
 
-        <div className='shopping_cart_emptyspace' onClick={toggleShoppingCart}></div>
+            {(device == 'web') ?
+                (
+                    null
+                )
+                :
+                (
+                    <div className='shopping_cart_total_mobile'>
+                        <span >
+                            <span>Total <br /> ${cartProducts.length * 8}</span>
+                        </span>
+                        <span>
+                            <Link to="/checkout"
+                                className='cart_checkout_mobile'>CHECKOUT
+                            </Link>
+                        </span>
+                    </div>
+                )
+            }
+
+            <div className='shopping_cart_emptyspace' onClick={toggleShoppingCart}></div>
 
         </div>
     )

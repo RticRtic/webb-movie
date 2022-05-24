@@ -1,9 +1,10 @@
 
 
 .app_logo {
-    color: red;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    color: rgb(208, 0, 0);
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
 }
+
 
 li {
     list-style: none;
@@ -13,6 +14,7 @@ li {
 
 .navbar {
     background-color: rgba(0, 0, 0, 0.35);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 10vh;
     position: absolute;
@@ -21,7 +23,7 @@ li {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    box-shadow: 0 0 3px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0 3px 6px rgba(0, 0, 0, 0.2);
     color: white;
 }
 
@@ -111,17 +113,18 @@ li {
     width: 33px;
     height: 33px;
     border-radius: 50px;
-    background-color: rgb(153, 0, 0);
+    background-image: linear-gradient(to bottom right, rgb(99, 0, 0), rgb(130, 1, 1), rgb(173, 0, 0));
     display: flex;
     align-items: center;
     justify-content: center;
     font-style: normal;
     font-weight: bolder;
     transition: 0.3s;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .user_icon:hover {
-    background-color: gray;
+    transform: rotateZ(360deg);
 }
 
 .user_dropdown {
@@ -148,7 +151,7 @@ li {
     align-items: center;
     flex-direction: column;
     color: white;
-    width: 100%;
+    width: 100% !important;
     padding: 15px 0;
     cursor: auto;
 }
@@ -178,6 +181,7 @@ li {
     margin-bottom: 20px;
     margin-left: 25px;
     background-color: #b6142f;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
     color: white;
     border-radius: 50px;
     font-size: 15px;
@@ -233,13 +237,18 @@ li {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-image: linear-gradient(to bottom, #b6142f, #6e091f);
+    background-image: linear-gradient(rgb(123, 0, 0), rgb(167, 0, 0), rgb(200, 0, 0));
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
 }
 
 .dropdown_menu header li .nav_icon {
     font-size: 35px;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.5));
+}
+
+.dropdown_menu header li .nav_icon:hover {
+    transform: rotateZ(90deg);
 }
 
 .dropdown_item {

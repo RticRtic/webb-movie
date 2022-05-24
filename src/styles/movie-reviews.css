@@ -1,7 +1,11 @@
+.movie_detail_section.reviews {
+    margin-top: 100px;
+}
+
 .movie_write_review_wrapper {
-    width: 80%;
+    width: 100%;
     margin: 20px auto;
-    height: 80vh;
+    height: 50vh;
 
 
     display: flex;
@@ -10,8 +14,6 @@
     flex-direction: column;
 
     background-color: rgb(20, 20, 20);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
 
     transition: 0.3s;
     animation: fadeIn 1s;
@@ -23,16 +25,19 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .movie_review_rating_container {
-    width: 80%;
+    width: 45%;
     height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
+    font-size: 0.8rem;
+
 }
 
 
@@ -42,25 +47,32 @@
     height: 15vh;
     border-radius: 100px;
     font-style: normal;
-    font-size: 2.5rem;
+    font-size: 50px;
     font-weight: bold;
-    background-color: rgb(144, 0, 0);
-    
-    text-align: center;
-    line-height: 100px;
+    font-family: 'Futura';
 
-    border: 2px solid white;
-    
+    background-image: linear-gradient(to bottom right, rgb(99, 0, 0), rgb(130, 1, 1), rgb(173, 0, 0));
+    box-shadow: inset 0 0 3px 3px rgba(0, 0, 0, 0.3);
+
+    text-align: center;
+    line-height: 15vh;
+
+}
+
+.movie_review_rating_container h3 {
+    font-weight: lighter;
 }
 
 .movie_rating_select {
     outline: none;
     border: none;
-    width: 50%;
+    width: 80%;
     padding: 5px 0;
     border-radius: 5px;
     font-size: 0.8rem;
     font-weight: bolder;
+    background-color: rgb(144, 0, 0);
+    color: white;
 
 }
 
@@ -71,15 +83,20 @@
     display: flex;
     flex-direction: column;
     margin: 20px 0;
+
 }
 
 .movie_review_input_container textarea {
     width: 100%;
     height: 100%;
     resize: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 10px;
     border-radius: 5px;
     overflow-y: scroll;
+    background-color: #333333;
+    color: white;
+    border: none;
 }
 
 .movie_review_input_container textarea:focus {
@@ -121,14 +138,38 @@
 
 }
 
+.load_more_divider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.5px;
+    border-top: 2px solid rgb(144, 0, 0);
+    margin: 25px 0;
+}
+
+.load_more_divider span {
+
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0 8px;
+    background-color: #212121;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.load_more_divider span:hover {
+    color: rgb(144, 0, 0);
+}
+
 
 /* ----------- Review card ----------- */
 
 .review_card {
     width: 85vw;
-    height: 45vh;
-    background-color: rgb(31, 31, 31);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    height: 50vh;
+    background-color: rgb(19, 19, 19);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -137,36 +178,53 @@
 }
 
 .review_card div {
-    height: 92%;
-    width: 98%;
+    height: 90%;
+    width: 95%;
     display: flex;
     flex-direction: column;
 }
 
-.review_details_container {
+.review_details_header {
     width: 100%;
     display: flex;
     padding-bottom: 20px;
     border-bottom: 0.5px solid rgb(58, 58, 58);
+    align-items: center;
 }
 
-.review_details_container i {
-    width: 80px;
-    height: 80px;
-    background-color: rgb(122, 0, 0);
+.review_details_header aside {
+    width: 100px !important;
+    height: 100px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.review_details_header aside i {
+    width: 90%;
+    height: 90%;
+    background-image: linear-gradient(to bottom right, rgb(99, 0, 0), rgb(130, 1, 1), rgb(173, 0, 0));
     border-radius: 50%;
-    text-align: center;
-    line-height: 80px;
     font-weight: bold;
     font-size: 2rem;
+    font-family: 'Futura';
     font-style: normal;
+    box-shadow: inset 0 0 3px 3px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.review_details_container div {
-    width: 90%;
-    margin: 10px;
+.review_details_header div {
+    width: 90% !important;
+    height: 100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 15px;
 }
 
@@ -176,9 +234,61 @@
     flex-direction: row;
 }
 
+.review_details_section span {
+    color: rgb(192, 192, 192);
+}
+
+.review_details_section.username span:first-child {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.review_details_section.rating span:first-child span {
+    font-weight: bold;
+    color: white;
+}
+
+
+
+.review_text_container {
+    overflow-y: scroll;
+    height: 100%
+}
+
+.upvote_container {
+    width: 100%;
+    height: 10%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.upvote_container span button {
+    color: white;
+    outline: none;
+    border: none;
+    background-color: rgb(144, 0, 0);
+    font-weight: bolder;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upvote_container span button:hover {
+    background-color: gray;
+}
+
+.found_helpful {
+    font-weight: bolder;
+}
+
+
+
 /* ----------------------------------- */
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 900px) {
 
     .movie_write_review_wrapper {
         width: 100vw;
@@ -193,6 +303,11 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .movie_review_rating_container {
+        width: 100%;
+    }
+
 
     .movie_review_input_container {
         width: 100%;
@@ -209,6 +324,65 @@
         width: 100%;
         height: 80%;
     }
+
+    .review_card {
+        width: 95vw;
+    }
+
+    .review_card div {
+        width: 95%;
+    }
+
+    .review_details_section {
+        height: 100%;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        grid-column: auto / span 9;
+    }
+
+    .review_details_header aside {
+        grid-column: auto / span 3;
+    }
+
+    .review_details_header {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto;
+    }
+
+
+    .review_details_header div {
+        width: 30vw !important;
+    }
+
+
+    .review_details_section span:first-child {
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+
+    .review_details_section span:last-child {
+        color: rgb(144, 144, 144);
+        font-weight: bolder;
+    }
+
+    .review_timestamp_mobile {
+        width: 100%;
+        grid-column: auto / span 12;
+        padding: 10px 0;
+        margin-inline: 10px;
+        font-size: 0.8rem;
+        color: rgb(191, 191, 191);
+    }
+
+    .review_timestamp_mobile span {
+        font-weight: bold;
+        color: white;
+    }
+
+
+
 }
-
-

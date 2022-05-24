@@ -74,7 +74,7 @@
 
 .profile_header {
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     margin-top: 10vh;
     background-color: #0f0f0f;
     background-repeat: no-repeat;
@@ -89,7 +89,7 @@
 }
 
 .profile_header div {
-    width: 90%;
+    width: 95%;
     height: 20vh;
     display: flex;
     align-items: center;
@@ -110,15 +110,16 @@
 .profile_user_icon {
     width: 20vh;
     height: 20vh;
-    background-color: rgb(153, 0, 0);
+    background-image: linear-gradient(to bottom right, rgb(99, 0, 0), rgb(130, 1, 1), rgb(173, 0, 0));
+
     border-radius: 200px;
     text-align: center;
     line-height: 20vh;
     font-weight: bolder;
     font-size: 4rem;
     font-style: normal;
-    border: 2px solid white;
-    box-shadow: 0 0 5px rgba(27, 27, 27, 0.3);
+    font-family: 'Futura';
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -140,5 +141,10 @@
         width: 15vh;
         height: 15vh;
         line-height: 15vh;
+    }
+
+    .profile_header div {
+        flex-direction: column;
+        gap: 20px;
     }
 }

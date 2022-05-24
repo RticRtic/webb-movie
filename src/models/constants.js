@@ -24,5 +24,7 @@ export const getDate = () => {
     var day = date.getUTCDate();
     var year = date.getUTCFullYear();
 
-    return month + " " + day + ", " + year;
+    // Format Nov 10, 2022
+
+    return month.charAt(0).toUpperCase() + month.slice(1) + " " + day + ", " + year;
 }

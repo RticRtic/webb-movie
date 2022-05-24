@@ -28,7 +28,8 @@
 }
 
 .movie_trailer_cover i:hover {
-    color: rgb(101, 101, 101);
+    color: rgb(135, 135, 135);
+    transform: rotateZ(90deg);
 }
 
 .movie_trailer_container {

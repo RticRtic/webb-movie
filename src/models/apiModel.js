@@ -1,27 +1,26 @@
 
-import { actions } from "../features/trendingMoviesReducer";
 
 
 
 
 const baseUrl = 'https://api.themoviedb.org/3/';
-const apiKey = '478482cb8ce7c6d6fa5ecb5d066f3fff';
+const apiKey = '?api_key=478482cb8ce7c6d6fa5ecb5d066f3fff';
 
-const trendingUrl = 'trending/movie/day?api_key='
+// trending/movie/day
 
+// movie/top_rated
 
-export async function fetchTrending(dispatch) {
+export async function fetchByCategory(category, setData) {
 
-    dispatch(actions.isFetching());
-
-    console.log('Fetching Trending...')
-
-    fetch(baseUrl + trendingUrl + apiKey)
+    fetch(baseUrl + category + apiKey + "&language=en-US&page=1")
     .then(res => res.json())
-    .then(data => dispatch(actions.success(data)))
-    .catch(err => dispatch(actions.failure(err)));
+    .then(data => {
 
-}
+        setData(data);
+    })
+    .catch(err => console.log(err));
+
+};
 
 export async function fetchSelected(movieId, setCurrentMovie) {
 
