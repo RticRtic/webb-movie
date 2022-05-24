@@ -13,6 +13,15 @@ import { apiMovies, apiTopScoreOrPopular } from "../../models/apiCatalog";
 import MovieList from "./movieList";
 import MovieListMobil from "./movieListMobil";
 
+import {
+  faStar,
+  faShoppingCart,
+  faDollarSign,
+  faArrowRight,
+  faArrowLeft
+} from "@fortawesome/free-solid-svg-icons";
+  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "../../styles/filter.css";
 
 const Filter = () => {
@@ -22,7 +31,8 @@ const Filter = () => {
 
 
   const [movies, setMovies] = useState([]);
-  const [apiPage, setApiPage] = useState(1)
+  const [genreNumber, setGenreNumber] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
 
   const [genreActionChecked, setGenreActionChecked] = useState(false);
   const [genreDramaChecked, setGenreDramaChecked] = useState(false);
@@ -44,7 +54,6 @@ const Filter = () => {
   //! popular
 
   useEffect(() => {
-
     if (location.state !== null ) {
       setGenreTopScoreChecked(false);
         if (location.state.genre === "18") {
@@ -69,20 +78,27 @@ const Filter = () => {
       }
   }, []);
 
-  
-
   const handleIncreaseApiPage = () => {
-    setApiPage(apiPage + 1);
-  
+    if(pageNumber < 10) {
+      let page = pageNumber + 1;
+      setPageNumber(page);
+      console.log("pageNumberpage2: ", page);
+      apiMovies(setMovies, genreNumber, page.toString());
+    }   
   };
 
   const handleDecreaseApiPage = () => {
-    setApiPage(apiPage - 1)
-    console.log("Page: ", apiPage)
+    if(pageNumber > 1) {
+     let page = pageNumber - 1;
+     setPageNumber(page);
+      apiMovies(setMovies, genreNumber, page.toString());
+      console.log("page: ", page);
+    }
   }
 
-  const handleGenre = (input, page) => {
-    apiMovies(setMovies, input);
+  const handleGenre = (input) => {
+    setPageNumber(1);
+    apiMovies(setMovies, input, "1");
     setGenreActionChecked(false);
     setGenreDramaChecked(false);
     setGenreComedyChecked(false);
@@ -90,27 +106,48 @@ const Filter = () => {
     setGenereFamilyChecked(false);
     setGenreTopScoreChecked(false);
     setGenrePopularChecked(false);
-
+   
     if ("28" === input) {
+      setGenreNumber(input);
       setGenreActionChecked(true);
+      console.log("ActionPage: ", pageNumber)
     } else if ("18" === input) {
+      setGenreNumber(input);
       setGenreDramaChecked(true);
     } else if ("35" === input) {
+      setGenreNumber(input);
       setGenreComedyChecked(true);
     } else if ("53" === input) {
+      setGenreNumber(input);
       setGenreThrillerChecked(true);
     } else if ("10751" === input) {
+      setGenreNumber(input);
       setGenereFamilyChecked(true);
-    } else if ("top_rated" === input) {
+    } 
+  };
+
+  const handleGenreTopRatedOrPopular = (input) => {
+    apiTopScoreOrPopular(setMovies, input, pageNumber.toString());
+    setGenreActionChecked(false);
+    setGenreDramaChecked(false);
+    setGenreComedyChecked(false);
+    setGenreThrillerChecked(false);
+    setGenereFamilyChecked(false);
+    setGenreTopScoreChecked(false);
+    setGenrePopularChecked(false);
+    if("top_rated" === input) {
+     setGenreNumber(input);
       setGenreTopScoreChecked(true);
     } else {
+     setGenreNumber(input);
       setGenrePopularChecked(true);
     }
+
         if (location.state !== null) {
           location.state.genre = null
         }
   };
-
+  
   return (
     <div className="filter-component">
       <div className="filter-categories">
@@ -121,8 +158,8 @@ const Filter = () => {
               alt="logo"
               className="actionLogo"
               onClick={() => {
-                console.log(apiPage.toString())
-                handleIncreaseApiPage()
+                // handleIncreaseApiPage("28", apiPage.toString())
+                handleGenre("28")
               }}
               style={{ opacity: genreActionChecked ? 0.8 : 0.5 }}
             />
@@ -159,7 +196,7 @@ const Filter = () => {
               src={topScoreLogo}
               alt="logo"
               className="topScoreLogo"
-              onClick={() => handleGenre("top_rated")}
+              onClick={() => handleGenreTopRatedOrPopular("top_rated")}
               style={{ opacity: genreTopScoreChecked ? 1 : 0.5 }}
             />
             <img
@@ -167,7 +204,7 @@ const Filter = () => {
               alt="logo"
               className="popularLogo"
               //
-              onClick={() => handleGenre("popular")}
+              onClick={() => handleGenreTopRatedOrPopular("popular")}
               style={{ opacity: genrePopularChecked ? 1 : 0.5 }}
             />
           </div>
@@ -224,7 +261,7 @@ const Filter = () => {
           <div className="label-topScore-container">
             <label
               className="label-topScore"
-              onClick={() => handleGenre("top_rated")}
+              onClick={() => handleGenreTopRatedOrPopular("top_rated")}
               style={{ color: genreTopScoreChecked ? "#B51B1B" : "white" }}
             >
               Top Score
@@ -234,13 +271,30 @@ const Filter = () => {
           <div className="label-popular-container">
             <label
               className="label-popular"
-              onClick={() => handleGenre("popular")}
+              onClick={() => handleGenreTopRatedOrPopular("popular")}
               style={{ color: genrePopularChecked ? "#B51B1B" : "white" }}
             >
               Popular
             </label>
           </div>
         </h4>
+        
+        <div className="arrow-container">
+        <i className="arrow-right">
+          <FontAwesomeIcon icon={faArrowLeft}
+          onClick={()=>handleDecreaseApiPage()}
+          />
+        </i>
+        <p className="page-number">{pageNumber}</p>
+        
+        <i className="arrow-left">
+          <FontAwesomeIcon icon={faArrowRight}
+          onClick={()=>handleIncreaseApiPage()}
+          
+          />
+          
+          </i>
+      </div>
       </div>
       <MovieList movieData={movies} />
     </div>
