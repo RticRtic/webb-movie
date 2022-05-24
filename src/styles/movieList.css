@@ -1,8 +1,9 @@
 .movieList-component {
   /* border: solid 2px red; */
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-
+  /* display: grid;
+  grid-template-columns: repeat(7, 1fr); */
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-left: 165px;
   position: absolute;
