@@ -43,7 +43,7 @@
     font-family: "Avenir";
     font-weight: normal;
     margin-left: 30px;
-    
+   
     
 }
 
@@ -56,24 +56,26 @@
 }
 
 .movielistMobil-component .genre-menu {
+    /* border: solid 2px red; */
     position: absolute;
     height: 420px;
     width: 120px;
-    margin-left: 225px;
+    margin-left: 235px;
     margin-top: 450px;
     background-color: rgb(17, 17, 17);
     border-radius: 5px;
+    
        
  
 }
 
 .movielistMobil-component .menu-imgs {
+    /* border: solid 2px blue; */
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 9px;
-    
-    
+
     
 }
 
