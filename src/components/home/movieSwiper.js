@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 
-import '../../styles/trending-movies.css';
+import '../../styles/home-page.css';
 import '../../styles/fa-icons.css'
 
 // import 'swiper/swiper-bundle.min.css'
@@ -12,8 +12,6 @@ import 'swiper/css';
  
 // import 'swiper/swiper.min.css'
 
-
-import { fetchTrending } from '../../models/apiModel';
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MovieCard from "../globals/movieCard";
@@ -33,7 +31,7 @@ const MovieSwiper = ({ movies, sectionTitle }) => {
     )
     :
     (
-        <div className="trending_container">
+        <div className="movieswiper_container">
             <header className="section_title">{sectionTitle}</header>
             <div>
 
@@ -50,7 +48,7 @@ const MovieSwiper = ({ movies, sectionTitle }) => {
                 }}
                 >
                     
-                    <button className={('trending_pagination_button') + (' left')} onClick={() => { my_swiper.slidePrev() }}>
+                    <button className={('movieswiper_pagination_button') + (' left')} onClick={() => { my_swiper.slidePrev() }}>
                         <FontAwesomeIcon icon={faChevronLeft}/>
                         </button>
                     
@@ -60,7 +58,7 @@ const MovieSwiper = ({ movies, sectionTitle }) => {
                         </SwiperSlide>
                     ))}
                     
-                    <button className={('trending_pagination_button') + (' right')} onClick={() => { my_swiper.slideNext() }}>
+                    <button className={('movieswiper_pagination_button') + (' right')} onClick={() => { my_swiper.slideNext() }}>
                         <FontAwesomeIcon icon={faChevronRight}/>
                         </button>
 
