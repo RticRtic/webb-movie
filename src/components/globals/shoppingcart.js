@@ -100,7 +100,7 @@ const ShoppingCart = ({ device, toggleShoppingCart }) => {
                             <span>To Pay</span>
                             <span>${cartProducts.length * 8}</span>
                         </article>
-                        <Link to="/checkout"
+                        <Link onClick={() => toggleShoppingCart(false)} to="/checkout"
                             className='cart_checkout_btn'>CHECKOUT
 
                         </Link>

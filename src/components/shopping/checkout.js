@@ -10,7 +10,7 @@ import { splitDate } from '../../models/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { actions } from '../../features/shoppingcartReducer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Getdata from './getData';
 
 
@@ -19,6 +19,8 @@ const Checkout = ({device}) => {
     let cartProducts = useSelector(state => state.shoppingCart);
 
     let dispatch = useDispatch();
+
+    let navigate = useNavigate();
 
     const handleRemove = (movieId) => {
         dispatch(actions.removeMovie(movieId))
@@ -88,10 +90,6 @@ const Checkout = ({device}) => {
                                      variant="contained"
                                      onClick={handleClickOpen}> + 
                                     </Button>
-                                    <br/>
-                                    <h4>Name:  </h4>
-                                    <h4>Email:</h4>
-                                    <h4>Adress:</h4>
                                     
                                     
                                     <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
@@ -225,9 +223,9 @@ const Checkout = ({device}) => {
                         <br/>
                         <span>You have {cartProducts.length} items in your Shopping Bag</span>
                         <br/>
-                        <ul className='cart_item_container'>
+                        <ul className='cart_item_container checkout'>
                         {cartProducts.map(movie => (
-                        <li key={movie.id} className='cart_item'>
+                        <li key={movie.id} className='cart_item checkout'>
 
                             <img className='cart_item_image' src={'https://image.tmdb.org/t/p/original/' + movie.poster_path}/>
 
@@ -238,7 +236,6 @@ const Checkout = ({device}) => {
 
                             <aside className='cart_item_remove'>
 
-                              <Typography>x1</Typography>  
 
                               <i onClick={() => handleRemove(movie.id)}>
                                  <FontAwesomeIcon icon={faXmark}/>
@@ -276,7 +273,8 @@ const Checkout = ({device}) => {
                                 <br/>
                                 <Typography>Grand Total: ${cartProducts.length * 8}</Typography>
                                 <br/>
-                                <Link to="/orderConfirmation" className='cart_checkout_mobile'>PAY NOW</Link>
+                                {/* <Link to="/orderConfirmation" className='cart_checkout_btn checkout'>PAY NOW</Link> */}
+                                <button className='cart_checkout_btn checkout' onClick={() => navigate("/orderConfirmation")}>PAY NOW</button>
                             </Grid>
                         </Grid>
                    </StyledPaper>
@@ -322,7 +320,7 @@ const Checkout = ({device}) => {
                                         <DialogTitle> Please fill with your details: </DialogTitle>
                                         <DialogContent>
                                             <Box component= "form" >
-                                                <FormControl sx={{ m:1, minWidth:520 }}>
+                                                <FormControl sx={{ m:1, minWidth:280 }}>
 
                                                     <TextField
                                                      
@@ -446,9 +444,9 @@ const Checkout = ({device}) => {
                         <br/>
                         <span>You have {cartProducts.length} items in your Shopping Bag</span>
                         <br/>
-                        <ul className='cart_item_container'>
+                        <ul className='cart_item_container checkout'>
                         {cartProducts.map(movie => (
-                        <li key={movie.id} className='cart_item'>
+                        <li key={movie.id} className='cart_item checkout'>
 
                             <img className='cart_item_image' src={'https://image.tmdb.org/t/p/original/' + movie.poster_path}/>
 
@@ -459,7 +457,6 @@ const Checkout = ({device}) => {
 
                             <aside className='cart_item_remove'>
 
-                              <Typography>x1</Typography>  
 
                               <i onClick={() => handleRemove(movie.id)}>
                                  <FontAwesomeIcon icon={faXmark}/>
@@ -498,7 +495,8 @@ const Checkout = ({device}) => {
                                 <br/>
                                 <Typography>Grand Total: ${cartProducts.length * 8}</Typography>
                                 <br/>
-                                <Link to="/orderConfirmation" className='cart_checkout_mobile'>PAY NOW</Link>
+                                {/* <Link to="/orderConfirmation" className='cart_checkout_mobile'>PAY NOW</Link> */}
+                                <button className='cart_checkout_btn checkout' onClick={() => navigate("/orderConfirmation")}>PAY NOW</button>
                             </Grid>     
                         </Grid>
                     </StyledPaper>
