@@ -4,7 +4,9 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { splitDate } from '../../models/constants';
 import { actions } from '../../features/shoppingcartReducer';
+
 import '../../styles/shopping-cart.css';
+import { Link } from 'react-router-dom';
 
 
 const ShoppingCart = ({device, toggleShoppingCart}) => {
@@ -19,9 +21,9 @@ const ShoppingCart = ({device, toggleShoppingCart}) => {
         dispatch(actions.removeMovie(movieId))
     };
 
-
-
     const CartItems = () => {
+
+       
 
         return (
             <ul className='cart_item_container'>
@@ -99,7 +101,10 @@ const ShoppingCart = ({device, toggleShoppingCart}) => {
                             <span>To Pay</span>
                             <span>${cartProducts.length * 8}</span>
                         </article>
-                        <button className='cart_checkout_btn'>CHECKOUT</button>
+                        <Link to ="/checkout"
+                          className='cart_checkout_btn'>CHECKOUT
+                        
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -115,7 +120,9 @@ const ShoppingCart = ({device, toggleShoppingCart}) => {
                         <span>Total <br/> ${cartProducts.length * 8}</span>
                     </span>
                     <span>
-                        <button className='cart_checkout_mobile'>CHECKOUT</button>
+                        <Link to="/checkout"
+                        className='cart_checkout_mobile'>CHECKOUT
+                        </Link>
                     </span>
                 </div>
             )

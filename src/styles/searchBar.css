@@ -53,7 +53,7 @@
 .nav_search_web input {
     background-color: white !important;
     
-    width: 450px;
+    width: 30vw;
     padding: 8px 40px;
     border-radius: 5px;
     font-size: 1rem;
@@ -180,13 +180,4 @@
     }
     
 
-}
-
-@media screen and (max-width: 1000px) {
-
-    .nav_search_web input {
-        width: auto;
-        margin-top: 15px;
-    }
-    
 }

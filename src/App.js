@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getSearchedApi } from './models/apiSearchInput';
 
 import NavigationBar from './components/globals/navbar';
@@ -15,6 +15,16 @@ import Catalog from './components/catalog/Catalog';
 
 import ShoppingCart from './components/globals/shoppingCart';
 
+import PopularGenres from './components/home/popularGenres';
+
+import Login from './components/login/login';
+import SignUp from './components/login/signup';
+import { useDispatch } from 'react-redux';
+import { checkForUser } from './models/firebaseModel';
+import UserProfile from './components/login/profile';
+import OrderConfirmation from './components/shopping/orderConfirmation';
+
+
 
 
 
@@ -22,6 +32,11 @@ import ShoppingCart from './components/globals/shoppingCart';
 function App() {
 
   const [shoppingCartActive, setShoppingCartActive] = useState(false);
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    checkForUser(dispatch);
+  },[])
 
 
   const toggleShoppingCart = () => {
@@ -82,13 +97,35 @@ function App() {
         }/>
 
         <Route exact path='/checkout' element = {
-          <Checkout/>
+          <Checkout device={device}/>
+        }
+        />
+
+        <Route exact path='/orderConfirmation' element = {
+          <OrderConfirmation device={device} />
         }
         />
 
         <Route path="/catalog" element={<Catalog device={device}/>}/>
 
+        <Route path='/login' element = {
+          <Login/>
+        }
+        />
+        
+        <Route path='/register' element = {
+          <SignUp/>
+        }
+        />
+        
+        <Route path='/user/:username' element = {
+          <UserProfile/>
+        }
+        />
+
       </Routes>
+
+      
 
       <Footer />
 
