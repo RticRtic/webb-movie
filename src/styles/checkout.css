@@ -1,50 +1,25 @@
 
 
-.checkout_container {
-    margin: 10vh 0;
-   
-}
-
-
-.grid_container {
-    margin-left: 228px;
-    
-    
-}
-
-.info_container {
-   
-    margin-left: 228px;
-
-}
-
-.shipment-info_container {
-    margin-left: 228px;
-
-}
-
 .Add_card {
     margin-left: 8px;
     
     
 }
 
-.shopping_bag {
-    margin-left: 228px;
-    
+.checkout_container {
+    margin: 226px;
+    margin-top: 20px;
 
 }
 
-.payment_container {
-    
-    margin-left: 228px;
-    
 
-}
 
-.order_summary_container{
+.order_summary_container {
     
-    margin-left: 680px;
+  
+  
+    
+    
    
 }
 
@@ -52,31 +27,30 @@
     text-align: left;
 }
 
-.order_summary_container_mobile{
-    margin-left: 25px;
-}
 
-.checkout_btn_cancel{
-    outline: none;
-    border: none;
-    font-size: 1.2rem;
-    background-color: #B51B1B;
-    color: white;
-    padding: 10px 60px;
-    cursor: pointer;
-    box-shadow: 0 3px 3px rgba(39, 39, 39, 0.7);
-    transition: 0.3s;
-
-}
 
 .cart_checkout_mobile {
     outline: none;
     border: none;
     font-size: 1.2rem;
-    background-color: #B51B1B;
+    background-color: #b51b1b;
     color: white;
     padding: 10px 60px;
     cursor: pointer;
     box-shadow: 0 3px 3px rgba(39, 39, 39, 0.7);
     transition: 0.3s;
 }
+
+
+
+.checkout_infos_mobile {
+    margin-top: 30px;
+    margin-left: 30px;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+
