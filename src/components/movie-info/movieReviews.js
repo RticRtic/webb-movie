@@ -17,7 +17,7 @@ const MovieReviews = ({ currentMovie, device, reviewChange, setReviewChange }) =
 
     useEffect(() => {
         getReviewDocuments(currentMovie.id, setReviews);
-    }, [reviewChange])
+    }, [reviewChange, currentMovie])
 
     const handleUpvote = (review) => {
 
