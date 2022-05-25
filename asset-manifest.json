@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/webb-movie/static/css/main.d9461d44.css",
-    "main.js": "/webb-movie/static/js/main.fad0073f.js",
+    "main.js": "/webb-movie/static/js/main.7b9a8194.js",
     "static/js/787.96f6d466.chunk.js": "/webb-movie/static/js/787.96f6d466.chunk.js",
     "static/media/baloonsLogo.jpg": "/webb-movie/static/media/baloonsLogo.8eb193be2c77e14f2874.jpg",
     "static/media/dramaLogo.jpg": "/webb-movie/static/media/dramaLogo.2649e925ea1f01e03633.jpg",
@@ -19,11 +19,11 @@
     "static/media/comedyLogo1.webp": "/webb-movie/static/media/comedyLogo1.2b8ba8666afe90b57126.webp",
     "index.html": "/webb-movie/index.html",
     "main.d9461d44.css.map": "/webb-movie/static/css/main.d9461d44.css.map",
-    "main.fad0073f.js.map": "/webb-movie/static/js/main.fad0073f.js.map",
+    "main.7b9a8194.js.map": "/webb-movie/static/js/main.7b9a8194.js.map",
     "787.96f6d466.chunk.js.map": "/webb-movie/static/js/787.96f6d466.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d9461d44.css",
-    "static/js/main.fad0073f.js"
+    "static/js/main.7b9a8194.js"
   ]
 }
