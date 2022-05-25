@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { apiMovies, apiTopScoreOrPopular } from "../../models/apiCatalog";
 import { faStar, faArrowDown, faArrowRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 
 import "../../styles/movielist-mobil.css";
 import actionLogo1 from "../../img/actionLogo1.png";
@@ -15,6 +16,9 @@ import comedyLogo1 from "../../img/comedyLogo1.webp";
 
 
 const MovieListMobil = () => {
+
+  const location = useLocation();
+
   const [mobilMovies, setMobilMovies] = useState([]);
   const [genreInput, setGenreInput] = useState(false);
   const [genreNumber, setGenreNumber] = useState("");
@@ -26,8 +30,16 @@ const MovieListMobil = () => {
   
 
   useEffect(() => {
-    apiTopScoreOrPopular(setMobilMovies, "top_rated");
-  }, []);
+
+    navigatedFromPopularGenres()
+
+    if (location.state === null || location.state.genre === "top_rated" ) {
+      apiTopScoreOrPopular(setMobilMovies, "top_rated");
+    } else { 
+      apiMovies(setMobilMovies, location.state.genre)
+    }
+}, []);
+
 
   const handleIncreaseApiPage = () => {
     if(pageNumber < 10) {
@@ -44,6 +56,33 @@ const MovieListMobil = () => {
       apiMovies(setMobilMovies, genreNumber, page.toString());
       
     }
+  }
+
+  const navigatedFromPopularGenres = () => {
+    if (location.state !== null ) {
+      
+      if (location.state.genre === "18") {
+          setTitle("Drama");
+          setGenreNumber();
+          apiMovies(setMobilMovies, location.state.genre)
+      } else if (location.state.genre === "28") {
+          setTitle("Action");
+          setGenreNumber(location.state.genre);
+          apiMovies(setMobilMovies, location.state.genre)
+      } else if (location.state.genre === "35") {
+          setTitle("Comedy");
+          setGenreNumber(location.state.genre);
+          apiMovies(setMobilMovies, location.state.genre)
+      } else if (location.state.genre === "53") {
+          setTitle("Thriller");
+          setGenreNumber(location.state.genre);
+          apiMovies(setMobilMovies, location.state.genre)
+      } else if (location.state.genre === "10751") {
+          setTitle("Family");
+          setGenreNumber(location.state.genre);
+          apiMovies(setMobilMovies, location.state.genre)
+      } 
+  }
   }
 
   

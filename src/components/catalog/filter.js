@@ -54,28 +54,14 @@ const Filter = () => {
   //! popular
 
   useEffect(() => {
-    if (location.state !== null ) {
-      setGenreTopScoreChecked(false);
-        if (location.state.genre === "18") {
-          setGenreDramaChecked(true);
-        } else if (location.state.genre === "28") {
-            setGenreActionChecked(true);
-        } else if (location.state.genre === "35") {
-          setGenreComedyChecked(true);
-        } else if (location.state.genre === "53") {
-          setGenreThrillerChecked(true);
-        } else if (location.state.genre === "10751") {
-          setGenereFamilyChecked(true);
-        } else if (location.state.genre === "top_rated") {
-          setGenreTopScoreChecked(true);
-        }
-    }
+    
+    navigatedFromPopularGenre()
 
-      if (location.state === null ) {
-        apiTopScoreOrPopular(setMovies, "top_rated");
-      } else { 
-        apiMovies(setMovies, location.state.genre)
-      }
+    if (location.state === null ) {
+      apiTopScoreOrPopular(setMovies, "top_rated");
+    } else { 
+      apiMovies(setMovies, location.state.genre)
+    }
   }, []);
 
   const handleIncreaseApiPage = () => {
@@ -93,6 +79,25 @@ const Filter = () => {
      setPageNumber(page);
       apiMovies(setMovies, genreNumber, page.toString());
       console.log("page: ", page);
+    }
+  }
+
+  const navigatedFromPopularGenre = () => {
+    if (location.state !== null ) {
+      setGenreTopScoreChecked(false);
+        if (location.state.genre === "18") {
+          setGenreDramaChecked(true);
+        } else if (location.state.genre === "28") {
+          setGenreActionChecked(true);
+        } else if (location.state.genre === "35") {
+          setGenreComedyChecked(true);
+        } else if (location.state.genre === "53") {
+          setGenreThrillerChecked(true);
+        } else if (location.state.genre === "10751") {
+          setGenereFamilyChecked(true);
+        } else if (location.state.genre === "top_rated") {
+          setGenreTopScoreChecked(true);
+        }
     }
   }
 
