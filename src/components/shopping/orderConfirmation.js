@@ -13,7 +13,7 @@ const OrderConfirmation = () => {
            <br/>
            
            <FontAwesomeIcon icon="fa-solid fa-check" size="lg" />
-           <h1 className="order-confirmation"> Thank your for your order!</h1>
+           <h1 className="order-confirmation"> Thank you for your order!</h1>
        </div>
 
        

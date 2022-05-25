@@ -310,10 +310,6 @@ const Checkout = ({device}) => {
                                      variant="contained"
                                      onClick={handleClickOpen}> + 
                                     </Button>
-                                    <br/>
-                                    <h4>Name:  </h4>
-                                    <h4>Email:</h4>
-                                    <h4>Adress:</h4>
                                     
                                     
                                     <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
